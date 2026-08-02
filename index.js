@@ -7,7 +7,7 @@
   var define_BUNDLED_PUBLIC_ASSET_MAP_default = {};
 
   // <define:MOD_INFO>
-  var define_MOD_INFO_default = { name: "CATS", fullName: "Chat Auto Translator System", repository: "https://github.com/ProtoKink/Cats-BC" };
+  var define_MOD_INFO_default = { name: "CATS", fullName: "Chat Auto Translator System", repository: "https://github.com/ProtoKink/CATS" };
 
   // node_modules/.pnpm/bc-deeplib@6.0.0_sass-embedded@1.100.0/node_modules/bc-deeplib/dist/deeplib.js
   var ye = Object.create;
@@ -205,7 +205,7 @@
       if (this.options.help) {
         let i = this.options.help.onClick, o = r(() => {
         }, "action");
-        typeof i == "string" || i instanceof URL ? o = r(() => window.open(i, "_blank"), "action") : typeof i == "function" ? o = i : i instanceof t && (o = r(async () => await this.setSubscreen(i), "action")), this.options.help.tooltip ??= g("settings.button.help_button_hint"), this.options.help.icon ??= `${"https://protokink.github.io/Cats-BC/public"}/dl_images/bookmark.svg`;
+        typeof i == "string" || i instanceof URL ? o = r(() => window.open(i, "_blank"), "action") : typeof i == "function" ? o = i : i instanceof t && (o = r(async () => await this.setSubscreen(i), "action")), this.options.help.tooltip ??= g("settings.button.help_button_hint"), this.options.help.icon ??= `${"https://protokink.github.io/CATS/public"}/dl_images/bookmark.svg`;
         let s = u.createButton({ id: "deeplib-help", size: [90, 90], onClick: o, options: { image: this.options.help.icon, tooltip: this.options.help.tooltip } });
         t.menu.append(s);
       }
@@ -216,7 +216,7 @@
       if (this.options.doShowExitButton) {
         let i = u.createButton({ id: "deeplib-exit", size: [90, 90], onClick: r(() => {
           this.exit();
-        }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/exit.svg`, tooltip: g("settings.button.back_button_hint") } });
+        }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/exit.svg`, tooltip: g("settings.button.back_button_hint") } });
         t.menu.append(i);
       }
       let n = u.createTooltip();
@@ -667,7 +667,7 @@
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZhcnMuc2NzcyIsImJ1dHRvbnMuc2NzcyIsImVsZW1lbnRzLnNjc3MiLCJpbnB1dHMuc2NzcyIsIm1lc3NhZ2VzLnNjc3MiLCJtb2RhbC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7RUFFRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FDZEY7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFFRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFFQTtFQUNBO0VBQ0E7O0FBR0Y7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7O0FDNUNKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUlKO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUdFO0VBQ0U7RUFDQTs7QUFISjtFQU1FO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBOzs7QUN6SUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOzs7QUFLTjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7O0FBT1I7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7OztBQU9GO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOzs7QUMxR0o7RUFDRTtFQUNBOzs7QUFHRjtBQUFBO0VBRUU7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7QUFBQTtFQUVFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FDN0JGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7O0FBR0Y7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUtOO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUlBO0VBQ0U7RUFDQTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZGVlcGxpYi1zdWJzY3JlZW4sXG4uZGVlcGxpYi1tb2RhbCB7XG4gIC0tZGVlcGxpYi1iYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS10bWQtbWFpbiwgd2hpdGUpO1xuICAtLWRlZXBsaWItZWxlbWVudC1jb2xvcjogdmFyKC0tdG1kLWVsZW1lbnQsIHdoaXRlKTtcbiAgLS1kZWVwbGliLWVsZW1lbnQtaG92ZXItY29sb3I6IHZhcigtLXRtZC1lbGVtZW50LWhvdmVyLCBjeWFuKTtcbiAgLS1kZWVwbGliLWFjY2VudC1jb2xvcjogdmFyKC0tdG1kLWFjY2VudCwgI0ZGRkY4OCk7XG4gIC0tZGVlcGxpYi1ibG9ja2VkLWNvbG9yOiB2YXIoLS10bWQtYmxvY2tlZCwgcmVkKTtcbiAgLS1kZWVwbGliLXRleHQtY29sb3I6IHZhcigtLXRtZC10ZXh0LCBibGFjayk7XG4gIC0tZGVlcGxpYi1pY29uLWNvbG9yOiB2YXIoLS10bWQtYWNjZW50LCBibGFjayk7XG4gIC0tZGVlcGxpYi1pY29uLWhvdmVyLWNvbG9yOiB2YXIoLS10bWQtYWNjZW50LWhvdmVyLCBibGFjayk7XG4gIC0tZGVlcGxpYi1ib3JkZXItY29sb3I6IHZhcigtLXRtZC1hY2NlbnQsIGJsYWNrKTtcbiAgLS1kZWVwbGliLWJvcmRlci13aWR0aDogbWluKDAuMnZoLCAwLjF2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItd2lkdGg6IG1pbigwLjJkdmgsIDAuMWR2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzOiBtaW4oMXZoLCAwLjV2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzOiBtaW4oMWR2aCwgMC41ZHZ3KTtcbn1cbiIsIi5kZWVwbGliLWJ1dHRvbiB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuXG4gICYuYnV0dG9uLXN0eWxpbmcsXG4gICYuYnV0dG9uLXN0eWxpbmc6OmJlZm9yZSB7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcbiAgfVxuXG4gIGltZyB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMCU7XG4gICAgbGVmdDogMCU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGxlZnQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1pY29uLWNvbG9yKTtcbiAgICBiYWNrZ3JvdW5kLWJsZW5kLW1vZGU6IG11bHRpcGx5O1xuICAgIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgICBtYXNrLXBvc2l0aW9uOiBsZWZ0O1xuICAgIG1hc2stc2l6ZTogY29udGFpbjtcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIG1hc2stcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgY29sb3I6IHRyYW5zcGFyZW50O1xuXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdmFyKC0taW1hZ2UpO1xuICAgIG1hc2staW1hZ2U6IHZhcigtLWltYWdlKTtcbiAgICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgfVxuXG4gICY6aG92ZXIgaW1nIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1kZWVwbGliLWljb24taG92ZXItY29sb3IpO1xuICB9XG5cbiAgLmJ1dHRvbi1sYWJlbCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgICBjb2xvcjogdmFyKC0tZGVlcGxpYi10ZXh0LWNvbG9yKTtcbiAgICBmb250LXNpemU6IDAuOWVtO1xuICAgIGRpc3BsYXk6IGNvbnRlbnRzO1xuICB9XG5cbiAgLmJ1dHRvbi10b29sdGlwIHtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xuICB9XG59IiwiI2RlZXBsaWItcGFnZS1sYWJlbCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuI2RlZXBsaWItc3Vic2NyZWVuLXRpdGxlIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIHVzZXItc2VsZWN0OiBub25lO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLmRlZXBsaWItdGV4dCB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xufVxuXG4uZGVlcGxpYi1sYWJlbCB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5kZWVwbGliLXN1YnNjcmVlbiB7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5kZWVwbGliLXN1YnNjcmVlbiAqIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgcG9pbnRlci1ldmVudHM6IGFsbDtcbn1cblxuLmRlZXBsaWItc2V0dGluZ3Mge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLWF1dG8tcm93czogbWluLWNvbnRlbnQ7XG4gIHBhZGRpbmc6IG1pbigxLjBkdmgsIDAuNWR2dyk7XG4gIGdhcDogMC4zZW07XG59XG5cbi5kZWVwbGliLW1pc2Mge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uLXJldmVyc2U7XG4gIGdhcDogbWluKDF2aCwgMC41dncpO1xufVxuXG4uZGVlcGxpYi10b29sdGlwIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICBwYWRkaW5nOiBtaW4oMXZoLCAwLjV2dyk7XG4gIGZvbnQtc2l6ZTogMC44ZW07XG4gIGJvcmRlcjogbWluKDAuMnZoLCAwLjF2dykgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpO1xuICB6LWluZGV4OiAxO1xuXG4gICYuYW5jaG9yLXRvcCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogbWluKDF2aCwgMC41dncpO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSk7XG4gIH1cblxuICAmLmFuY2hvci1ib3R0b20ge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IG1pbigxdmgsIDAuNXZ3KTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xuICB9XG59XG5cbi5kZWVwbGliLW92ZXJmbG93LWJveCB7XG4gIGJvcmRlcjogdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLXdpZHRoKTtcbn1cblxuLmRlZXBsaWItcHJldi1uZXh0IHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICBnYXA6IG1pbigyZHZoLCAxZHZ3KTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIGJvcmRlci1yYWRpdXM6IG1pbigxLjBkdmgsIDAuNWR2dyk7XG4gIGJvcmRlcjogbWluKDAuMnZoLCAwLjF2dykgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpO1xuXG4gIC5kZWVwbGliLXByZXYtbmV4dC1idXR0b24ge1xuICAgICY6aG92ZXIge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWhvdmVyLWNvbG9yKTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IHZhcigtLWRlZXBsaWItYm9yZGVyLXJhZGl1cyk7XG4gICAgfVxuXG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIGFzcGVjdC1yYXRpbzogMTtcbiAgfVxuXG4gIC5kZWVwbGliLXByZXYtbmV4dC1sYWJlbCB7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgfVxufVxuXG4jZGVlcGxpYi1uYXYtbWVudSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGdhcDogbWluKDJkdmgsIDFkdncpO1xuICB6LWluZGV4OiAxO1xuXG4gICY+LmRlZXBsaWItYnV0dG9uIHtcbiAgICBmbGV4OiAxIDEgYXV0bztcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgYXNwZWN0LXJhdGlvOiAxO1xuICB9XG59XG5cbiNkZWVwbGliLXN0b3JhZ2UtbWV0ZXIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMHB4O1xuICBsZWZ0OiAwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWRlZXBsaWItZWxlbWVudC1jb2xvcik7XG4gIGJvcmRlcjogdmFyKC0tZGVlcGxpYi1ib3JkZXItd2lkdGgpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLWNvbG9yKTtcbiAgYm9yZGVyLXJhZGl1czogdmFyKC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzKTtcbiAgei1pbmRleDogLTE7XG5cbiAgI2RlZXBsaWItc3RvcmFnZS1iYXIge1xuICAgIGhlaWdodDogMTAwJTtcbiAgICB3aWR0aDogMCU7XG4gICAgYmFja2dyb3VuZDogdmFyKC0tZGVlcGxpYi1hY2NlbnQtY29sb3IpO1xuICB9XG59IiwiLmRlZXBsaWItY2hlY2tib3gtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZ2FwOiAwLjNlbTtcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xuXG4gIHNwYW4ge1xuICAgIHVzZXItc2VsZWN0OiBub25lO1xuICB9XG5cbiAgLmRlZXBsaWItaW5wdXQge1xuICAgIHdpZHRoOiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgaGVpZ2h0OiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgd2lkdGg6IG1pbig1ZHZoLCAyLjVkdncpO1xuICAgIGhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMHZoLCAwLjV2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcblxuICAgICZbdHlwZT1cImNoZWNrYm94XCJdOmNoZWNrZWQ6OmJlZm9yZSB7XG4gICAgICB3aWR0aDogODAlO1xuICAgICAgaGVpZ2h0OiA4MCU7XG4gICAgfVxuICB9XG59XG5cbi5kZWVwbGliLWlucHV0LWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogMC4zZW07XG4gIHdpZHRoOiBmaXQtY29udGVudDtcblxuICBzcGFuIHtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgfVxuXG4gICY6aGFzKC5kZWVwbGliLXRleHQpIHtcbiAgICBtYXJnaW4tdG9wOiBtaW4oMXZoLCAwLjV2dyk7XG4gICAgbWFyZ2luLXRvcDogbWluKDFkdmgsIDAuNWR2dyk7XG4gIH1cblxuICAuZGVlcGxpYi1pbnB1dCB7XG4gICAgZm9udC1zaXplOiAwLjllbTtcbiAgICBwYWRkaW5nOiBtaW4oMXZoLCAwLjV2dyk7XG4gICAgcGFkZGluZzogbWluKDFkdmgsIDAuNWR2dyk7XG4gICAgb3V0bGluZTogbm9uZTtcbiAgICBtaW4taGVpZ2h0OiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgbWluLWhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMHZoLCAwLjV2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcblxuICAgICZbdHlwZT1cImNvbG9yXCJdIHtcbiAgICAgIHBhZGRpbmc6IDBweDtcbiAgICAgIHdpZHRoOiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgICBoZWlnaHQ6IG1pbig1dmgsIDIuNXZ3KTtcbiAgICAgIHdpZHRoOiBtaW4oNWR2aCwgMi41ZHZ3KTtcbiAgICAgIGhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgICBib3JkZXItcmFkaXVzOiAwcHg7XG5cbiAgICAgICY6ZGlzYWJsZWQge1xuICAgICAgICBib3JkZXI6IHZhcigtLWRlZXBsaWItYmxvY2tlZC1jb2xvcikgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItd2lkdGgpO1xuICAgICAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuXG5cbi5kZWVwbGliLWRyb3Bkb3duLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogbWluKDJ2aCwgMXZ3KTtcbiAgZ2FwOiBtaW4oMmR2aCwgMWR2dyk7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB3aWR0aDogZml0LWNvbnRlbnQ7XG5cbiAgc2VsZWN0IHtcbiAgICBwYWRkaW5nOiAwIG1pbigxdmgsIDAuNXZ3KTtcbiAgICBwYWRkaW5nOiAwIG1pbigxZHZoLCAwLjVkdncpO1xuICAgIGJvcmRlci1yYWRpdXM6IG1pbigxdmgsIDAuNXZ3KTtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMWR2aCwgMC41ZHZ3KTtcbiAgfVxuXG4gIHNwYW4ge1xuICAgIHVzZXItc2VsZWN0OiBub25lO1xuICB9XG59XG5cbi5kZWVwbGliLWNoZWNrYm94LWNvbnRhaW5lcixcbi5kZWVwbGliLWlucHV0LWNvbnRhaW5lcixcbi5kZWVwbGliLWRyb3Bkb3duLWNvbnRhaW5lciB7XG4gICYucm93IHtcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICB9XG5cbiAgJi5jb2x1bW4ge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cblxuICAmLnJvd1JldmVyc2Uge1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcbiAgfVxuXG4gICYuY29sdW1uUmV2ZXJzZSB7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbi1yZXZlcnNlO1xuICB9XG59IiwiLmRlZXBsaWItaGlnaGxpZ2h0LXRleHQge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6IHJnYigyMDMsIDE4NSwgMjMpO1xufVxuXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyayddIGRpdi5DaGF0TWVzc2FnZS5kZWVwbGliLW1lc3NhZ2UsXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyazInXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgYm9yZGVyOiBtaW4oMC4yZHZoLCAwLjFkdncpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG59XG5cbiNUZXh0QXJlYUNoYXRMb2cgZGl2LkNoYXRNZXNzYWdlLmRlZXBsaWItbWVzc2FnZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gIGJvcmRlcjogbWluKDAuMmR2aCwgMC4xZHZ3KSBzb2xpZCAjNDQwMTcxO1xuICBjb2xvcjogIzExMTtcbiAgcGFkZGluZy1sZWZ0OiBtaW4oMC42ZHZoLCAwLjNkdncpO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbn1cblxuI1RleHRBcmVhQ2hhdExvZ1tkYXRhLWNvbG9ydGhlbWU9J2RhcmsnXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEsXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyazInXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEge1xuICBjb2xvcjogdmFyKC0tZGVlcGxpYi10ZXh0LWNvbG9yKTtcbn1cblxuI1RleHRBcmVhQ2hhdExvZyBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogIzExMTtcbn1cbiIsIi5kZWVwbGliLW1vZGFsIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgei1pbmRleDogMTAwMTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogMC41ZW07XG4gIG1pbi13aWR0aDogbWF4KDUwZHZ3LCAyNWR2aCk7XG4gIGZvbnQtc2l6ZTogMWVtO1xuICBwYWRkaW5nOiBtaW4oMmR2aCwgMWR2dyk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWRlZXBsaWItZWxlbWVudC1jb2xvcik7XG4gIGJvcmRlci1yYWRpdXM6IG1pbigxLjJkdmgsIDAuNmR2dyk7XG4gIGJvcmRlcjogbWluKDAuMmR2aCwgMC4xZHZ3KSBzb2xpZCB2YXIoLS1kZWVwbGliLWJvcmRlci1jb2xvcik7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICBtYXgtd2lkdGg6IG1heCg5MGR2dywgNDVkdmgpO1xuXG4gIC5kZWVwbGliLW1vZGFsLWlucHV0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBmb250LXNpemU6IDFlbTtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICAgIHBhZGRpbmc6IG1pbigxZHZoLCAwLjVkdncpO1xuICB9XG5cbiAgaW5wdXQuZGVlcGxpYi1tb2RhbC1pbnB1dCB7XG4gICAgbWF4LXdpZHRoOiBtYXgoNTBkdmgsIDI1ZHZ3KTtcbiAgfVxuXG4gIC5kZWVwbGliLW1vZGFsLWJ1dHRvbi1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xuICAgIGdhcDogMC41ZW07XG4gICAgd2lkdGg6IDEwMCU7XG5cbiAgICAuZGVlcGxpYi1idXR0b24ge1xuICAgICAgZm9udC1zaXplOiAwLjhlbTtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICB3aWR0aDogYXV0bztcbiAgICAgIHBhZGRpbmc6IG1pbigwLjR2aCwgMC4ydncpIG1pbigydmgsIDF2dyk7XG5cbiAgICAgIC5idXR0b24tbGFiZWwge1xuICAgICAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICAuZGVlcGxpYi1tb2RhbC1wcm9tcHQtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgfVxufVxuXG4uZGVlcGxpYi1tb2RhbC1ibG9ja2VyIHtcbiAgei1pbmRleDogMTAwMDtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHdpZHRoOiAxMDBkdnc7XG4gIGhlaWdodDogMTAwZHZoO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG59XG5cbiNkZWVwbGliLW1vZGFsLWltcG9ydF9leHBvcnQge1xuICAuZGVlcGxpYi1tb2RhbC1jaGVja2JveC1jb250YWluZXIge1xuICAgIG1hcmdpbi10b3A6IDAuNWVtO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBnYXA6IHZhcigtLWhhbGYtZ2FwKTtcbiAgfVxufSJdfQ== */`;
   function se() {
     if (true) return;
-    let t8 = `${"https://protokink.github.io/Cats-BC/public"}/`;
+    let t8 = `${"https://protokink.github.io/CATS/public"}/`;
     G.hookFunction("fetch", k.ModifyBehavior, (e, n) => {
       let [i] = e, o = typeof i == "string" ? i : i instanceof URL ? i.href : i.url;
       if (o.startsWith(t8)) {
@@ -1210,9 +1210,9 @@
     }, "setNextTooltip");
     return ElementCreate({ tag: "div", classList: ["deeplib-prev-next"], attributes: { id: t8.id }, children: [u.createButton({ id: `deeplib-prev-next-${t8.id}-prev-button`, onClick: r(() => {
       t8.back({ setLabel: n, setBackTooltip: i, setNextTooltip: o });
-    }, "onClick"), htmlOptions: { button: { classList: ["deeplib-prev-next-button"] } }, options: { noStyling: true, image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/arrow_left.svg`, tooltip: t8.initialPrevTooltip } }), u.createLabel({ id: `${t8.id}-label`, label: t8.initialLabel, htmlOptions: { classList: ["deeplib-prev-next-label"] } }), u.createButton({ id: `deeplib-prev-next-${t8.id}-next-button`, onClick: r(() => {
+    }, "onClick"), htmlOptions: { button: { classList: ["deeplib-prev-next-button"] } }, options: { noStyling: true, image: `${"https://protokink.github.io/CATS/public"}/dl_images/arrow_left.svg`, tooltip: t8.initialPrevTooltip } }), u.createLabel({ id: `${t8.id}-label`, label: t8.initialLabel, htmlOptions: { classList: ["deeplib-prev-next-label"] } }), u.createButton({ id: `deeplib-prev-next-${t8.id}-next-button`, onClick: r(() => {
       t8.next({ setLabel: n, setBackTooltip: i, setNextTooltip: o });
-    }, "onClick"), htmlOptions: { button: { classList: ["deeplib-prev-next-button"] } }, options: { noStyling: true, image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/arrow_right.svg`, tooltip: t8.initialNextTooltip } })] });
+    }, "onClick"), htmlOptions: { button: { classList: ["deeplib-prev-next-button"] } }, options: { noStyling: true, image: `${"https://protokink.github.io/CATS/public"}/dl_images/arrow_right.svg`, tooltip: t8.initialNextTooltip } })] });
   }
   __name(Ne, "Ne");
   r(Ne, "elementPrevNext");
@@ -1237,7 +1237,7 @@
       super.load();
       let e = u.createButton({ id: "exit", size: [90, 90], onClick: r(() => {
         this.exit();
-      }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/exit.svg`, tooltip: g("settings.button.back_button_hint") } }), n = document.getElementById("deeplib-nav-menu");
+      }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/exit.svg`, tooltip: g("settings.button.back_button_hint") } }), n = document.getElementById("deeplib-nav-menu");
       n && n.append(e);
       for (let o of this.subscreens) {
         if (o.options.name === "mainmenu") continue;
@@ -1250,25 +1250,25 @@
       if (b.appendToSubscreen(i), t4.options.wikiLink) {
         let o = u.createButton({ id: "deeplib-wiki-button", onClick: r(() => {
           window.open(t4.options.wikiLink, "_blank");
-        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/notebook.svg`, label: g("mainmenu.button.wiki") } });
+        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/notebook.svg`, label: g("mainmenu.button.wiki") } });
         b.appendToMiscDiv(o);
       }
       if (t4.options.repoLink) {
         let o = u.createButton({ id: "deeplib-repo-button", onClick: r(() => {
           window.open(t4.options.repoLink, "_blank");
-        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/git.svg`, label: g("mainmenu.button.repo") } });
+        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/git.svg`, label: g("mainmenu.button.repo") } });
         b.appendToMiscDiv(o);
       }
       if (t4.options.resetSubscreen) {
         let o = u.createButton({ id: "deeplib-reset-button", onClick: r(() => {
           this.setSubscreen(t4.options.resetSubscreen);
-        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/trash_bin.svg`, label: g("mainmenu.button.reset") } });
+        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/trash_bin.svg`, label: g("mainmenu.button.reset") } });
         b.appendToMiscDiv(o);
       }
       if (t4.options.importExportSubscreen) {
         let o = u.createButton({ id: "deeplib-import-export-button", onClick: r(() => {
           this.setSubscreen(t4.options.importExportSubscreen);
-        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/transfer.svg`, label: g("mainmenu.button.import_export") } });
+        }, "onClick"), size: [null, 80], options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/transfer.svg`, label: g("mainmenu.button.import_export") } });
         b.appendToMiscDiv(o);
       }
       if (t4.options.storageFullnessIndicator) {
@@ -1278,7 +1278,7 @@
       if (B("DebugModule")) {
         let o = u.createButton({ id: "deeplib-debug-button", onClick: r(() => {
           this.setSubscreen(new j(B("DebugModule")));
-        }, "onClick"), size: [90, 90], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/bug.svg` } });
+        }, "onClick"), size: [90, 90], options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/bug.svg` } });
         n && n.prepend(o);
       }
     }
@@ -1312,7 +1312,7 @@
     static LibTranslation = {};
     static ModTranslation = {};
     static PathToModTranslation;
-    static PathToLibTranslation = `${"https://protokink.github.io/Cats-BC/public"}/dl_translations/`;
+    static PathToLibTranslation = `${"https://protokink.github.io/CATS/public"}/dl_translations/`;
     static DefaultLanguage = "en";
     static FetchFolder = false;
     static initialized = false;
@@ -1336,7 +1336,7 @@
       }
     }
     static unload() {
-      t5.initialized = false, t5.LibTranslation = {}, t5.ModTranslation = {}, t5.PathToModTranslation = void 0, t5.PathToLibTranslation = `${"https://protokink.github.io/Cats-BC/public"}/dl_translations/`, t5.DefaultLanguage = "en", t5.FetchFolder = false;
+      t5.initialized = false, t5.LibTranslation = {}, t5.ModTranslation = {}, t5.PathToModTranslation = void 0, t5.PathToLibTranslation = `${"https://protokink.github.io/CATS/public"}/dl_translations/`, t5.DefaultLanguage = "en", t5.FetchFolder = false;
     }
     static getTextMod(e) {
       return t5.ModTranslation?.[e] || void 0;
@@ -1503,19 +1503,19 @@
       super.load();
       let e = u.createButton({ id: "deeplib-import-file-button", size: [600, 90], onClick: r(() => {
         this.dataImport("file");
-      }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/file_import.svg`, label: g("import-export.button.import_file") } });
+      }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/file_import.svg`, label: g("import-export.button.import_file") } });
       b.appendToSettingsDiv(e);
       let n = u.createButton({ id: "deeplib-export-file-button", size: [600, 90], onClick: r(() => {
         this.dataExport("file");
-      }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/file_export.svg`, label: g("import-export.button.export_file") } });
+      }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/file_export.svg`, label: g("import-export.button.export_file") } });
       b.appendToSettingsDiv(n);
       let i = u.createButton({ id: "deeplib-import-clipboard-button", size: [600, 90], onClick: r(() => {
         this.dataImport("clipboard");
-      }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/clipboard_import.svg`, label: g("import-export.button.import_clipboard") } });
+      }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/clipboard_import.svg`, label: g("import-export.button.import_clipboard") } });
       b.appendToSettingsDiv(i);
       let o = u.createButton({ id: "deeplib-export-clipboard-button", size: [600, 90], onClick: r(() => {
         this.dataExport("clipboard");
-      }, "onClick"), options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/clipboard_export.svg`, label: g("import-export.button.export_clipboard") } });
+      }, "onClick"), options: { image: `${"https://protokink.github.io/CATS/public"}/dl_images/clipboard_export.svg`, label: g("import-export.button.export_clipboard") } });
       b.appendToSettingsDiv(o);
     }
     resize() {
@@ -2124,7 +2124,7 @@
     }
     static subscreenOptions = {
       name: "translator",
-      icon: `${"https://protokink.github.io/Cats-BC/public"}/images/translator.svg`
+      icon: `${"https://protokink.github.io/CATS/public"}/images/translator.svg`
     };
     get settings() {
       return super.settings;
@@ -2262,7 +2262,7 @@ ${res.status} ${res.statusText}`
     }
     static subscreenOptions = {
       name: "global",
-      icon: `${"https://protokink.github.io/Cats-BC/public"}/images/cog.svg`
+      icon: `${"https://protokink.github.io/CATS/public"}/images/cog.svg`
     };
     get settings() {
       return super.settings;
@@ -2463,7 +2463,7 @@ ${res.status} ${res.statusText}`
     return u.createButton({
       id: `cats-translation-button-${messageId}`,
       options: {
-        image: `${"https://protokink.github.io/Cats-BC/public"}/images/mod.svg`,
+        image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`,
         imageColor: "gray",
         noStyling: true,
         tooltip: "Translate Message"
@@ -2499,7 +2499,7 @@ ${res.status} ${res.statusText}`
         {
           tag: "img",
           attributes: {
-            src: `${"https://protokink.github.io/Cats-BC/public"}/images/mod.svg`
+            src: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`
           }
         },
         {
@@ -2570,7 +2570,7 @@ ${res.status} ${res.statusText}`
       GUI: new M({
         buttonText: "CATS",
         identifier: "CATS",
-        image: `${"https://protokink.github.io/Cats-BC/public"}/images/mod.svg`
+        image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`
       }),
       GlobalModule: new GlobalModule(),
       CommandsModule: new CommandsModule(),
@@ -2582,7 +2582,7 @@ ${res.status} ${res.statusText}`
       })
     },
     translationOptions: {
-      pathToTranslationsFolder: `${"https://protokink.github.io/Cats-BC/public"}/translations/`,
+      pathToTranslationsFolder: `${"https://protokink.github.io/CATS/public"}/translations/`,
       fixedLanguage: true
     },
     mainMenuOptions: {
@@ -2591,8 +2591,8 @@ ${res.status} ${res.statusText}`
       })
     },
     initFunction: /* @__PURE__ */ __name(() => {
-      H.injectEmbed("cats-settings-style", `${"https://protokink.github.io/Cats-BC/public"}/styles/settings.css`);
-      H.injectEmbed("cats-chat-style", `${"https://protokink.github.io/Cats-BC/public"}/styles/chat.css`);
+      H.injectEmbed("cats-settings-style", `${"https://protokink.github.io/CATS/public"}/styles/settings.css`);
+      H.injectEmbed("cats-chat-style", `${"https://protokink.github.io/CATS/public"}/styles/chat.css`);
     }, "initFunction")
   });
 })();
