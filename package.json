@@ -17,7 +17,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
-    "bc-deeplib": "^5.0.0"
+    "bc-deeplib": "^6.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -25,7 +25,7 @@
     "@types/node": "^25.9.1",
     "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.60.1",
-    "bc-stubs": "129.0.0-Beta.1",
+    "bc-stubs": "130.0.0",
     "eslint": "^10.4.1",
     "globals": "^17.6.0",
     "typescript": "^6.0.3",
