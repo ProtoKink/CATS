@@ -1,3 +1,7 @@
+body:not(.cats-prettify) .cats-emoji-background {
+  display: none;
+}
+
 .cats-translation-button img {
   filter: invert(100%);
   opacity: 0.3;

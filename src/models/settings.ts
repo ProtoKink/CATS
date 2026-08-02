@@ -10,6 +10,7 @@ export interface GlobalSettingsModel extends BaseSettingsModel {
   modEnabled: boolean;
   incomingAutoTranslate: boolean;
   // outcomingAutoTranslate: boolean;
+  prettifyOnTranslate: boolean;
   doShowNewVersionMessage: boolean;
 }
 

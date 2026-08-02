@@ -1,6 +1,7 @@
 import { advElement, BaseSubscreen, getText, layout } from 'bc-deeplib/deeplib';
 import { GlobalSettingsModel } from '../models/settings';
 import { SubscreenOptions } from 'bc-deeplib/base/base_subscreen';
+import { syncEmojiBackgroundVisibility } from '../modules/global';
 
 export class GlobalSubscreen extends BaseSubscreen {
 
@@ -45,6 +46,17 @@ export class GlobalSubscreen extends BaseSubscreen {
       },
     });
     layout.appendToSettingsDiv(incomingAutoTranslateCheckbox);
+
+    const prettifyOnTranslateCheckbox = advElement.createCheckbox({
+      id: 'cats-prettify-on-translate',
+      label: getText('global.prettifyOnTranslate'),
+      setElementValue: () => this.settings.prettifyOnTranslate,
+      setSettingValue: (val) => {
+        this.settings.prettifyOnTranslate = val;
+        syncEmojiBackgroundVisibility(val);
+      },
+    });
+    layout.appendToSettingsDiv(prettifyOnTranslateCheckbox);
 
     // const outcomingAutoTranslateCheckbox = advElement.createCheckbox({
     //   id: 'cats-outgoing-auto-translate',

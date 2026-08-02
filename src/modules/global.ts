@@ -1,4 +1,4 @@
-import { advElement, BaseModule, sdk } from 'bc-deeplib/deeplib';
+import { advElement, BaseModule, getModule, sdk } from 'bc-deeplib/deeplib';
 import { GlobalSettingsModel } from '../models/settings';
 import { TranslatedMessage, TranslatorModule } from './translator';
 import { GlobalSubscreen } from '../screens/global';
@@ -25,11 +25,14 @@ export class GlobalModule extends BaseModule {
       doShowNewVersionMessage: false,
       incomingAutoTranslate: false,
       // outcomingAutoTranslate: false,
+      prettifyOnTranslate: true,
       translationEngine: 'google',
     };
   }
 
   load() {
+    syncEmojiBackgroundVisibility(this.settings.prettifyOnTranslate);
+
     sdk.hookFunction('ChatRoomMessageDisplay', 0, (args, next) => {
       const div = next(args);
 
@@ -74,6 +77,10 @@ export class GlobalModule extends BaseModule {
     //   });
     // });
   }
+}
+
+export function syncEmojiBackgroundVisibility(visible: boolean) {
+  document.body.classList.toggle('cats-prettify', visible);
 }
 
 function createPopupButton(sourceMessage: string, messageId: string, messageElement: HTMLDivElement) {
@@ -150,7 +157,9 @@ function createTranslatedMessage(translatedMessage: TranslatedMessage, messageId
       },
     ]
   });
-  catsify(element);
+  if (getModule('GlobalModule').settings.prettifyOnTranslate) {
+    catsify(element);
+  }
 
   return element;
 }

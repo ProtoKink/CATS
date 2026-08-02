@@ -8,6 +8,7 @@ global.modEnabled = CATS Mod Enabled
 global.showNewVersionMessage = Show new version message
 global.incomingAutoTranslate = Auto translate incoming messages
 global.outcomingAutoTranslate = Auto translate outcoming messages
+global.prettifyOnTranslate = Prettify translated messages
 
 translator.title = - Translator Settings -
 translator.incomingLanguagesLabel = Languages for incoming messages
