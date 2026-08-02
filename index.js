@@ -3,50 +3,53 @@
   var __defProp = Object.defineProperty;
   var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
+  // <define:BUNDLED_PUBLIC_ASSET_MAP>
+  var define_BUNDLED_PUBLIC_ASSET_MAP_default = {};
+
   // <define:MOD_INFO>
   var define_MOD_INFO_default = { name: "CATS", fullName: "Chat Auto Translator System", repository: "https://github.com/ProtoKink/Cats-BC" };
 
-  // node_modules/.pnpm/bc-deeplib@5.0.0_sass-embedded@1.100.0/node_modules/bc-deeplib/dist/deeplib.js
+  // node_modules/.pnpm/bc-deeplib@6.0.0_sass-embedded@1.100.0/node_modules/bc-deeplib/dist/deeplib.js
   var ye = Object.create;
   var J = Object.defineProperty;
-  var xe = Object.getOwnPropertyDescriptor;
-  var Ge = Object.getOwnPropertyNames;
-  var Ce = Object.getPrototypeOf;
-  var Be = Object.prototype.hasOwnProperty;
+  var Ge = Object.getOwnPropertyDescriptor;
+  var Ce = Object.getOwnPropertyNames;
+  var Be = Object.getPrototypeOf;
+  var we = Object.prototype.hasOwnProperty;
   var r = /* @__PURE__ */ __name((t8, e) => J(t8, "name", { value: e, configurable: true }), "r");
-  var we = /* @__PURE__ */ __name((t8, e) => () => (e || t8((e = { exports: {} }).exports, e), e.exports), "we");
-  var Te = /* @__PURE__ */ __name((t8, e, n, i) => {
-    if (e && typeof e == "object" || typeof e == "function") for (let o of Ge(e)) !Be.call(t8, o) && o !== n && J(t8, o, { get: /* @__PURE__ */ __name(() => e[o], "get"), enumerable: !(i = xe(e, o)) || i.enumerable });
+  var Te = /* @__PURE__ */ __name((t8, e) => () => (e || t8((e = { exports: {} }).exports, e), e.exports), "Te");
+  var Le = /* @__PURE__ */ __name((t8, e, n, i) => {
+    if (e && typeof e == "object" || typeof e == "function") for (let o of Ce(e)) !we.call(t8, o) && o !== n && J(t8, o, { get: /* @__PURE__ */ __name(() => e[o], "get"), enumerable: !(i = Ge(e, o)) || i.enumerable });
     return t8;
-  }, "Te");
-  var oe = /* @__PURE__ */ __name((t8, e, n) => (n = t8 != null ? ye(Ce(t8)) : {}, Te(e || !t8 || !t8.__esModule ? J(n, "default", { value: t8, enumerable: true }) : n, t8)), "oe");
-  var $ = we((ce, Q) => {
+  }, "Le");
+  var oe = /* @__PURE__ */ __name((t8, e, n) => (n = t8 != null ? ye(Be(t8)) : {}, Le(e || !t8 || !t8.__esModule ? J(n, "default", { value: t8, enumerable: true }) : n, t8)), "oe");
+  var $ = Te((de, U) => {
     (function(t8) {
       "use strict";
       var e = {};
       e.VERSION = "1.6.1";
-      var n, i = {}, o = r(function(a, h) {
+      var n, i = {}, o = r(function(l, h) {
         return function() {
-          return h.apply(a, arguments);
+          return h.apply(l, arguments);
         };
       }, "bind"), s = r(function() {
-        var a = arguments, h = a[0], T, v;
-        for (v = 1; v < a.length; v++) for (T in a[v]) !(T in h) && a[v].hasOwnProperty(T) && (h[T] = a[v][T]);
+        var l = arguments, h = l[0], T, v;
+        for (v = 1; v < l.length; v++) for (T in l[v]) !(T in h) && l[v].hasOwnProperty(T) && (h[T] = l[v][T]);
         return h;
-      }, "merge"), l = r(function(a, h) {
-        return { value: a, name: h };
+      }, "merge"), a = r(function(l, h) {
+        return { value: l, name: h };
       }, "defineLogLevel");
-      e.TRACE = l(1, "TRACE"), e.DEBUG = l(2, "DEBUG"), e.INFO = l(3, "INFO"), e.TIME = l(4, "TIME"), e.WARN = l(5, "WARN"), e.ERROR = l(8, "ERROR"), e.OFF = l(99, "OFF");
-      var c = r(function(a) {
-        this.context = a, this.setLevel(a.filterLevel), this.log = this.info;
+      e.TRACE = a(1, "TRACE"), e.DEBUG = a(2, "DEBUG"), e.INFO = a(3, "INFO"), e.TIME = a(4, "TIME"), e.WARN = a(5, "WARN"), e.ERROR = a(8, "ERROR"), e.OFF = a(99, "OFF");
+      var c = r(function(l) {
+        this.context = l, this.setLevel(l.filterLevel), this.log = this.info;
       }, "ContextualLogger");
-      c.prototype = { setLevel: r(function(a) {
-        a && "value" in a && (this.context.filterLevel = a);
+      c.prototype = { setLevel: r(function(l) {
+        l && "value" in l && (this.context.filterLevel = l);
       }, "setLevel"), getLevel: r(function() {
         return this.context.filterLevel;
-      }, "getLevel"), enabledFor: r(function(a) {
+      }, "getLevel"), enabledFor: r(function(l) {
         var h = this.context.filterLevel;
-        return a.value >= h.value;
+        return l.value >= h.value;
       }, "enabledFor"), trace: r(function() {
         this.invoke(e.TRACE, arguments);
       }, "trace"), debug: r(function() {
@@ -57,45 +60,45 @@
         this.invoke(e.WARN, arguments);
       }, "warn"), error: r(function() {
         this.invoke(e.ERROR, arguments);
-      }, "error"), time: r(function(a) {
-        typeof a == "string" && a.length > 0 && this.invoke(e.TIME, [a, "start"]);
-      }, "time"), timeEnd: r(function(a) {
-        typeof a == "string" && a.length > 0 && this.invoke(e.TIME, [a, "end"]);
-      }, "timeEnd"), invoke: r(function(a, h) {
-        n && this.enabledFor(a) && n(h, s({ level: a }, this.context));
+      }, "error"), time: r(function(l) {
+        typeof l == "string" && l.length > 0 && this.invoke(e.TIME, [l, "start"]);
+      }, "time"), timeEnd: r(function(l) {
+        typeof l == "string" && l.length > 0 && this.invoke(e.TIME, [l, "end"]);
+      }, "timeEnd"), invoke: r(function(l, h) {
+        n && this.enabledFor(l) && n(h, s({ level: l }, this.context));
       }, "invoke") };
       var d = new c({ filterLevel: e.OFF });
       (function() {
-        var a = e;
-        a.enabledFor = o(d, d.enabledFor), a.trace = o(d, d.trace), a.debug = o(d, d.debug), a.time = o(d, d.time), a.timeEnd = o(d, d.timeEnd), a.info = o(d, d.info), a.warn = o(d, d.warn), a.error = o(d, d.error), a.log = a.info;
-      })(), e.setHandler = function(a) {
-        n = a;
-      }, e.setLevel = function(a) {
-        d.setLevel(a);
-        for (var h in i) i.hasOwnProperty(h) && i[h].setLevel(a);
+        var l = e;
+        l.enabledFor = o(d, d.enabledFor), l.trace = o(d, d.trace), l.debug = o(d, d.debug), l.time = o(d, d.time), l.timeEnd = o(d, d.timeEnd), l.info = o(d, d.info), l.warn = o(d, d.warn), l.error = o(d, d.error), l.log = l.info;
+      })(), e.setHandler = function(l) {
+        n = l;
+      }, e.setLevel = function(l) {
+        d.setLevel(l);
+        for (var h in i) i.hasOwnProperty(h) && i[h].setLevel(l);
       }, e.getLevel = function() {
         return d.getLevel();
-      }, e.get = function(a) {
-        return i[a] || (i[a] = new c(s({ name: a }, d.context)));
-      }, e.createDefaultHandler = function(a) {
-        a = a || {}, a.formatter = a.formatter || r(function(y, B) {
-          B.name && y.unshift("[" + B.name + "]");
+      }, e.get = function(l) {
+        return i[l] || (i[l] = new c(s({ name: l }, d.context)));
+      }, e.createDefaultHandler = function(l) {
+        l = l || {}, l.formatter = l.formatter || r(function(x, w) {
+          w.name && x.unshift("[" + w.name + "]");
         }, "defaultMessageFormatter");
-        var h = {}, T = r(function(v, y) {
-          Function.prototype.apply.call(v, console, y);
+        var h = {}, T = r(function(v, x) {
+          Function.prototype.apply.call(v, console, x);
         }, "invokeConsoleMethod");
         return typeof console > "u" ? function() {
-        } : function(v, y) {
+        } : function(v, x) {
           v = Array.prototype.slice.call(v);
-          var B = console.log, F;
-          y.level === e.TIME ? (F = (y.name ? "[" + y.name + "] " : "") + v[0], v[1] === "start" ? console.time ? console.time(F) : h[F] = (/* @__PURE__ */ new Date()).getTime() : console.timeEnd ? console.timeEnd(F) : T(B, [F + ": " + ((/* @__PURE__ */ new Date()).getTime() - h[F]) + "ms"])) : (y.level === e.WARN && console.warn ? B = console.warn : y.level === e.ERROR && console.error ? B = console.error : y.level === e.INFO && console.info ? B = console.info : y.level === e.DEBUG && console.debug ? B = console.debug : y.level === e.TRACE && console.trace && (B = console.trace), a.formatter(v, y), T(B, v));
+          var w = console.log, Z;
+          x.level === e.TIME ? (Z = (x.name ? "[" + x.name + "] " : "") + v[0], v[1] === "start" ? console.time ? console.time(Z) : h[Z] = (/* @__PURE__ */ new Date()).getTime() : console.timeEnd ? console.timeEnd(Z) : T(w, [Z + ": " + ((/* @__PURE__ */ new Date()).getTime() - h[Z]) + "ms"])) : (x.level === e.WARN && console.warn ? w = console.warn : x.level === e.ERROR && console.error ? w = console.error : x.level === e.INFO && console.info ? w = console.info : x.level === e.DEBUG && console.debug ? w = console.debug : x.level === e.TRACE && console.trace && (w = console.trace), l.formatter(v, x), T(w, v));
         };
-      }, e.useDefaults = function(a) {
-        e.setLevel(a && a.defaultLevel || e.DEBUG), e.setHandler(e.createDefaultHandler(a));
-      }, e.setDefaults = e.useDefaults, typeof define == "function" && define.amd ? define(e) : typeof Q < "u" && Q.exports ? Q.exports = e : (e._prevLogger = t8.Logger, e.noConflict = function() {
+      }, e.useDefaults = function(l) {
+        e.setLevel(l && l.defaultLevel || e.DEBUG), e.setHandler(e.createDefaultHandler(l));
+      }, e.setDefaults = e.useDefaults, typeof define == "function" && define.amd ? define(e) : typeof U < "u" && U.exports ? U.exports = e : (e._prevLogger = t8.Logger, e.noConflict = function() {
         return t8.Logger = e._prevLogger, e;
       }, t8.Logger = e);
-    })(ce);
+    })(de);
   });
   var L = class {
     static {
@@ -119,6 +122,7 @@
     init() {
     }
     registerDefaultSettings(e) {
+      e ??= p.playerStorage ?? {};
       let n = this.settingsStorage, i = this.defaultSettings;
       !n || !i || Object.entries(this.defaultSettings).length !== 0 && (e[n] = f(this.defaultSettings, e[n], { concatArrays: false, matchingOnly: true }));
     }
@@ -132,13 +136,13 @@
     unload() {
     }
   };
-  async function Z(t8) {
-    if (!k.instance) throw new Error("Attempt to set subscreen before init");
+  async function E(t8) {
+    if (!M.instance) throw new Error("Attempt to set subscreen before init");
     let e = typeof t8 == "string" ? t8 : t8?.options.name, n = `${define_MOD_INFO_default.name}_${e}`;
     await CommonSetScreen("DeepLibMod", `${n}`);
   }
-  __name(Z, "Z");
-  r(Z, "setSubscreen");
+  __name(E, "E");
+  r(E, "setSubscreen");
   var I = class t {
     static {
       __name(this, "t");
@@ -161,7 +165,7 @@
       O(`${o}Load`, this.load.bind(this)), O(`${o}Run`, this.run.bind(this)), O(`${o}Click`, this.click.bind(this)), O(`${o}Exit`, this.exit.bind(this)), O(`${o}Unload`, this.unload.bind(this)), O(`${o}Resize`, this.resize.bind(this)), O(`${o}Background`, this.options.background), CommonCSVCache[ScreenFileGetTranslation("DeepLibMod", o)] = [];
     }
     async setSubscreen(e) {
-      return await Z(e);
+      return await E(e);
     }
     get settings() {
       return this.module.settings;
@@ -191,7 +195,7 @@
       });
     }
     load() {
-      for (let i of x()) i.settingsScreen && (!i.settings || !Object.keys(i.settings).length) && i.registerDefaultSettings(p.playerStorage);
+      for (let i of y()) i.settingsScreen && (!i.settings || !Object.keys(i.settings).length) && i.registerDefaultSettings(p.playerStorage);
       t.currentPage = 1, b.getSubscreen();
       let e = b.getSettingsDiv();
       if (b.appendToSubscreen(e), t.menu = ElementMenu.Create("deeplib-nav-menu", []), b.appendToSubscreen(t.menu), this.pageStructure.length > 1) {
@@ -251,7 +255,7 @@
     exit() {
       CharacterAppearanceForceUpCharacter = -1, CharacterLoadCanvas(Player);
       let e = CommonUnwrapThunk(this.options.returnScreen);
-      e instanceof t || !e ? Z(e ?? "mainmenu").then(() => {
+      e instanceof t || !e ? E(e ?? "mainmenu").then(() => {
         p.save();
       }) : Array.isArray(e) && CommonSetScreen(...e).then(() => {
         p.save();
@@ -260,8 +264,8 @@
     resize(e = false) {
       let n = this.options.drawCharacter ? 0 : 380, i = b.getSubscreen(), o = b.getSettingsDiv();
       ElementSetPosition(i, 0, 0), ElementSetSize(i, 2e3, 1e3), ElementSetFontSize(i, "auto"), ElementSetPosition(o, 530 - n, 170), ElementSetSize(o, this.options.settingsWidth ?? 1e3 + n, 660), this.options.doShowTitle && (ElementSetPosition("deeplib-subscreen-title", 530 - n, 75), ElementSetSize("deeplib-subscreen-title", 800, 90)), ElementSetPosition("deeplib-nav-menu", 1905, 75, "top-right"), ElementSetSize("deeplib-nav-menu", null, 90), ElementSetSize(u.getTooltip() || "", 1500), t.currentElements.forEach((s) => {
-        let l = s[0], c = s[1];
-        S.autoSetPosition(c.id ?? l.id, c.position), S.autoSetSize(c.id ?? l.id, c.size);
+        let a = s[0], c = s[1];
+        S.autoSetPosition(c.id ?? a.id, c.position), S.autoSetSize(c.id ?? a.id, c.size);
       }), o && (S.hasOverflow(o)?.vertical ? o.classList.add("deeplib-overflow-box") : o.classList.remove("deeplib-overflow-box"));
     }
     unload() {
@@ -661,9 +665,23 @@
   gap: var(--half-gap);
 }
 /*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZhcnMuc2NzcyIsImJ1dHRvbnMuc2NzcyIsImVsZW1lbnRzLnNjc3MiLCJpbnB1dHMuc2NzcyIsIm1lc3NhZ2VzLnNjc3MiLCJtb2RhbC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7RUFFRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FDZEY7RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFFRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFFQTtFQUNBO0VBQ0E7O0FBR0Y7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7RUFDQTs7O0FDNUNKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7OztBQUdGO0VBQ0U7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUlKO0VBQ0U7OztBQUdGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUdFO0VBQ0U7RUFDQTs7QUFISjtFQU1FO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBOzs7QUFJSjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBOzs7QUN6SUo7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOzs7QUFLTjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7O0FBT1I7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7RUFDQTtFQUNBOztBQUdGO0VBQ0U7OztBQU9GO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOztBQUdGO0FBQUE7QUFBQTtFQUNFOzs7QUMxR0o7RUFDRTtFQUNBOzs7QUFHRjtBQUFBO0VBRUU7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7QUFBQTtFQUVFOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7O0FDN0JGO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7O0FBR0Y7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUtOO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7OztBQUlKO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7OztBQUlBO0VBQ0U7RUFDQTtFQUNBO0VBQ0EiLCJzb3VyY2VzQ29udGVudCI6WyIuZGVlcGxpYi1zdWJzY3JlZW4sXG4uZGVlcGxpYi1tb2RhbCB7XG4gIC0tZGVlcGxpYi1iYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS10bWQtbWFpbiwgd2hpdGUpO1xuICAtLWRlZXBsaWItZWxlbWVudC1jb2xvcjogdmFyKC0tdG1kLWVsZW1lbnQsIHdoaXRlKTtcbiAgLS1kZWVwbGliLWVsZW1lbnQtaG92ZXItY29sb3I6IHZhcigtLXRtZC1lbGVtZW50LWhvdmVyLCBjeWFuKTtcbiAgLS1kZWVwbGliLWFjY2VudC1jb2xvcjogdmFyKC0tdG1kLWFjY2VudCwgI0ZGRkY4OCk7XG4gIC0tZGVlcGxpYi1ibG9ja2VkLWNvbG9yOiB2YXIoLS10bWQtYmxvY2tlZCwgcmVkKTtcbiAgLS1kZWVwbGliLXRleHQtY29sb3I6IHZhcigtLXRtZC10ZXh0LCBibGFjayk7XG4gIC0tZGVlcGxpYi1pY29uLWNvbG9yOiB2YXIoLS10bWQtYWNjZW50LCBibGFjayk7XG4gIC0tZGVlcGxpYi1pY29uLWhvdmVyLWNvbG9yOiB2YXIoLS10bWQtYWNjZW50LWhvdmVyLCBibGFjayk7XG4gIC0tZGVlcGxpYi1ib3JkZXItY29sb3I6IHZhcigtLXRtZC1hY2NlbnQsIGJsYWNrKTtcbiAgLS1kZWVwbGliLWJvcmRlci13aWR0aDogbWluKDAuMnZoLCAwLjF2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItd2lkdGg6IG1pbigwLjJkdmgsIDAuMWR2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzOiBtaW4oMXZoLCAwLjV2dyk7XG4gIC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzOiBtaW4oMWR2aCwgMC41ZHZ3KTtcbn1cbiIsIi5kZWVwbGliLWJ1dHRvbiB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuXG4gICYuYnV0dG9uLXN0eWxpbmcsXG4gICYuYnV0dG9uLXN0eWxpbmc6OmJlZm9yZSB7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcbiAgfVxuXG4gIGltZyB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMCU7XG4gICAgbGVmdDogMCU7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGxlZnQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1pY29uLWNvbG9yKTtcbiAgICBiYWNrZ3JvdW5kLWJsZW5kLW1vZGU6IG11bHRpcGx5O1xuICAgIGJhY2tncm91bmQtc2l6ZTogY29udGFpbjtcbiAgICBtYXNrLXBvc2l0aW9uOiBsZWZ0O1xuICAgIG1hc2stc2l6ZTogY29udGFpbjtcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIG1hc2stcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgY29sb3I6IHRyYW5zcGFyZW50O1xuXG4gICAgYmFja2dyb3VuZC1pbWFnZTogdmFyKC0taW1hZ2UpO1xuICAgIG1hc2staW1hZ2U6IHZhcigtLWltYWdlKTtcbiAgICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgfVxuXG4gICY6aG92ZXIgaW1nIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1kZWVwbGliLWljb24taG92ZXItY29sb3IpO1xuICB9XG5cbiAgLmJ1dHRvbi1sYWJlbCB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgICBjb2xvcjogdmFyKC0tZGVlcGxpYi10ZXh0LWNvbG9yKTtcbiAgICBmb250LXNpemU6IDAuOWVtO1xuICAgIGRpc3BsYXk6IGNvbnRlbnRzO1xuICB9XG5cbiAgLmJ1dHRvbi10b29sdGlwIHtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICAgIHBvaW50ZXItZXZlbnRzOiBub25lO1xuICB9XG59IiwiI2RlZXBsaWItcGFnZS1sYWJlbCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuI2RlZXBsaWItc3Vic2NyZWVuLXRpdGxlIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIHVzZXItc2VsZWN0OiBub25lO1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLmRlZXBsaWItdGV4dCB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xufVxuXG4uZGVlcGxpYi1sYWJlbCB7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5kZWVwbGliLXN1YnNjcmVlbiB7XG4gIHBhZGRpbmc6IDA7XG4gIG1hcmdpbjogMDtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbi5kZWVwbGliLXN1YnNjcmVlbiAqIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgcG9pbnRlci1ldmVudHM6IGFsbDtcbn1cblxuLmRlZXBsaWItc2V0dGluZ3Mge1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLWF1dG8tcm93czogbWluLWNvbnRlbnQ7XG4gIHBhZGRpbmc6IG1pbigxLjBkdmgsIDAuNWR2dyk7XG4gIGdhcDogMC4zZW07XG59XG5cbi5kZWVwbGliLW1pc2Mge1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uLXJldmVyc2U7XG4gIGdhcDogbWluKDF2aCwgMC41dncpO1xufVxuXG4uZGVlcGxpYi10b29sdGlwIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICBwYWRkaW5nOiBtaW4oMXZoLCAwLjV2dyk7XG4gIGZvbnQtc2l6ZTogMC44ZW07XG4gIGJvcmRlcjogbWluKDAuMnZoLCAwLjF2dykgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpO1xuICB6LWluZGV4OiAxO1xuXG4gICYuYW5jaG9yLXRvcCB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogbWluKDF2aCwgMC41dncpO1xuICAgIGxlZnQ6IDUwJTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTUwJSk7XG4gIH1cblxuICAmLmFuY2hvci1ib3R0b20ge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IG1pbigxdmgsIDAuNXZ3KTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xuICB9XG59XG5cbi5kZWVwbGliLW92ZXJmbG93LWJveCB7XG4gIGJvcmRlcjogdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLXdpZHRoKTtcbn1cblxuLmRlZXBsaWItcHJldi1uZXh0IHtcbiAgZGlzcGxheTogZmxleDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICBnYXA6IG1pbigyZHZoLCAxZHZ3KTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG4gIGJvcmRlci1yYWRpdXM6IG1pbigxLjBkdmgsIDAuNWR2dyk7XG4gIGJvcmRlcjogbWluKDAuMnZoLCAwLjF2dykgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItY29sb3IpO1xuXG4gIC5kZWVwbGliLXByZXYtbmV4dC1idXR0b24ge1xuICAgICY6aG92ZXIge1xuICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWhvdmVyLWNvbG9yKTtcbiAgICAgIGJvcmRlci1yYWRpdXM6IHZhcigtLWRlZXBsaWItYm9yZGVyLXJhZGl1cyk7XG4gICAgfVxuXG4gICAgaGVpZ2h0OiAxMDAlO1xuICAgIGFzcGVjdC1yYXRpbzogMTtcbiAgfVxuXG4gIC5kZWVwbGliLXByZXYtbmV4dC1sYWJlbCB7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgfVxufVxuXG4jZGVlcGxpYi1uYXYtbWVudSB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGdhcDogbWluKDJkdmgsIDFkdncpO1xuICB6LWluZGV4OiAxO1xuXG4gICY+LmRlZXBsaWItYnV0dG9uIHtcbiAgICBmbGV4OiAxIDEgYXV0bztcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgYXNwZWN0LXJhdGlvOiAxO1xuICB9XG59XG5cbiNkZWVwbGliLXN0b3JhZ2UtbWV0ZXIge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogMHB4O1xuICBsZWZ0OiAwcHg7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWRlZXBsaWItZWxlbWVudC1jb2xvcik7XG4gIGJvcmRlcjogdmFyKC0tZGVlcGxpYi1ib3JkZXItd2lkdGgpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLWNvbG9yKTtcbiAgYm9yZGVyLXJhZGl1czogdmFyKC0tZGVlcGxpYi1ib3JkZXItcmFkaXVzKTtcbiAgei1pbmRleDogLTE7XG5cbiAgI2RlZXBsaWItc3RvcmFnZS1iYXIge1xuICAgIGhlaWdodDogMTAwJTtcbiAgICB3aWR0aDogMCU7XG4gICAgYmFja2dyb3VuZDogdmFyKC0tZGVlcGxpYi1hY2NlbnQtY29sb3IpO1xuICB9XG59IiwiLmRlZXBsaWItY2hlY2tib3gtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgZ2FwOiAwLjNlbTtcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xuXG4gIHNwYW4ge1xuICAgIHVzZXItc2VsZWN0OiBub25lO1xuICB9XG5cbiAgLmRlZXBsaWItaW5wdXQge1xuICAgIHdpZHRoOiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgaGVpZ2h0OiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgd2lkdGg6IG1pbig1ZHZoLCAyLjVkdncpO1xuICAgIGhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMHZoLCAwLjV2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcblxuICAgICZbdHlwZT1cImNoZWNrYm94XCJdOmNoZWNrZWQ6OmJlZm9yZSB7XG4gICAgICB3aWR0aDogODAlO1xuICAgICAgaGVpZ2h0OiA4MCU7XG4gICAgfVxuICB9XG59XG5cbi5kZWVwbGliLWlucHV0LWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogMC4zZW07XG4gIHdpZHRoOiBmaXQtY29udGVudDtcblxuICBzcGFuIHtcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcbiAgfVxuXG4gICY6aGFzKC5kZWVwbGliLXRleHQpIHtcbiAgICBtYXJnaW4tdG9wOiBtaW4oMXZoLCAwLjV2dyk7XG4gICAgbWFyZ2luLXRvcDogbWluKDFkdmgsIDAuNWR2dyk7XG4gIH1cblxuICAuZGVlcGxpYi1pbnB1dCB7XG4gICAgZm9udC1zaXplOiAwLjllbTtcbiAgICBwYWRkaW5nOiBtaW4oMXZoLCAwLjV2dyk7XG4gICAgcGFkZGluZzogbWluKDFkdmgsIDAuNWR2dyk7XG4gICAgb3V0bGluZTogbm9uZTtcbiAgICBtaW4taGVpZ2h0OiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgbWluLWhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMHZoLCAwLjV2dyk7XG4gICAgYm9yZGVyLXJhZGl1czogbWluKDEuMGR2aCwgMC41ZHZ3KTtcblxuICAgICZbdHlwZT1cImNvbG9yXCJdIHtcbiAgICAgIHBhZGRpbmc6IDBweDtcbiAgICAgIHdpZHRoOiBtaW4oNXZoLCAyLjV2dyk7XG4gICAgICBoZWlnaHQ6IG1pbig1dmgsIDIuNXZ3KTtcbiAgICAgIHdpZHRoOiBtaW4oNWR2aCwgMi41ZHZ3KTtcbiAgICAgIGhlaWdodDogbWluKDVkdmgsIDIuNWR2dyk7XG4gICAgICBib3JkZXItcmFkaXVzOiAwcHg7XG5cbiAgICAgICY6ZGlzYWJsZWQge1xuICAgICAgICBib3JkZXI6IHZhcigtLWRlZXBsaWItYmxvY2tlZC1jb2xvcikgc29saWQgdmFyKC0tZGVlcGxpYi1ib3JkZXItd2lkdGgpO1xuICAgICAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuXG5cbi5kZWVwbGliLWRyb3Bkb3duLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogbWluKDJ2aCwgMXZ3KTtcbiAgZ2FwOiBtaW4oMmR2aCwgMWR2dyk7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICB3aWR0aDogZml0LWNvbnRlbnQ7XG5cbiAgc2VsZWN0IHtcbiAgICBwYWRkaW5nOiAwIG1pbigxdmgsIDAuNXZ3KTtcbiAgICBwYWRkaW5nOiAwIG1pbigxZHZoLCAwLjVkdncpO1xuICAgIGJvcmRlci1yYWRpdXM6IG1pbigxdmgsIDAuNXZ3KTtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMWR2aCwgMC41ZHZ3KTtcbiAgfVxuXG4gIHNwYW4ge1xuICAgIHVzZXItc2VsZWN0OiBub25lO1xuICB9XG59XG5cbi5kZWVwbGliLWNoZWNrYm94LWNvbnRhaW5lcixcbi5kZWVwbGliLWlucHV0LWNvbnRhaW5lcixcbi5kZWVwbGliLWRyb3Bkb3duLWNvbnRhaW5lciB7XG4gICYucm93IHtcbiAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICB9XG5cbiAgJi5jb2x1bW4ge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cblxuICAmLnJvd1JldmVyc2Uge1xuICAgIGZsZXgtZGlyZWN0aW9uOiByb3ctcmV2ZXJzZTtcbiAgfVxuXG4gICYuY29sdW1uUmV2ZXJzZSB7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbi1yZXZlcnNlO1xuICB9XG59IiwiLmRlZXBsaWItaGlnaGxpZ2h0LXRleHQge1xuICBmb250LXdlaWdodDogYm9sZDtcbiAgY29sb3I6IHJnYigyMDMsIDE4NSwgMjMpO1xufVxuXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyayddIGRpdi5DaGF0TWVzc2FnZS5kZWVwbGliLW1lc3NhZ2UsXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyazInXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tZGVlcGxpYi1lbGVtZW50LWNvbG9yKTtcbiAgYm9yZGVyOiBtaW4oMC4yZHZoLCAwLjFkdncpIHNvbGlkIHZhcigtLWRlZXBsaWItYm9yZGVyLWNvbG9yKTtcbiAgY29sb3I6IHZhcigtLWRlZXBsaWItdGV4dC1jb2xvcik7XG59XG5cbiNUZXh0QXJlYUNoYXRMb2cgZGl2LkNoYXRNZXNzYWdlLmRlZXBsaWItbWVzc2FnZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gIGJvcmRlcjogbWluKDAuMmR2aCwgMC4xZHZ3KSBzb2xpZCAjNDQwMTcxO1xuICBjb2xvcjogIzExMTtcbiAgcGFkZGluZy1sZWZ0OiBtaW4oMC42ZHZoLCAwLjNkdncpO1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbn1cblxuI1RleHRBcmVhQ2hhdExvZ1tkYXRhLWNvbG9ydGhlbWU9J2RhcmsnXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEsXG4jVGV4dEFyZWFDaGF0TG9nW2RhdGEtY29sb3J0aGVtZT0nZGFyazInXSBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEge1xuICBjb2xvcjogdmFyKC0tZGVlcGxpYi10ZXh0LWNvbG9yKTtcbn1cblxuI1RleHRBcmVhQ2hhdExvZyBkaXYuQ2hhdE1lc3NhZ2UuZGVlcGxpYi1tZXNzYWdlIGEge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBjb2xvcjogIzExMTtcbn1cbiIsIi5kZWVwbGliLW1vZGFsIHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDUwJTtcbiAgbGVmdDogNTAlO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlLCAtNTAlKTtcbiAgei1pbmRleDogMTAwMTtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGdhcDogMC41ZW07XG4gIG1pbi13aWR0aDogbWF4KDUwZHZ3LCAyNWR2aCk7XG4gIGZvbnQtc2l6ZTogMWVtO1xuICBwYWRkaW5nOiBtaW4oMmR2aCwgMWR2dyk7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWRlZXBsaWItZWxlbWVudC1jb2xvcik7XG4gIGJvcmRlci1yYWRpdXM6IG1pbigxLjJkdmgsIDAuNmR2dyk7XG4gIGJvcmRlcjogbWluKDAuMmR2aCwgMC4xZHZ3KSBzb2xpZCB2YXIoLS1kZWVwbGliLWJvcmRlci1jb2xvcik7XG4gIGNvbG9yOiB2YXIoLS1kZWVwbGliLXRleHQtY29sb3IpO1xuICBtYXgtd2lkdGg6IG1heCg5MGR2dywgNDVkdmgpO1xuXG4gIC5kZWVwbGliLW1vZGFsLWlucHV0IHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBmb250LXNpemU6IDFlbTtcbiAgICBib3JkZXItcmFkaXVzOiBtaW4oMS4wZHZoLCAwLjVkdncpO1xuICAgIHBhZGRpbmc6IG1pbigxZHZoLCAwLjVkdncpO1xuICB9XG5cbiAgaW5wdXQuZGVlcGxpYi1tb2RhbC1pbnB1dCB7XG4gICAgbWF4LXdpZHRoOiBtYXgoNTBkdmgsIDI1ZHZ3KTtcbiAgfVxuXG4gIC5kZWVwbGliLW1vZGFsLWJ1dHRvbi1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xuICAgIGdhcDogMC41ZW07XG4gICAgd2lkdGg6IDEwMCU7XG5cbiAgICAuZGVlcGxpYi1idXR0b24ge1xuICAgICAgZm9udC1zaXplOiAwLjhlbTtcbiAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICB3aWR0aDogYXV0bztcbiAgICAgIHBhZGRpbmc6IG1pbigwLjR2aCwgMC4ydncpIG1pbigydmgsIDF2dyk7XG5cbiAgICAgIC5idXR0b24tbGFiZWwge1xuICAgICAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgICAgIH1cbiAgICB9XG4gIH1cblxuICAuZGVlcGxpYi1tb2RhbC1wcm9tcHQtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgfVxufVxuXG4uZGVlcGxpYi1tb2RhbC1ibG9ja2VyIHtcbiAgei1pbmRleDogMTAwMDtcbiAgcG9zaXRpb246IGZpeGVkO1xuICB0b3A6IDA7XG4gIGxlZnQ6IDA7XG4gIHdpZHRoOiAxMDBkdnc7XG4gIGhlaWdodDogMTAwZHZoO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNSk7XG59XG5cbiNkZWVwbGliLW1vZGFsLWltcG9ydF9leHBvcnQge1xuICAuZGVlcGxpYi1tb2RhbC1jaGVja2JveC1jb250YWluZXIge1xuICAgIG1hcmdpbi10b3A6IDAuNWVtO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBnYXA6IHZhcigtLWhhbGYtZ2FwKTtcbiAgfVxufSJdfQ== */`;
-  var X = class extends L {
+  function se() {
+    if (true) return;
+    let t8 = `${"https://protokink.github.io/Cats-BC/public"}/`;
+    G.hookFunction("fetch", k.ModifyBehavior, (e, n) => {
+      let [i] = e, o = typeof i == "string" ? i : i instanceof URL ? i.href : i.url;
+      if (o.startsWith(t8)) {
+        let s = o.slice(t8.length), a = define_BUNDLED_PUBLIC_ASSET_MAP_default[s];
+        if (a !== void 0) return a.startsWith("data:") ? fetch(a) : Promise.resolve(new Response(a, { status: 200 }));
+      }
+      return n(e);
+    });
+  }
+  __name(se, "se");
+  r(se, "installBundledPublicAssetFetch");
+  var D = class extends L {
     static {
-      __name(this, "X");
+      __name(this, "D");
     }
     static {
       r(this, "DebugModule");
@@ -671,152 +689,152 @@
     debugSettings = { showRawTranslations: false, showFileNames: false, showIncomingServerTransactions: false, incomingMessageFilterMode: "exclude", incomingMessageTypes: "", showOutcomingServerTransactions: false, outcomingMessageFilterMode: "exclude", outcomingMessageTypes: "", showRawActivityNames: false, showRawAssetNames: false };
     load() {
       let e = p.getLocalStorage("debugOptions");
-      e && (this.debugSettings = Object.assign(this.debugSettings, e)), Le(), w.hookFunction("TextGet", E.ModifyBehavior, (n, i) => {
+      e && (this.debugSettings = Object.assign(this.debugSettings, e)), Oe(), G.hookFunction("TextGet", k.ModifyBehavior, (n, i) => {
         if (!this.debugSettings.showRawTranslations) return i(n);
         let [o] = n, s = TextScreenCache?.fileName() ?? "[unknown]";
         return this.debugSettings.showFileNames ? `${s}::${o}` : o;
-      }), w.hookFunction("TextGetInScope", E.ModifyBehavior, (n, i) => {
+      }), G.hookFunction("TextGetInScope", k.ModifyBehavior, (n, i) => {
         if (!this.debugSettings.showRawTranslations) return i(n);
-        let [o, s] = n, l = o.lastIndexOf("/");
-        l === -1 ? l = 0 : l = l + 1;
-        let c = o.substring(l);
+        let [o, s] = n, a = o.lastIndexOf("/");
+        a === -1 ? a = 0 : a = a + 1;
+        let c = o.substring(a);
         return this.debugSettings.showFileNames ? `${c}::${s}` : s;
-      }), w.hookFunction("InterfaceTextGet", E.ModifyBehavior, (n, i) => {
+      }), G.hookFunction("InterfaceTextGet", k.ModifyBehavior, (n, i) => {
         if (!this.debugSettings.showRawTranslations) return i(n);
         let [o] = n, s = InterfaceStringsPath.lastIndexOf("/");
         s === -1 ? s = 0 : s = s + 1;
-        let l = InterfaceStringsPath.substring(s);
-        return this.debugSettings.showFileNames ? `${l}::${o}` : o;
-      }), w.hookFunction("ActivityDictionaryText", E.ModifyBehavior, (n, i) => {
+        let a = InterfaceStringsPath.substring(s);
+        return this.debugSettings.showFileNames ? `${a}::${o}` : o;
+      }), G.hookFunction("ActivityDictionaryText", k.ModifyBehavior, (n, i) => {
         if (!this.debugSettings.showRawActivityNames) return i(n);
         let [o] = n;
         return o;
-      }), w.hookFunction("ElementButton.CreateForAsset", E.ModifyBehavior, (n, i) => {
+      }), G.hookFunction("ElementButton.CreateForAsset", k.ModifyBehavior, (n, i) => {
         if (!this.debugSettings.showRawAssetNames) return i(n);
         let [, o, , , s] = n;
-        return o = ("Asset" in o ? o : { Asset: o }).Asset, s ??= {}, s.label = o.Name, i(n);
+        return o = ("Asset" in o ? o : { Asset: o }).Asset, s ??= {}, s.label = o.Name, n[4] = s, i(n);
       });
     }
     unload() {
-      Oe();
+      Se();
     }
     saveDebugSettings() {
       p.setLocalStorage("debugOptions", this.debugSettings);
     }
   };
-  var M;
-  function se(...t8) {
-    let e = Array.isArray(t8[0]) && typeof t8[0][0] == "string" ? t8[0][0] : "[unknown]", n = Array.isArray(t8[0]) ? t8[0].slice(1) : [], i = C("DebugModule");
-    return i.debugSettings.showIncomingServerTransactions && le(e, i.debugSettings.incomingMessageTypes, i.debugSettings.incomingMessageFilterMode) && m.debug("\u25BC Receive", e, ...n), M?.apply(this, t8);
-  }
-  __name(se, "se");
-  r(se, "processIncomingTransaction");
   var V;
   function ae(...t8) {
-    let e = typeof t8[0] == "string" ? t8[0] : "[unknown]", n = Array.isArray(t8[1]) ? t8[1] : [t8[1]], i = C("DebugModule");
-    return i.debugSettings.showOutcomingServerTransactions && le(e, i.debugSettings.outcomingMessageTypes, i.debugSettings.outcomingMessageFilterMode) && m.debug("\u25B2 Send", e, ...n), V?.apply(this, t8);
+    let e = Array.isArray(t8[0]) && typeof t8[0][0] == "string" ? t8[0][0] : "[unknown]", n = Array.isArray(t8[0]) ? t8[0].slice(1) : [], i = B("DebugModule");
+    return i.debugSettings.showIncomingServerTransactions && ce(e, i.debugSettings.incomingMessageTypes, i.debugSettings.incomingMessageFilterMode) && m.debug("\u25BC Receive", e, ...n), V?.apply(this, t8);
   }
   __name(ae, "ae");
-  r(ae, "processOutcomingTransaction");
-  function le(t8, e, n) {
+  r(ae, "processIncomingTransaction");
+  var R;
+  function le(...t8) {
+    let e = typeof t8[0] == "string" ? t8[0] : "[unknown]", n = Array.isArray(t8[1]) ? t8[1] : [t8[1]], i = B("DebugModule");
+    return i.debugSettings.showOutcomingServerTransactions && ce(e, i.debugSettings.outcomingMessageTypes, i.debugSettings.outcomingMessageFilterMode) && m.debug("\u25B2 Send", e, ...n), R?.apply(this, t8);
+  }
+  __name(le, "le");
+  r(le, "processOutcomingTransaction");
+  function ce(t8, e, n) {
     if (!e.trim()) return true;
     let o = e.split(",").map((s) => s.trim()).filter((s) => s.length > 0).some((s) => t8 === s);
     return n === "include" ? o : !o;
   }
-  __name(le, "le");
-  r(le, "shouldLogMessage");
-  function Le() {
-    M === void 0 && typeof ServerSocket?.__proto__?.emitEvent == "function" && (M = ServerSocket.__proto__.emitEvent, ServerSocket.__proto__.emitEvent = se), V === void 0 && typeof ServerSocket?.__proto__?.emit == "function" && (V = ServerSocket.__proto__.emit, ServerSocket.__proto__.emit = ae);
-  }
-  __name(Le, "Le");
-  r(Le, "loadServerTransactions");
+  __name(ce, "ce");
+  r(ce, "shouldLogMessage");
   function Oe() {
-    M && ServerSocket.__proto__.emitEvent === se && (ServerSocket.__proto__.emitEvent = M, M = void 0), V && ServerSocket.__proto__.emit === ae && (ServerSocket.__proto__.emit = V, V = void 0);
+    V === void 0 && typeof ServerSocket?.__proto__?.emitEvent == "function" && (V = ServerSocket.__proto__.emitEvent, ServerSocket.__proto__.emitEvent = ae), R === void 0 && typeof ServerSocket?.__proto__?.emit == "function" && (R = ServerSocket.__proto__.emit, ServerSocket.__proto__.emit = le);
   }
   __name(Oe, "Oe");
-  r(Oe, "unloadServerTransactions");
-  var de = oe($(), 1);
-  var p;
-  var w;
-  var m;
-  async function wt(t8) {
-    w = new W({ name: define_MOD_INFO_default.name, fullName: define_MOD_INFO_default.fullName, version: "1.0.0", repository: define_MOD_INFO_default.repository }), p = new Y(define_MOD_INFO_default.name), m = de.default.get(define_MOD_INFO_default.name), H.injectInline("deeplib-style-5.0.0", re), m.debug("Init wait"), (!CurrentScreen || CurrentScreen === "Login") && t8.beforeLogin?.(), await ServerIsLoggedInAsync(), Se(t8);
+  r(Oe, "loadServerTransactions");
+  function Se() {
+    V && ServerSocket.__proto__.emitEvent === ae && (ServerSocket.__proto__.emitEvent = V, V = void 0), R && ServerSocket.__proto__.emit === le && (ServerSocket.__proto__.emit = R, R = void 0);
   }
-  __name(wt, "wt");
-  r(wt, "initMod");
-  async function Se(t8) {
+  __name(Se, "Se");
+  r(Se, "unloadServerTransactions");
+  var ue = oe($(), 1);
+  var p;
+  var G;
+  var m;
+  async function kt(t8) {
+    G = new Y({ name: define_MOD_INFO_default.name, fullName: define_MOD_INFO_default.fullName, version: "1.0.0", repository: define_MOD_INFO_default.repository }), se(), p = new Q(define_MOD_INFO_default.name), m = ue.default.get(define_MOD_INFO_default.name), H.injectInline("deeplib-style-6.0.0", re), m.debug("Init wait"), (!CurrentScreen || CurrentScreen === "Login") && t8.beforeLogin?.(), await ServerIsLoggedInAsync(), await ke(t8);
+  }
+  __name(kt, "kt");
+  r(kt, "initMod");
+  async function ke(t8) {
     if (window[define_MOD_INFO_default.name + "Loaded"]) return;
-    let e = N(() => {
+    let e = X(() => {
       p.load();
     }, (s) => s);
     e.ok || m.error(e.error);
-    let n = await ge(async () => {
-      await A.init(t8.translationOptions);
+    let n = await pe(async () => {
+      await F.init(t8.translationOptions);
     }, (s) => s);
     n.ok || m.error(n.error);
     let i = Object.entries(t8.modules ?? {}), o = [];
-    if (i.some((s) => s[1] instanceof U) || o.push(["VersionModule", new U()]), false, o.push(...i), !Fe(o)) {
+    if (i.some((s) => s[1] instanceof N) || o.push(["VersionModule", new N()]), false, o.push(...i), !Fe(o)) {
       Ze();
       return;
     }
-    await t8.initFunction?.(), t8.mainMenuOptions && C("GUI") && R.setOptions({ ...t8.mainMenuOptions, repoLink: define_MOD_INFO_default.repository }), window[define_MOD_INFO_default.name + "Loaded"] = true, m.log(`Loaded! Version: ${"1.0.0"}`);
+    await t8.initFunction?.(), t8.mainMenuOptions && B("GUI") && A.setOptions({ ...t8.mainMenuOptions, repoLink: define_MOD_INFO_default.repository }), window[define_MOD_INFO_default.name + "Loaded"] = true, m.log(`Loaded! Version: ${"1.0.0"}`);
   }
-  __name(Se, "Se");
-  r(Se, "init");
+  __name(ke, "ke");
+  r(ke, "init");
   function Fe(t8) {
-    for (let [e, n] of t8) ue(e, n);
-    for (let e of x()) {
-      let n = N(() => e.init(), (i) => i);
+    for (let [e, n] of t8) ge(e, n);
+    for (let e of y()) {
+      let n = X(() => e.init(), (i) => i);
       n.ok || m.error(n.error);
     }
-    for (let e of x()) {
-      let n = N(() => e.load(), (i) => i);
+    for (let e of y()) {
+      let n = X(() => e.load(), (i) => i);
       n.ok || m.error(n.error);
     }
-    for (let e of x()) {
-      let n = N(() => e.run(), (i) => i);
+    for (let e of y()) {
+      let n = X(() => e.run(), (i) => i);
       n.ok || m.error(n.error);
     }
-    for (let e of x()) e.registerDefaultSettings(p.playerStorage);
+    for (let e of y()) e.registerDefaultSettings(p.playerStorage);
     return m.debug("Modules Loaded."), true;
   }
   __name(Fe, "Fe");
   r(Fe, "initModules");
   function Ze() {
-    return ke(), w.unload(), delete window[define_MOD_INFO_default.name + "Loaded"], m.debug("Unloaded."), true;
+    return Ee(), G.unload(), F.unload(), delete window[define_MOD_INFO_default.name + "Loaded"], m.debug("Unloaded."), true;
   }
   __name(Ze, "Ze");
   r(Ze, "unloadMod");
-  function ke() {
-    for (let t8 of x()) t8.unload();
+  function Ee() {
+    for (let t8 of y()) t8.unload();
   }
-  __name(ke, "ke");
-  r(ke, "unloadModules");
+  __name(Ee, "Ee");
+  r(Ee, "unloadModules");
   var _ = /* @__PURE__ */ new Map();
-  function x() {
+  function y() {
     return [..._.values()];
   }
-  __name(x, "x");
-  r(x, "modules");
-  function ue(t8, e) {
+  __name(y, "y");
+  r(y, "modules");
+  function ge(t8, e) {
     return _.set(t8, e), e;
   }
-  __name(ue, "ue");
-  r(ue, "registerModule");
-  function C(t8) {
+  __name(ge, "ge");
+  r(ge, "registerModule");
+  function B(t8) {
     return _.get(t8);
   }
-  __name(C, "C");
-  r(C, "getModule");
-  var pe = class {
+  __name(B, "B");
+  r(B, "getModule");
+  var be = class {
     static {
-      __name(this, "pe");
+      __name(this, "be");
     }
     static {
       r(this, "BaseMigrator");
     }
   };
-  var k = class t2 extends L {
+  var M = class t2 extends L {
     static {
       __name(this, "t");
     }
@@ -835,23 +853,23 @@
     }
     constructor(e = null) {
       if (super(), t2.instance) throw new Error("Duplicate initialization");
-      for (let n of x()) n.settingsScreen;
+      for (let n of y()) n.settingsScreen;
       this._modButtonOptions = e, t2.instance = this;
     }
     load() {
       if (!this._modButtonOptions) return;
       let e = this._modButtonOptions;
-      this._mainMenu = e?.mainMenu ? new e.mainMenu(this) : new R(this), this._subscreens = [this._mainMenu];
-      for (let n of x()) n.settingsScreen && this._subscreens.push(new n.settingsScreen(n));
+      this._mainMenu = e?.mainMenu ? new e.mainMenu(this) : new A(this), this._subscreens = [this._mainMenu];
+      for (let n of y()) n.settingsScreen && this._subscreens.push(new n.settingsScreen(n));
       this._mainMenu.subscreens = this._subscreens, PreferenceRegisterExtensionSetting({ Identifier: this._modButtonOptions.identifier, ButtonText: this._modButtonOptions.buttonText, Image: this._modButtonOptions.image, load: r(async () => {
-        this._mainMenu && await Z(this._mainMenu);
+        this._mainMenu && await E(this._mainMenu);
       }, "load"), run: r(() => {
       }, "run"), click: r(() => {
       }, "click"), exit: r(() => {
       }, "exit") });
     }
   };
-  var U = class t3 extends L {
+  var N = class t3 extends L {
     static {
       __name(this, "t");
     }
@@ -860,17 +878,18 @@
     }
     static isItNewVersion = false;
     static version;
-    static newVersionMessage = "";
+    static newVersionMessage;
+    static showNewVersionMessage;
     static migrators = [];
     static beforeEach;
     static afterEach;
     static beforeAll;
     static afterAll;
     constructor(e) {
-      super(), e ??= {}, t3.newVersionMessage = e.newVersionMessage, e.migrators && (t3.migrators = e.migrators, t3.migrators.sort((n, i) => n.migrationVersion.localeCompare(i.migrationVersion))), t3.beforeEach = e.beforeEach, t3.afterEach = e.afterEach, t3.beforeAll = e.beforeAll, t3.afterAll = e.afterAll;
+      super(), e ??= {}, t3.newVersionMessage = e.newVersionMessage, t3.showNewVersionMessage = e.showNewVersionMessage, e.migrators && (t3.migrators = e.migrators, t3.migrators.sort((n, i) => n.migrationVersion.localeCompare(i.migrationVersion, void 0, { numeric: true }))), t3.beforeEach = e.beforeEach, t3.afterEach = e.afterEach, t3.beforeAll = e.beforeAll, t3.afterAll = e.afterAll;
     }
     load() {
-      t3.version = "1.0.0", t3.checkVersionUpdate(), p.playerStorage.GlobalModule.doShowNewVersionMessage && t3.isItNewVersion && t3.sendNewVersionMessage();
+      t3.version = "1.0.0", t3.checkVersionUpdate(), CommonUnwrapThunk(t3.showNewVersionMessage) && t3.isItNewVersion && t3.sendNewVersionMessage();
     }
     static checkVersionUpdate() {
       let e = t3.loadVersion(), n = t3.version;
@@ -884,19 +903,15 @@
         t3.afterAll?.();
       }
     }
-    static sendNewVersionMessage() {
+    static async sendNewVersionMessage() {
       if (!t3.newVersionMessage) return;
-      let n = FriendListBeepLog.push({ MemberNumber: Player.MemberNumber, MemberName: define_MOD_INFO_default.name, ChatRoomName: g("module.version.version_update"), ChatRoomSpace: "X", Private: false, Sent: false, Time: /* @__PURE__ */ new Date(), Message: t3.newVersionMessage }) - 1, i = g("module.version.new_version_toast_title", { $modName$: define_MOD_INFO_default.name, $modVersion$: t3.version }), o = FriendListBeepLog[n];
-      ServerShowBeep(t3.newVersionMessage, 1e4, { memberNumber: o.MemberNumber, memberName: o.MemberName, chatRoomName: o.ChatRoomName, ...o.Message && { onClick: r(() => {
-        FriendListShowBeep(n);
-      }, "onClick") } }, i);
+      let e = CommonUnwrapThunk(t3.newVersionMessage), n = e instanceof Promise ? await e : e, o = FriendListBeepLog.push({ MemberNumber: Player.MemberNumber, MemberName: define_MOD_INFO_default.name, ChatRoomName: g("module.version.version_update"), ChatRoomSpace: "X", Private: false, Sent: false, Time: /* @__PURE__ */ new Date(), Message: n }) - 1, s = g("module.version.new_version_toast_title", { $modName$: define_MOD_INFO_default.name, $modVersion$: t3.version }), a = FriendListBeepLog[o];
+      ServerShowBeep(n, 1e4, { memberNumber: a.MemberNumber, memberName: a.MemberName, chatRoomName: a.ChatRoomName, ...a.Message && { onClick: r(() => {
+        FriendListShowBeep(o);
+      }, "onClick") } }, s);
     }
     static isNewVersion(e, n) {
-      if (e !== void 0) {
-        let i = e.split("."), o = n.split(".");
-        for (let s = 0; s < 3; s++) if (i[s] !== o[s]) return o[s] > i[s];
-      }
-      return e === void 0 || e === "" || !e;
+      return e !== void 0 && e !== "" ? n.localeCompare(e, void 0, { numeric: true }) > 0 : true;
     }
     static saveVersion() {
       p.playerStorage && (p.playerStorage.Version = t3.version);
@@ -935,66 +950,66 @@
       }, "setSettingValue") }, { type: "checkbox", id: "debug-show-raw-activity-names", label: "Show Raw Activity Names", setElementValue: r(() => this.module.debugSettings.showRawActivityNames, "setElementValue"), setSettingValue: r((e) => {
         this.module.debugSettings.showRawActivityNames = e;
       }, "setSettingValue") }], [{ type: "button", id: "test-deeplib-big-button", options: { label: "Big Button", tooltip: "This is a big button", image: "Icons/Exit.png" }, size: [405, 80], onClick() {
-        G.info("Big Button Clicked");
+        C.info("Big Button Clicked");
       } }, { type: "button", id: "test-deeplib-small-button", options: { tooltip: "This is a small button", image: "Icons/Exit.png" }, size: [90, 90], onClick() {
-        G.info("Small Button Clicked");
+        C.info("Small Button Clicked");
       } }, { type: "checkbox", id: "test-deeplib-checkbox", label: "Checkbox", description: "This is a checkbox", setElementValue() {
         return true;
       }, setSettingValue(e) {
-        G.info("Checkbox value:", e);
+        C.info("Checkbox value:", e);
       } }, { type: "text", id: "test-deeplib-text-input", label: "Input", description: "This is a text input", setElementValue() {
         return "Input Value";
       }, setSettingValue(e) {
-        G.info("Input value:", e);
+        C.info("Input value:", e);
       } }, { type: "number", id: "test-deeplib-number-input", label: "Input", description: "This is a number input", setElementValue() {
         return "123";
       }, setSettingValue(e) {
-        G.info("Input value:", e);
+        C.info("Input value:", e);
       } }, { type: "label", id: "test-deeplib-label", label: "Label", description: "This is a label" }], [{ type: "button", id: "test-deeplib-big-button2", options: { label: "Big Button", tooltip: "This is a big button", image: "Icons/Exit.png" }, size: [405, 80], onClick() {
-        G.info("Big Button Clicked");
+        C.info("Big Button Clicked");
       } }, { type: "button", id: "test-deeplib-small-button2", options: { tooltip: "This is a small button", image: "Icons/Next.png" }, size: [90, 90], onClick() {
-        G.info("Small Button Clicked");
+        C.info("Small Button Clicked");
       } }, { type: "checkbox", id: "test-deeplib-checkbox2", label: "Checkbox", description: "This is a checkbox", setElementValue() {
         return true;
       }, setSettingValue(e) {
-        G.info("Checkbox value:", e);
+        C.info("Checkbox value:", e);
       } }, { type: "text", id: "test-deeplib-text-input2", label: "Input", description: "This is a text input", setElementValue() {
         return "Input Value";
       }, setSettingValue(e) {
-        G.info("Input value:", e);
+        C.info("Input value:", e);
       } }, { type: "number", id: "test-deeplib-number-input2", label: "Input", description: "This is a number input", setElementValue() {
         return "123";
       }, setSettingValue(e) {
-        G.info("Input value:", e);
+        C.info("Input value:", e);
       } }, { type: "label", id: "test-deeplib-label2", label: "Label", description: "This is a label" }, { type: "dropdown", id: "test-deeplib-dropdown", label: "Dropdown", description: "This is a dropdown", optionsList: ["Option 1", "Option 2", "Option 3"], setElementValue() {
         return "Option 2";
       }, setSettingValue(e) {
-        G.info("Dropdown value:", e);
+        C.info("Dropdown value:", e);
       } }]];
     }
     exit() {
       this.module.saveDebugSettings(), super.exit();
     }
   };
-  function be(t8) {
+  function me(t8) {
     return t8 !== null && typeof t8 == "object" && Object.getPrototypeOf(t8) === Object.prototype && !Array.isArray(t8);
   }
-  __name(be, "be");
-  r(be, "isPlainObject");
+  __name(me, "me");
+  r(me, "isPlainObject");
   function f(t8, e, n = { concatArrays: true, matchingOnly: false }) {
     if (t8 === void 0) return e;
     if (e === void 0) return t8;
     if (Array.isArray(t8) && Array.isArray(e) && n.concatArrays) return [...t8, ...e];
-    if (be(t8) && be(e)) {
-      let i = { ...t8 }, o = Object.keys(t8).length === 0, s = n.matchingOnly && !o ? Object.keys(e).filter((l) => l in t8) : Object.keys(e);
-      for (let l of s) l === "__proto__" || l === "constructor" || l === "prototype" || (i[l] = l in t8 ? f(t8[l], e[l], n) : e[l]);
+    if (me(t8) && me(e)) {
+      let i = { ...t8 }, o = Object.keys(t8).length === 0, s = n.matchingOnly && !o ? Object.keys(e).filter((a) => a in t8) : Object.keys(e);
+      for (let a of s) a === "__proto__" || a === "constructor" || a === "prototype" || (i[a] = a in t8 ? f(t8[a], e[a], n) : e[a]);
       return i;
     }
     return e;
   }
   __name(f, "f");
   r(f, "deepMerge");
-  function Yt(t8) {
+  function Kt(t8) {
     let e = JSON.parse(JSON.stringify(t8)), n = [];
     for (; e.length > 0; ) {
       let i = Math.floor(Math.random() * e.length);
@@ -1002,8 +1017,8 @@
     }
     return n;
   }
-  __name(Yt, "Yt");
-  r(Yt, "shuffleArray");
+  __name(Kt, "Kt");
+  r(Kt, "shuffleArray");
   function O(t8, e) {
     let n = t8.split("."), i = globalThis;
     for (let o = 0; o < n.length - 1; o++) i[n[o]] || (i[n[o]] = {}), i = i[n[o]];
@@ -1020,36 +1035,36 @@
   }
   __name(q, "q");
   r(q, "hasGetter");
-  function Ht(t8, e) {
+  function Jt(t8, e) {
     for (; t8 && t8 !== Object.prototype; ) {
       if (Object.getOwnPropertyDescriptor(t8, e)?.set) return true;
       t8 = Object.getPrototypeOf(t8);
     }
     return false;
   }
-  __name(Ht, "Ht");
-  r(Ht, "hasSetter");
-  var me = r((t8) => Math.round(t8 / 100) / 10, "byteToKB");
-  function N(t8, e) {
+  __name(Jt, "Jt");
+  r(Jt, "hasSetter");
+  var he = r((t8) => Math.round(t8 / 100) / 10, "byteToKB");
+  function X(t8, e) {
     try {
       return { ok: true, value: t8() };
     } catch (n) {
       return { ok: false, error: e ? e(n) : n };
     }
   }
-  __name(N, "N");
-  r(N, "tryCatch");
-  async function ge(t8, e) {
+  __name(X, "X");
+  r(X, "tryCatch");
+  async function pe(t8, e) {
     try {
       return { ok: true, value: await t8() };
     } catch (n) {
       return { ok: false, error: e ? e(n) : n };
     }
   }
-  __name(ge, "ge");
-  r(ge, "tryCatchAsync");
-  var u = { createButton: Ee, createCheckbox: Me, createInput: Re, createLabel: Ae, createCustom: Ve, createDropdown: We, createTooltip: De, getTooltip: he, setTooltip: ee, createBackNext: Xe };
-  function Ee(t8) {
+  __name(pe, "pe");
+  r(pe, "tryCatchAsync");
+  var u = { createButton: Me, createCheckbox: Ve, createInput: Ae, createLabel: We, createCustom: Re, createDropdown: De, createTooltip: Xe, getTooltip: fe, setTooltip: ee, createBackNext: Ne };
+  function Me(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(t8.id);
     if (e) return e;
@@ -1060,9 +1075,9 @@
     }), f({ labelPosition: "center" }, t8.options), f({ button: { classList: ["deeplib-button"], attributes: { disabled: i }, children: [n ? f({ tag: "img", attributes: { id: `${t8.id}-image`, alt: "", decoding: "async", loading: "lazy", src: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }, style: { "--image": `url("${n}")` } }, t8.htmlOptions?.img) : void 0] } }, t8.htmlOptions ?? {}));
     return I.currentElements.push([o, t8]), o;
   }
-  __name(Ee, "Ee");
-  r(Ee, "elementCreateButton");
-  function Me(t8) {
+  __name(Me, "Me");
+  r(Me, "elementCreateButton");
+  function Ve(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(t8.id);
     if (e) return e;
@@ -1076,9 +1091,9 @@
       P.call(this, o);
     })), I.currentElements.push([i, t8]), i;
   }
-  __name(Me, "Me");
-  r(Me, "elementCreateCheckbox");
-  function Ve(t8) {
+  __name(Ve, "Ve");
+  r(Ve, "elementCreateCheckbox");
+  function Re(t8) {
     t8.id ??= ElementGenerateID(), t8.htmlOptions.attributes ??= {}, t8.htmlOptions.attributes.id ??= t8.id;
     let e = document.getElementById(t8.htmlOptions.attributes.id);
     if (e) return e;
@@ -1086,9 +1101,9 @@
     let n = ElementCreate(t8.htmlOptions);
     return I.currentElements.push([n, t8]), n;
   }
-  __name(Ve, "Ve");
-  r(Ve, "elementCreateCustom");
-  function Re(t8) {
+  __name(Re, "Re");
+  r(Re, "elementCreateCustom");
+  function Ae(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(t8.id);
     if (e) return e;
@@ -1101,9 +1116,9 @@
       P.call(this, o);
     })), I.currentElements.push([i, t8]), i;
   }
-  __name(Re, "Re");
-  r(Re, "elementCreateInput");
-  function Ae(t8) {
+  __name(Ae, "Ae");
+  r(Ae, "elementCreateInput");
+  function We(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(t8.id);
     if (e) return e;
@@ -1115,9 +1130,9 @@
       P.call(this, i);
     })), I.currentElements.push([n, t8]), n;
   }
-  __name(Ae, "Ae");
-  r(Ae, "elementCreateLabel");
-  function We(t8) {
+  __name(We, "We");
+  r(We, "elementCreateLabel");
+  function De(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(`${t8.id}-container`);
     if (e) return e;
@@ -1131,26 +1146,26 @@
     }, "mouseout") } }, label: { classList: ["deeplib-text"], attributes: { id: `${t8.id}-label` } } }, t8.htmlOptions));
     return I.currentElements.push([n, t8]), n;
   }
-  __name(We, "We");
-  r(We, "elementCreateDropdown");
-  function De() {
+  __name(De, "De");
+  r(De, "elementCreateDropdown");
+  function Xe() {
     return ElementCreate({ tag: "div", classList: ["deeplib-tooltip", "anchor-bottom"], attributes: { id: "deeplib-tooltip" }, style: { display: "none" } });
   }
-  __name(De, "De");
-  r(De, "elementCreateTooltip");
-  function he() {
+  __name(Xe, "Xe");
+  r(Xe, "elementCreateTooltip");
+  function fe() {
     return document.getElementById("deeplib-tooltip") ?? void 0;
   }
-  __name(he, "he");
-  r(he, "elementGetTooltip");
+  __name(fe, "fe");
+  r(fe, "elementGetTooltip");
   function z(t8, e) {
     let n = this.getBoundingClientRect();
     ee(e, "bottom");
-    let i = he();
+    let i = fe();
     if (i) {
       i.offsetHeight;
       let o = i.getBoundingClientRect();
-      (S.doRectsOverlap(n, o) ? "top" : "bottom") === "top" && fe("top");
+      (S.doRectsOverlap(n, o) ? "top" : "bottom") === "top" && ve("top");
     }
   }
   __name(z, "z");
@@ -1163,35 +1178,35 @@
   function ee(t8, e = "bottom") {
     let n = document.getElementById("deeplib-tooltip");
     if (!n) return false;
-    fe(e);
+    ve(e);
     let i = t8 == null ? null : CommonIsObject(t8) && "tag" in t8 ? [ElementCreate(t8)] : CommonIsArray(t8) ? t8.map((o) => CommonIsObject(o) && "tag" in o ? ElementCreate(o) : typeof o == "string" || CommonIsObject(t8) && "tag" in t8 || o instanceof HTMLElement ? o : null).filter((o) => o !== null) : typeof t8 == "string" ? [t8] : null;
     return i === null ? (n.childNodes.forEach((o) => o.remove()), n.style.display = "none", true) : (n.replaceChildren(...i), n.style.display = "", true);
   }
   __name(ee, "ee");
   r(ee, "elementSetTooltip");
-  function fe(t8) {
+  function ve(t8) {
     let e = document.getElementById("deeplib-tooltip");
     if (!e) return false;
     e.classList.toggle("anchor-bottom", t8 === "bottom"), e.classList.toggle("anchor-top", t8 === "top");
   }
-  __name(fe, "fe");
-  r(fe, "elementSetTooltipPosition");
-  function Xe(t8) {
+  __name(ve, "ve");
+  r(ve, "elementSetTooltipPosition");
+  function Ne(t8) {
     t8.id ??= ElementGenerateID();
     let e = document.getElementById(t8.id);
     if (e) return e;
-    let n = r((l) => {
+    let n = r((a) => {
       let c = document.getElementById(`${t8.id}-label`);
       if (!c) return false;
-      c.textContent = l;
-    }, "setLabel"), i = r((l) => {
+      c.textContent = a;
+    }, "setLabel"), i = r((a) => {
       let c = document.getElementById(`deeplib-prev-next-${t8.id}-prev-button-tooltip`);
       if (!c) return false;
-      c.textContent = l;
-    }, "setPrevTooltip"), o = r((l) => {
+      c.textContent = a;
+    }, "setPrevTooltip"), o = r((a) => {
       let c = document.getElementById(`deeplib-prev-next-${t8.id}-next-button-tooltip`);
       if (!c) return false;
-      c.textContent = l;
+      c.textContent = a;
     }, "setNextTooltip");
     return ElementCreate({ tag: "div", classList: ["deeplib-prev-next"], attributes: { id: t8.id }, children: [u.createButton({ id: `deeplib-prev-next-${t8.id}-prev-button`, onClick: r(() => {
       t8.back({ setLabel: n, setBackTooltip: i, setNextTooltip: o });
@@ -1199,9 +1214,9 @@
       t8.next({ setLabel: n, setBackTooltip: i, setNextTooltip: o });
     }, "onClick"), htmlOptions: { button: { classList: ["deeplib-prev-next-button"] } }, options: { noStyling: true, image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/arrow_right.svg`, tooltip: t8.initialNextTooltip } })] });
   }
-  __name(Xe, "Xe");
-  r(Xe, "elementPrevNext");
-  var R = class t4 extends I {
+  __name(Ne, "Ne");
+  r(Ne, "elementPrevNext");
+  var A = class t4 extends I {
     static {
       __name(this, "t");
     }
@@ -1215,7 +1230,7 @@
       super(e), this.subscreens = e.subscreens;
     }
     load() {
-      if (!k.instance || CurrentModule !== "DeepLibMod") {
+      if (!M.instance || CurrentModule !== "DeepLibMod") {
         this.setSubscreen(this);
         return;
       }
@@ -1257,12 +1272,12 @@
         b.appendToMiscDiv(o);
       }
       if (t4.options.storageFullnessIndicator) {
-        let s = me(p.storageSize()), l = (s / 180 * 100).toFixed(1), c = u.createButton({ id: CommonGenerateUniqueID(), size: [null, 80], options: { tooltipPosition: "left", noStyling: true, tooltip: g("mainmenu.meter.storage_hint", { $percentage$: l }), label: g("mainmenu.meter.storage_label", { $currentCapacity$: s, $maxCapacity$: 180 }) }, htmlOptions: { button: { children: [{ tag: "div", attributes: { id: "deeplib-storage-meter" }, children: [{ tag: "div", attributes: { id: "deeplib-storage-bar" }, style: { width: `${l}%` } }] }] } } });
+        let s = he(p.storageSize()), a = (s / 180 * 100).toFixed(1), c = u.createButton({ id: CommonGenerateUniqueID(), size: [null, 80], options: { tooltipPosition: "left", noStyling: true, tooltip: g("mainmenu.meter.storage_hint", { $percentage$: a }), label: g("mainmenu.meter.storage_label", { $currentCapacity$: s, $maxCapacity$: 180 }) }, htmlOptions: { button: { children: [{ tag: "div", attributes: { id: "deeplib-storage-meter" }, children: [{ tag: "div", attributes: { id: "deeplib-storage-bar" }, style: { width: `${a}%` } }] }] } } });
         b.appendToMiscDiv(c);
       }
-      if (C("DebugModule")) {
+      if (B("DebugModule")) {
         let o = u.createButton({ id: "deeplib-debug-button", onClick: r(() => {
-          this.setSubscreen(new j(C("DebugModule")));
+          this.setSubscreen(new j(B("DebugModule")));
         }, "onClick"), size: [90, 90], options: { image: `${"https://protokink.github.io/Cats-BC/public"}/dl_images/bug.svg` } });
         n && n.prepend(o);
       }
@@ -1275,7 +1290,7 @@
     exit() {
       CharacterAppearanceForceUpCharacter = -1, CharacterLoadCanvas(Player);
       let e = typeof this.options.returnScreen == "function" ? this.options.returnScreen() : this.options.returnScreen;
-      e ? e instanceof I ? Z(e).then(() => {
+      e ? e instanceof I ? E(e).then(() => {
       }) : Array.isArray(e) && CommonSetScreen(...e) : PreferenceOpenSubscreen("Extensions").then(() => {
         PreferenceSubscreenExtensionsClear();
       });
@@ -1287,7 +1302,7 @@
       t4.options = e;
     }
   };
-  var A = class t5 {
+  var F = class t5 {
     static {
       __name(this, "t");
     }
@@ -1320,6 +1335,9 @@
         t5.ModTranslation = { ...s, ...o };
       }
     }
+    static unload() {
+      t5.initialized = false, t5.LibTranslation = {}, t5.ModTranslation = {}, t5.PathToModTranslation = void 0, t5.PathToLibTranslation = `${"https://protokink.github.io/Cats-BC/public"}/dl_translations/`, t5.DefaultLanguage = "en", t5.FetchFolder = false;
+    }
     static getTextMod(e) {
       return t5.ModTranslation?.[e] || void 0;
     }
@@ -1328,13 +1346,13 @@
     }
     static async fetchTranslation(e, n, i = false) {
       if (i) {
-        let l = `${e}${n}/`, c = await this.fetchLanguageFolder(l);
+        let a = `${e}${n}/`, c = await this.fetchLanguageFolder(a);
         if (Object.keys(c).length > 0) return c;
       }
       let o = `${e}${n}.lang`, s = await t5.fetchLanguageFile(o);
       if (n !== t5.DefaultLanguage && !s) {
-        let l = `${e}${t5.DefaultLanguage}.lang`;
-        return await this.fetchLanguageFile(l) || {};
+        let a = `${e}${t5.DefaultLanguage}.lang`;
+        return await this.fetchLanguageFile(a) || {};
       }
       return s || {};
     }
@@ -1345,17 +1363,17 @@
       return this.parseTranslation(i);
     }
     static async fetchLanguageFolder(e) {
-      let n = {}, i = "manifest.txt", o = null, s = await fetch(`${e}${i}`).catch((l) => (m.error("Failed to fetch language folder manifest:", l), new Response(null, { status: 500 })));
+      let n = {}, i = "manifest.txt", o = null, s = await fetch(`${e}${i}`).catch((a) => (m.error("Failed to fetch language folder manifest:", a), new Response(null, { status: 500 })));
       if (s.ok && (o = (await s.text()).trim().split(`
 `).map((c) => c.trim()).filter((c) => c && !c.startsWith("#"))), o && o.length > 0) {
-        let l = o.map(async (d) => {
+        let a = o.map(async (d) => {
           try {
-            let a = await t5.fetchLanguageFile(`${e}${d}`);
-            if (a) return a;
+            let l = await t5.fetchLanguageFile(`${e}${d}`);
+            if (l) return l;
           } catch {
           }
           return {};
-        }), c = await Promise.all(l);
+        }), c = await Promise.all(a);
         for (let d of c) Object.assign(n, d);
         if (Object.keys(n).length > 0) return n;
       }
@@ -1367,21 +1385,21 @@
       for (let o of i) {
         let s = o.trim();
         if (!s || s.startsWith("#")) continue;
-        let [l, ...c] = s.split("=");
-        n[l.trim()] = c.join("=").trim();
+        let [a, ...c] = s.split("=");
+        n[a.trim()] = c.join("=").trim();
       }
       return n;
     }
   };
   var g = r((t8, e) => {
-    let n = A.getTextMod(t8) || A.getTextLib(t8) || t8;
+    let n = F.getTextMod(t8) || F.getTextLib(t8) || t8;
     if (e) {
       let i = Object.fromEntries(Object.entries(e).map(([o, s]) => [o, s.toString()]));
       return CommonStringPartitionReplace(n, i).join("");
     }
     return n;
   }, "getText");
-  var D = class t6 {
+  var W = class t6 {
     static {
       __name(this, "t");
     }
@@ -1447,7 +1465,7 @@
           s.shiftKey ? document.activeElement === i && (o.focus(), s.preventDefault()) : document.activeElement === o && (i.focus(), s.preventDefault());
         } else if (s.key === "Escape") s.stopPropagation(), this.close(this.opts.escapeAction ?? "close");
         else if (s.key === "Enter") {
-          if (n.some((l) => l === document.activeElement) && document.activeElement !== this.inputEl) return;
+          if (n.some((a) => a === document.activeElement) && document.activeElement !== this.inputEl) return;
           s.preventDefault(), s.stopPropagation(), this.close(this.opts.enterAction ?? "submit");
         }
       }), window.requestAnimationFrame(() => {
@@ -1469,9 +1487,9 @@
       e ? (t6.processing = true, e.dialog.show()) : t6.processing = false;
     }
   };
-  var ve = class extends I {
+  var Ie = class extends I {
     static {
-      __name(this, "ve");
+      __name(this, "Ie");
     }
     static {
       r(this, "GuiImportExport");
@@ -1505,7 +1523,7 @@
     }
     async dataExport(e) {
       try {
-        let n = await this.getSelectedModules(x(), "export");
+        let n = await this.getSelectedModules(y(), "export");
         if (!n) return;
         if (n.length === 0) {
           ToastManager.error("No modules selected for export.");
@@ -1540,11 +1558,11 @@
         throw new Error(`File save cancelled or failed: ${s}`, { cause: o });
       }
       else {
-        let o = await D.prompt("Enter file name", { defaultValue: n });
+        let o = await W.prompt("Enter file name", { defaultValue: n });
         if (o === null) return false;
         if (o === "") throw new Error("File name cannot be empty.");
-        let s = new Blob([e], { type: "text/plain" }), l = ElementCreate({ tag: "a", attributes: { href: URL.createObjectURL(s), download: o + i } });
-        return l.click(), URL.revokeObjectURL(l.href), true;
+        let s = new Blob([e], { type: "text/plain" }), a = ElementCreate({ tag: "a", attributes: { href: URL.createObjectURL(s), download: o + i } });
+        return a.click(), URL.revokeObjectURL(a.href), true;
       }
     }
     async importFromFile() {
@@ -1552,8 +1570,8 @@
       async function n(i) {
         if (!i.name.endsWith(e)) throw new Error(`Invalid file type. Expected a ${e} file.`);
         return new Promise((o, s) => {
-          let l = new FileReader();
-          l.onload = () => o(l.result), l.onerror = () => s(new Error("Failed to read file.")), l.readAsText(i);
+          let a = new FileReader();
+          a.onload = () => o(a.result), a.onerror = () => s(new Error("Failed to read file.")), a.readAsText(i);
         });
       }
       __name(n, "n");
@@ -1566,8 +1584,8 @@
       }
       else return new Promise((i, o) => {
         let s = document.createElement("input");
-        s.type = "file", s.accept = e, s.onchange = async (l) => {
-          let c = l.target.files?.[0];
+        s.type = "file", s.accept = e, s.onchange = async (a) => {
+          let c = a.target.files?.[0];
           if (c) try {
             let d = await n(c);
             i(d);
@@ -1585,17 +1603,17 @@
       });
     }
     async importFromClipboard() {
-      return D.prompt("Enter data to import").catch((e) => {
+      return W.prompt("Enter data to import").catch((e) => {
         let n = e instanceof Error ? e.message : String(e);
         throw new Error(`Failed to read data from clipboard: ${n}`, { cause: e });
       });
     }
     async getSelectedModules(e, n) {
-      let i = e.filter((a) => q(a, "settings") && !!a.settings), o = Object.fromEntries(i.map((a) => [a.constructor.name, true]));
+      let i = e.filter((l) => q(l, "settings") && !!l.settings), o = Object.fromEntries(i.map((l) => [l.constructor.name, true]));
       if (i.length === 0) throw new Error("No modules to choose from.");
-      let s = i.map((a) => u.createCheckbox({ id: a.constructor.name, label: g(a.constructor.name), setElementValue: r(() => o[a.constructor.name], "setElementValue"), setSettingValue: r((h) => o[a.constructor.name] = h, "setSettingValue") })), l = n === "import" ? "import_export.import.select_modules" : "import_export.export.select_modules";
-      if (!await D.confirm([g(l), ElementCreate({ tag: "br" }), g("import_export.text.not_sure"), { tag: "div", classList: ["deeplib-modal-checkbox-container"], children: s }], { modalId: "deeplib-modal-import_export" })) return null;
-      let d = Object.entries(o).filter(([a, h]) => h).map(([a]) => C(a)).filter((a) => !!a);
+      let s = i.map((l) => u.createCheckbox({ id: l.constructor.name, label: g(l.constructor.name), setElementValue: r(() => o[l.constructor.name], "setElementValue"), setSettingValue: r((h) => o[l.constructor.name] = h, "setSettingValue") })), a = n === "import" ? "import_export.import.select_modules" : "import_export.export.select_modules";
+      if (!await W.confirm([g(a), ElementCreate({ tag: "br" }), g("import_export.text.not_sure"), { tag: "div", classList: ["deeplib-modal-checkbox-container"], children: s }], { modalId: "deeplib-modal-import_export" })) return null;
+      let d = Object.entries(o).filter(([l, h]) => h).map(([l]) => B(l)).filter((l) => !!l);
       if (d.length === 0) throw new Error("No modules selected.");
       return d;
     }
@@ -1607,19 +1625,19 @@
     async applyImportPayload(e) {
       let n = JSON.parse(LZString.decompressFromBase64(e) ?? "");
       if (!n) throw new Error("Invalid import format.");
-      let i = Object.keys(n).map((s) => C(s)).filter((s) => !!s), o = await this.getSelectedModules(i, "import");
+      let i = Object.keys(n).map((s) => B(s)).filter((s) => !!s), o = await this.getSelectedModules(i, "import");
       if (!o) return false;
       if (o.length === 0) throw new Error("No modules selected.");
       for (let s of o) {
-        let l = n[s.constructor.name];
-        if (!l) continue;
-        let c = f(s.defaultSettings, l);
+        let a = n[s.constructor.name];
+        if (!a) continue;
+        let c = f(s.defaultSettings, a);
         c && (s.settings = c);
       }
       return true;
     }
   };
-  var Y = class t7 {
+  var Q = class t7 {
     static {
       __name(this, "t");
     }
@@ -1683,8 +1701,8 @@
       }
     }
   };
-  var S = { autoSetPosition: Ne, autoSetSize: Ue, hide: Qe, unhide: Ye, hasOverflow: He, doRectsOverlap: je };
-  function Ne(t8, e) {
+  var S = { autoSetPosition: Ue, autoSetSize: Qe, hide: Ye, unhide: He, hasOverflow: je, doRectsOverlap: ze };
+  function Ue(t8, e) {
     let n, i, o;
     if (Array.isArray(e)) n = e[0], i = e[1], o = e[2];
     else if (typeof e == "function") {
@@ -1693,9 +1711,9 @@
     }
     n !== void 0 && i !== void 0 && ElementSetPosition(t8, n, i, o);
   }
-  __name(Ne, "Ne");
-  r(Ne, "autoSetPosition");
-  function Ue(t8, e) {
+  __name(Ue, "Ue");
+  r(Ue, "autoSetPosition");
+  function Qe(t8, e) {
     let n, i;
     if (Array.isArray(e)) n = e[0], i = e[1];
     else if (typeof e == "function") {
@@ -1704,34 +1722,34 @@
     }
     n !== void 0 && i !== void 0 && ElementSetSize(t8, n, i);
   }
-  __name(Ue, "Ue");
-  r(Ue, "autoSetSize");
-  function Qe(t8) {
+  __name(Qe, "Qe");
+  r(Qe, "autoSetSize");
+  function Ye(t8) {
     let e = ElementWrap(t8);
     e && (e.style.display = "none");
   }
-  __name(Qe, "Qe");
-  r(Qe, "hide");
-  function Ye(t8) {
+  __name(Ye, "Ye");
+  r(Ye, "hide");
+  function He(t8) {
     let e = ElementWrap(t8);
     e && (e.style.display = "");
   }
-  __name(Ye, "Ye");
-  r(Ye, "unhide");
-  function He(t8) {
+  __name(He, "He");
+  r(He, "unhide");
+  function je(t8) {
     let e = ElementWrap(t8);
     if (!e) return null;
     let n = e.scrollHeight > e.clientHeight, i = e.scrollWidth > e.clientWidth;
     return { any: n || i, vertical: n, horizontal: i };
   }
-  __name(He, "He");
-  r(He, "hasOverflow");
-  function je(t8, e) {
+  __name(je, "je");
+  r(je, "hasOverflow");
+  function ze(t8, e) {
     return !(t8.right < e.left || t8.left > e.right || t8.bottom < e.top || t8.top > e.bottom);
   }
-  __name(je, "je");
-  r(je, "doRectsOverlap");
-  var b = { getSubscreen: te, appendToSubscreen: Pe, removeSubscreen: ze, getSettingsDiv: ne, appendToSettingsDiv: Ke, removeSettingsDiv: Je, getMiscDiv: ie, appendToMiscDiv: $e, removeMiscDiv: _e };
+  __name(ze, "ze");
+  r(ze, "doRectsOverlap");
+  var b = { getSubscreen: te, appendToSubscreen: Ke, removeSubscreen: Pe, getSettingsDiv: ne, appendToSettingsDiv: Je, removeSettingsDiv: $e, getMiscDiv: ie, appendToMiscDiv: _e, removeMiscDiv: qe };
   function te() {
     let t8 = ElementWrap("deeplib-subscreen");
     if (t8) return t8;
@@ -1740,81 +1758,81 @@
   }
   __name(te, "te");
   r(te, "elementGetSubscreenDiv");
-  function ze() {
+  function Pe() {
     return te()?.remove();
   }
-  __name(ze, "ze");
-  r(ze, "elementRemoveSubscreenDiv");
-  function Pe(...t8) {
+  __name(Pe, "Pe");
+  r(Pe, "elementRemoveSubscreenDiv");
+  function Ke(...t8) {
     return te()?.append(...t8);
   }
-  __name(Pe, "Pe");
-  r(Pe, "elementAppendToSubscreenDiv");
+  __name(Ke, "Ke");
+  r(Ke, "elementAppendToSubscreenDiv");
   function ne() {
     let t8 = ElementWrap("deeplib-settings");
     return t8 || ElementCreate({ tag: "div", classList: ["deeplib-settings", "scroll-box"], attributes: { id: "deeplib-settings" } });
   }
   __name(ne, "ne");
   r(ne, "elementGetSettingsDiv");
-  function Ke(...t8) {
+  function Je(...t8) {
     return ne()?.append(...t8);
   }
-  __name(Ke, "Ke");
-  r(Ke, "elementAppendToSettingsDiv");
-  function Je() {
+  __name(Je, "Je");
+  r(Je, "elementAppendToSettingsDiv");
+  function $e() {
     return ne()?.remove();
   }
-  __name(Je, "Je");
-  r(Je, "elementRemoveSettingsDiv");
+  __name($e, "$e");
+  r($e, "elementRemoveSettingsDiv");
   function ie() {
     let t8 = ElementWrap("deeplib-misc");
     return t8 || ElementCreate({ tag: "div", classList: ["deeplib-misc"], attributes: { id: "deeplib-misc" } });
   }
   __name(ie, "ie");
   r(ie, "elementGetMiscDiv");
-  function $e(...t8) {
+  function _e(...t8) {
     return ie()?.append(...t8);
   }
-  __name($e, "$e");
-  r($e, "elementAppendToMiscDiv");
-  function _e() {
+  __name(_e, "_e");
+  r(_e, "elementAppendToMiscDiv");
+  function qe() {
     return ie()?.remove();
   }
-  __name(_e, "_e");
-  r(_e, "elementRemoveMiscDiv");
+  __name(qe, "qe");
+  r(qe, "elementRemoveMiscDiv");
   var K = oe($(), 1);
-  function qe(t8) {
+  function et(t8) {
     let e = t8.name;
     return { INFO: "color: #32CCCC", TRACE: "color: #CCCC32", WARN: "color: #eec355", ERROR: "color: #750b0b", DEBUG: "color: #9E4BCF", TIME: "color: #CCCC32" }[e];
   }
-  __name(qe, "qe");
-  r(qe, "colorizeLog");
-  var G = K.default.get("DeepLib");
+  __name(et, "et");
+  r(et, "colorizeLog");
+  var C = K.default.get("DeepLib");
   K.default.useDefaults({ defaultLevel: K.default.DEBUG, formatter: r(function(t8, e) {
     let n = e.name || "DeepLib", i = navigator.userAgent.toLowerCase();
     if (i.includes("chrome") || i.includes("firefox")) {
-      let o = qe(e.level);
+      let o = et(e.level);
       t8.unshift(`%c${n}:`, o);
     } else t8.unshift(`${n}:`);
   }, "formatter") });
-  function Zn(t8, e, n) {
+  function Rn(t8, e, n) {
     let i = ElementCreate({ tag: "div", classList: ["ChatMessage", "deeplib-message", "ChatMessageNonDialogue"], attributes: { id: t8 ?? `DEEPLIB_LOCAL_MESSAGE_${Date.now()}`, "data-time": ChatRoomCurrentTime(), "data-sender": Player.MemberNumber?.toString() }, children: [{ tag: "span", classList: ["deeplib-text"], innerHTML: e.replaceAll(`
 	`, "") }, { tag: "br" }, { tag: "a", classList: ["deeplib-text"], attributes: { href: "#" }, innerHTML: "<b>Close (Click)</b>", eventListeners: { click: r(() => {
       i.remove();
     }, "click") } }] });
     ChatRoomAppendChat(i), n && setTimeout(() => i.remove(), n * 1e3);
   }
-  __name(Zn, "Zn");
-  r(Zn, "sendLocalMessage");
-  function kn(t8, e = void 0, n = []) {
+  __name(Rn, "Rn");
+  r(Rn, "sendLocalMessage");
+  function An(t8, e = void 0, n = []) {
     t8 && ServerSend("ChatRoomChat", { Content: "DEEPLIB_CUSTOM_ACTION", Type: "Action", Target: e ?? void 0, Dictionary: [{ Tag: 'MISSING TEXT IN "Interface.csv": DEEPLIB_CUSTOM_ACTION', Text: t8 }, ...n] });
   }
-  __name(kn, "kn");
-  r(kn, "sendActionMessage");
-  var E = { Observe: 0, AddBehavior: 1, ModifyBehavior: 5, OverrideBehavior: 10, Top: 100 };
-  var W = class {
+  __name(An, "An");
+  r(An, "sendActionMessage");
+  var k = { Observe: 0, AddBehavior: 1, ModifyBehavior: 5, OverrideBehavior: 10, Top: 100 };
+  var Y = class {
     static {
-      __name(this, "W");
+      __name(this, "Y");
     }
     static {
       r(this, "ModSdkManager");
@@ -1824,15 +1842,11 @@
     constructor(e, n) {
       this.SDK = bcModSdk.registerMod(e, n);
     }
-    initPatchableFunction(e) {
-      let n = this.patchedFunctions.get(e);
-      return n || (n = { name: e, hooks: [] }, this.patchedFunctions.set(e, n)), n;
-    }
     hookFunction(e, n, i, o = null) {
-      let s = this.initPatchableFunction(e);
-      if (s.hooks.some((c) => c.hook === i)) return () => null;
-      let l = this.SDK.hookFunction(e, n, i);
-      return s.hooks.push({ hook: i, priority: n, module: o, removeCallback: l }), s.hooks.sort((c, d) => d.priority - c.priority), l;
+      let s = this.initPatchableFunction(e), a = s.hooks.find((d) => d.hook === i);
+      if (a) return console.warn(`Hook already exists for function ${e}:`, i.toString()), a.removeCallback;
+      let c = this.SDK.hookFunction(e, n, i);
+      return s.hooks.push({ hook: i, priority: n, module: o, removeCallback: c }), c;
     }
     patchFunction(e, n) {
       this.SDK.patchFunction(e, n);
@@ -1841,16 +1855,26 @@
       this.SDK.removePatches(e);
     }
     removeHookByModule(e, n) {
-      let i = this.initPatchableFunction(e);
-      for (let o = i.hooks.length - 1; o >= 0; o--) i.hooks[o].module === n && (i.hooks[o].removeCallback(), i.hooks.splice(o, 1));
-      return true;
+      let i = this.patchedFunctions.get(e);
+      if (!i) return false;
+      let o = false;
+      for (let s = i.hooks.length - 1; s >= 0; s--) i.hooks[s].module === n && (i.hooks[s].removeCallback(), i.hooks.splice(s, 1), o = true);
+      return i.hooks.length === 0 && this.patchedFunctions.delete(e), o;
     }
     removeAllHooksByModule(e) {
-      for (let n of this.patchedFunctions.values()) for (let i = n.hooks.length - 1; i >= 0; i--) n.hooks[i].module === e && (n.hooks[i].removeCallback(), n.hooks.splice(i, 1));
-      return true;
+      let n = false;
+      for (let i of this.patchedFunctions.values()) {
+        for (let o = i.hooks.length - 1; o >= 0; o--) i.hooks[o].module === e && (i.hooks[o].removeCallback(), i.hooks.splice(o, 1), n = true);
+        i.hooks.length === 0 && this.patchedFunctions.delete(i.name);
+      }
+      return n;
     }
     unload() {
-      this.SDK.unload();
+      this.SDK.unload(), this.patchedFunctions.clear();
+    }
+    initPatchableFunction(e) {
+      let n = this.patchedFunctions.get(e);
+      return n || (n = { name: e, hooks: [] }, this.patchedFunctions.set(e, n)), n;
     }
   };
   var H = { injectInline(t8, e) {
@@ -1869,16 +1893,16 @@
   }, async fetch(t8) {
     return fetch(t8).then((e) => e.text()).catch((e) => (m.error("Failed to fetch stylesheet:", e), ""));
   } };
-  var Ie = class {
+  var xe = class {
     static {
-      __name(this, "Ie");
+      __name(this, "xe");
     }
     constructor(e) {
       this.channelName = e;
-      w.hookFunction("ChatRoomMessageProcessHidden", 0, (n, i) => {
+      this.removeHook = G.hookFunction("ChatRoomMessageProcessHidden", 0, (n, i) => {
         if (!this.isChannelMessage(n[0])) return i(n);
-        let [o, s] = n, { type: l, data: c } = o.Dictionary[0], d = this.listeners[l];
-        return d && d.forEach((a) => a(c, s)), i(n);
+        let [o, s] = n, { type: a, data: c } = o.Dictionary[0], d = this.listeners[a];
+        return d && d.forEach((l) => l(c, s)), i(n);
       }, `EventChannel-${e}`);
     }
     channelName;
@@ -1886,8 +1910,9 @@
       r(this, "EventChannel");
     }
     listeners = {};
+    removeHook;
     unload() {
-      Object.keys(this.listeners).forEach((e) => delete this.listeners[e]), W.prototype.removeHookByModule("ChatRoomMessageProcessHidden", `EventChannel-${this.channelName}`);
+      Object.keys(this.listeners).forEach((e) => delete this.listeners[e]), this.removeHook();
     }
     sendEvent(e, n, i = null) {
       let o = { Type: "Hidden", Content: this.channelName, Sender: Player.MemberNumber, ...i ? { Target: i } : {}, Dictionary: [{ type: e, data: n }] };
@@ -1905,7 +1930,7 @@
       }
     }
     isChannelMessage(e) {
-      return e && e.Type === "Hidden" && e.Content === this.channelName && e.Sender && e.Sender !== Player.MemberNumber && e.Dictionary && !!e.Dictionary[0]?.data && !!e.Dictionary[0]?.type || false;
+      return e && e.Type === "Hidden" && e.Content === this.channelName && e.Sender && e.Sender !== Player.MemberNumber && e.Dictionary && e.Dictionary[0]?.data !== void 0 && e.Dictionary[0]?.type !== void 0 || false;
     }
   };
 
@@ -1915,7 +1940,7 @@
       __name(this, "CommandsModule");
     }
     get settings() {
-      return C("GlobalModule").settings;
+      return B("GlobalModule").settings;
     }
     load() {
       CommandCombine({
@@ -1945,7 +1970,7 @@
             Description: "Open the CATS settings",
             Action: /* @__PURE__ */ __name(async () => {
               ChatRoomOpenInformationScreen();
-              await Z("mainmenu");
+              await E("mainmenu");
             }, "Action")
           }
         ]
@@ -2271,6 +2296,26 @@ ${res.status} ${res.statusText}`
         }, "setSettingValue")
       });
       b.appendToSettingsDiv(incomingAutoTranslateCheckbox);
+      const showTranslateButtonCheckbox = u.createCheckbox({
+        id: "cats-show-translate-button",
+        label: g("global.showTranslateButton"),
+        setElementValue: /* @__PURE__ */ __name(() => this.settings.showTranslateButton, "setElementValue"),
+        setSettingValue: /* @__PURE__ */ __name((val) => {
+          this.settings.showTranslateButton = val;
+          syncTranslateButtonVisibility(val);
+        }, "setSettingValue")
+      });
+      b.appendToSettingsDiv(showTranslateButtonCheckbox);
+      const prettifyOnTranslateCheckbox = u.createCheckbox({
+        id: "cats-prettify-on-translate",
+        label: g("global.prettifyOnTranslate"),
+        setElementValue: /* @__PURE__ */ __name(() => this.settings.prettifyOnTranslate, "setElementValue"),
+        setSettingValue: /* @__PURE__ */ __name((val) => {
+          this.settings.prettifyOnTranslate = val;
+          syncEmojiBackgroundVisibility(val);
+        }, "setSettingValue")
+      });
+      b.appendToSettingsDiv(prettifyOnTranslateCheckbox);
     }
   };
 
@@ -2311,38 +2356,38 @@ ${res.status} ${res.statusText}`
         Math.max(1, Math.floor(containerArea / emojiArea * packingFactor))
       );
       const placed = [];
-      const isValid = /* @__PURE__ */ __name((x2, y) => {
+      const isValid = /* @__PURE__ */ __name((x, y2) => {
         for (const neighbor of placed) {
-          const dx = neighbor.x - x2;
-          const dy = neighbor.y - y;
+          const dx = neighbor.x - x;
+          const dy = neighbor.y - y2;
           if (Math.sqrt(dx * dx + dy * dy) < minDistancePx) {
             return false;
           }
         }
         return true;
       }, "isValid");
-      const addPoint = /* @__PURE__ */ __name((x2, y) => {
-        placed.push({ x: x2, y });
+      const addPoint = /* @__PURE__ */ __name((x, y2) => {
+        placed.push({ x, y: y2 });
       }, "addPoint");
       const placedCountTarget = Math.max(1, emojiCount);
       const maxAttempts = placedCountTarget * 120;
       let attempts = 0;
       while (placed.length < placedCountTarget && attempts < maxAttempts) {
         attempts += 1;
-        const x2 = radiusPx + Math.random() * (width - 2 * radiusPx);
-        const y = radiusPx + Math.random() * (height - 2 * radiusPx);
-        if (!isValid(x2, y)) continue;
-        addPoint(x2, y);
+        const x = radiusPx + Math.random() * (width - 2 * radiusPx);
+        const y2 = radiusPx + Math.random() * (height - 2 * radiusPx);
+        if (!isValid(x, y2)) continue;
+        addPoint(x, y2);
       }
-      placed.forEach(({ x: x2, y }) => {
+      placed.forEach(({ x, y: y2 }) => {
         ElementCreate({
           tag: "span",
           classList: ["cats-emoji"],
           children: [Math.random() > 0.5 ? "\u{1F431}" : "\u{1F43E}"],
           style: {
             position: "absolute",
-            top: `${y}px`,
-            left: `${x2}px`,
+            top: `${y2}px`,
+            left: `${x}px`,
             transform: "translate(-50%, -50%)"
           },
           parent: emojiBackground
@@ -2373,11 +2418,15 @@ ${res.status} ${res.statusText}`
         doShowNewVersionMessage: false,
         incomingAutoTranslate: false,
         // outcomingAutoTranslate: false,
+        showTranslateButton: true,
+        prettifyOnTranslate: true,
         translationEngine: "google"
       };
     }
     load() {
-      w.hookFunction("ChatRoomMessageDisplay", 0, (args, next) => {
+      syncEmojiBackgroundVisibility(this.settings.prettifyOnTranslate);
+      syncTranslateButtonVisibility(this.settings.showTranslateButton);
+      G.hookFunction("ChatRoomMessageDisplay", 0, (args, next) => {
         const div = next(args);
         if (!this.settings.modEnabled) return div;
         const popupMenu = div?.querySelector(".chat-room-message-popup");
@@ -2402,6 +2451,14 @@ ${res.status} ${res.statusText}`
       });
     }
   };
+  function syncEmojiBackgroundVisibility(visible) {
+    document.body.classList.toggle("cats-prettify", visible);
+  }
+  __name(syncEmojiBackgroundVisibility, "syncEmojiBackgroundVisibility");
+  function syncTranslateButtonVisibility(visible) {
+    document.body.classList.toggle("cats-show-translate-button", visible);
+  }
+  __name(syncTranslateButtonVisibility, "syncTranslateButtonVisibility");
   function createPopupButton(sourceMessage, messageId, messageElement) {
     return u.createButton({
       id: `cats-translation-button-${messageId}`,
@@ -2475,13 +2532,15 @@ ${res.status} ${res.statusText}`
         }
       ]
     });
-    catsify(element);
+    if (B("GlobalModule").settings.prettifyOnTranslate) {
+      catsify(element);
+    }
     return element;
   }
   __name(createTranslatedMessage, "createTranslatedMessage");
 
   // src/migrators/v1_migrator.ts
-  var V1_Migrator = class extends pe {
+  var V1_Migrator = class extends be {
     static {
       __name(this, "V1_Migrator");
     }
@@ -2491,8 +2550,8 @@ ${res.status} ${res.statusText}`
     migrate() {
       const oldData = Player.OnlineSettings.CATS;
       if (!oldData) return;
-      const globalSettings = C("GlobalModule").settings;
-      const translatorSettings = C("TranslatorModule").settings;
+      const globalSettings = B("GlobalModule").settings;
+      const translatorSettings = B("TranslatorModule").settings;
       globalSettings.modEnabled = oldData.enabled;
       if (oldData.sourceLang in googleSourceLanguages)
         translatorSettings.google.incomingSourceLang = oldData.sourceLang;
@@ -2506,9 +2565,9 @@ ${res.status} ${res.statusText}`
   };
 
   // src/index.ts
-  wt({
+  kt({
     modules: {
-      GUI: new k({
+      GUI: new M({
         buttonText: "CATS",
         identifier: "CATS",
         image: `${"https://protokink.github.io/Cats-BC/public"}/images/mod.svg`
@@ -2516,7 +2575,7 @@ ${res.status} ${res.statusText}`
       GlobalModule: new GlobalModule(),
       CommandsModule: new CommandsModule(),
       TranslatorModule: new TranslatorModule(),
-      VersionModule: new U({
+      VersionModule: new N({
         migrators: [
           new V1_Migrator()
         ]
@@ -2527,7 +2586,7 @@ ${res.status} ${res.statusText}`
       fixedLanguage: true
     },
     mainMenuOptions: {
-      importExportSubscreen: new ve({
+      importExportSubscreen: new Ie({
         customFileExtension: "cats"
       })
     },
