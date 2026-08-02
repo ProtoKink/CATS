@@ -20,7 +20,7 @@
 (function () {
   'use strict';
   const ending = 'index.js';
-  const prodPath = 'https://protokink.github.io/Cats-BC/';
+  const prodPath = 'https://protokink.github.io/CATS/';
   const devPath = `${prodPath}dev/`;
   const localPath = 'http://localhost:45009/';
 

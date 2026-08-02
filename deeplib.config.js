@@ -7,13 +7,13 @@ export default defineConfig({
   modInfo: {
     name: 'CATS',
     fullName: 'Chat Auto Translator System',
-    repository: 'https://github.com/ProtoKink/Cats-BC',
+    repository: 'https://github.com/ProtoKink/CATS',
   },
   distDirName: 'dist',
   publicDirName: 'public',
   scripts: ['./scripts/copy_files.js'],
-  prodRemoteURL: 'https://protokink.github.io/Cats-BC',
-  devRemoteURL: 'https://ProtoKink.github.io/Cats-BC/dev',
+  prodRemoteURL: 'https://protokink.github.io/CATS',
+  devRemoteURL: 'https://ProtoKink.github.io/CATS/dev',
   host: 'localhost',
   port: 45009,
 });
