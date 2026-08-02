@@ -2,6 +2,10 @@ body:not(.cats-prettify) .cats-emoji-background {
   display: none;
 }
 
+body:not(.cats-show-translate-button) .cats-translation-button {
+  display: none;
+}
+
 .cats-translation-button img {
   filter: invert(100%);
   opacity: 0.3;

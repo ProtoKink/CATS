@@ -25,6 +25,7 @@ export class GlobalModule extends BaseModule {
       doShowNewVersionMessage: false,
       incomingAutoTranslate: false,
       // outcomingAutoTranslate: false,
+      showTranslateButton: true,
       prettifyOnTranslate: true,
       translationEngine: 'google',
     };
@@ -32,6 +33,7 @@ export class GlobalModule extends BaseModule {
 
   load() {
     syncEmojiBackgroundVisibility(this.settings.prettifyOnTranslate);
+    syncTranslateButtonVisibility(this.settings.showTranslateButton);
 
     sdk.hookFunction('ChatRoomMessageDisplay', 0, (args, next) => {
       const div = next(args);
@@ -81,6 +83,10 @@ export class GlobalModule extends BaseModule {
 
 export function syncEmojiBackgroundVisibility(visible: boolean) {
   document.body.classList.toggle('cats-prettify', visible);
+}
+
+export function syncTranslateButtonVisibility(visible: boolean) {
+  document.body.classList.toggle('cats-show-translate-button', visible);
 }
 
 function createPopupButton(sourceMessage: string, messageId: string, messageElement: HTMLDivElement) {
