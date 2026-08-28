@@ -9,10 +9,22 @@ global.showNewVersionMessage = Show new version message
 global.incomingAutoTranslate = Auto translate incoming messages
 global.outcomingAutoTranslate = Auto translate outcoming messages
 global.showTranslateButton = Show translate button on messages
+global.showComposeBar = Show compose bar above chat input
 global.prettifyOnTranslate = Prettify translated messages
 
 translator.title = - Translator Settings -
 translator.incomingLanguagesLabel = Languages for incoming messages
+translator.composeLanguagesLabel = Languages for compose bar
 translator.outcomingLanguagesLabel = Languages for outcoming messages
 translator.source = Source
 translator.target = Target
+
+compose.label = Compose
+compose.sourceTitle = Language you type
+compose.targetTitle = Language to send
+compose.placeholder = Type here, then translate into the chat box
+compose.translateBtn = To chat box
+compose.translating = Translating…
+compose.emptyText = Nothing to translate
+compose.emptyResult = Empty result
+compose.noInput = Club chat box not found

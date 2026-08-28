@@ -56,3 +56,56 @@ body:not(.cats-show-translate-button) .cats-translation-button {
   z-index: 0;
   opacity: 0.3;
 }
+
+#cats-compose-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 4px 0 8px;
+  padding: 8px;
+  border: 1px solid #bbbbbb;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111111;
+  font: 13px/1.3 sans-serif;
+}
+
+#cats-compose-bar[data-colortheme^="dark"] {
+  border-color: #555555;
+  background: #111111;
+  color: #eeeeee;
+}
+
+#cats-compose-bar .cats-compose-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#cats-compose-bar .cats-compose-label {
+  white-space: nowrap;
+}
+
+#cats-compose-bar textarea {
+  flex: 1;
+  min-height: 36px;
+  max-height: 90px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding: 6px 8px;
+}
+
+#cats-compose-bar select,
+#cats-compose-bar button {
+  height: 34px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+#cats-compose-bar button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}

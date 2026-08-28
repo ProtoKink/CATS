@@ -4,6 +4,7 @@ import { TranslatedMessage, TranslatorModule } from './translator';
 import { GlobalSubscreen } from '../screens/global';
 import { googleSourceLanguages } from '../utilities/languages';
 import { catsify } from '../utilities/pretty';
+import { notifyLocalBuild, syncComposeBar } from './compose';
 
 export class GlobalModule extends BaseModule {
 
@@ -26,6 +27,7 @@ export class GlobalModule extends BaseModule {
       incomingAutoTranslate: false,
       // outcomingAutoTranslate: false,
       showTranslateButton: true,
+      showComposeBar: false,
       prettifyOnTranslate: true,
       translationEngine: 'google',
     };
@@ -57,11 +59,28 @@ export class GlobalModule extends BaseModule {
           const element = createTranslatedMessage(translatedMessage, messageId);
           if (!element) return;
           div.appendChild(element);
+        }).catch((error) => {
+          console.warn('[CATS] incoming translate failed', error);
         });
       };
 
       return div;
     });
+
+    try {
+      sdk.hookFunction('ChatRoomLoad', 0, (args, next) => {
+        const result = next(args);
+        void Promise.resolve(result).then(() => {
+          syncComposeBar();
+          notifyLocalBuild();
+        }).catch((error) => {
+          console.warn('[CATS] compose bar load failed', error);
+        });
+        return result;
+      });
+    } catch (error) {
+      console.warn('[CATS] ChatRoomLoad hook failed', error);
+    }
 
     // sdk.hookFunction('ServerSend', HookPriority.Observe, (args, next) => {
     //   if (args[0] !== 'ChatRoomChat') return next(args);
@@ -111,6 +130,8 @@ function createPopupButton(sourceMessage: string, messageId: string, messageElem
 
         if (!element) return;
         messageElement.appendChild(element);
+      }).catch((error) => {
+        console.warn('[CATS] incoming translate failed', error);
       });
     }
   });

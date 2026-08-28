@@ -3,6 +3,7 @@ import { CommandsModule } from './modules/commands';
 import { GlobalModule } from './modules/global';
 import { TranslatorModule } from './modules/translator';
 import { V1_Migrator } from './migrators/v1_migrator';
+import { CATS_BUILD } from './utilities/build';
 
 initMod({
   modules: {
@@ -32,5 +33,6 @@ initMod({
   initFunction: () => {
     Style.injectEmbed('cats-settings-style', `${PUBLIC_URL}/styles/settings.css`);
     Style.injectEmbed('cats-chat-style', `${PUBLIC_URL}/styles/chat.css`);
+    console.info(`[CATS] ${CATS_BUILD}`);
   }
 });

@@ -138,4 +138,12 @@ export const googleSourceLanguages = {
   'zu': 'Zulu'
 } as const;
 
+export function isGoogleSourceLanguage(value: string): value is GoogleSourceLanguageCode {
+  return Object.hasOwn(googleSourceLanguages, value);
+}
+
+export function isGoogleTargetLanguage(value: string): value is GoogleTargetLanguageCode {
+  return value !== 'auto' && Object.hasOwn(googleSourceLanguages, value);
+}
+
 export const googleTargetLanguages = CommonOmit(googleSourceLanguages, ['auto']);
