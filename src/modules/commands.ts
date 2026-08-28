@@ -1,6 +1,5 @@
 import { BaseModule, getModule, modStorage, setSubscreen } from 'bc-deeplib/deeplib';
 import { GlobalSettingsModel } from '../models/settings';
-import { CATS_BUILD } from '../utilities/build';
 import { syncComposeBar } from './compose';
 
 export class CommandsModule extends BaseModule {
@@ -31,7 +30,7 @@ export class CommandsModule extends BaseModule {
           Action: () => {
             const state = this.settings.modEnabled ? 'ON' : 'OFF';
             const compose = this.settings.showComposeBar === true ? 'ON' : 'OFF';
-            ChatRoomSendLocal(`CATS ${CATS_BUILD}: translator ${state}, compose bar ${compose}`, 4000);
+            ChatRoomSendLocal(`Chat Translator is ${state}, compose bar ${compose}`, 4000);
           },
         },
         {

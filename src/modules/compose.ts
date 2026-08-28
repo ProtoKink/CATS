@@ -1,5 +1,4 @@
 import { getModule, getText, modStorage } from 'bc-deeplib/deeplib';
-import { CATS_BUILD } from '../utilities/build';
 import {
   googleSourceLanguages,
   GoogleSourceLanguageCode,
@@ -12,7 +11,6 @@ import { TranslatorModule } from './translator';
 const COMPOSE_ID = 'cats-compose-bar';
 const COMPOSE_MAX_LENGTH = 1000;
 
-let didNotifyLocalBuild = false;
 let composeSyncFrame = 0;
 
 export function syncComposeBar() {
@@ -48,17 +46,6 @@ function applyComposeBar() {
     input.parentElement?.insertBefore(bar, input);
   } catch (error) {
     console.warn('[CATS] compose bar sync failed', error);
-  }
-}
-
-export function notifyLocalBuild() {
-  if (didNotifyLocalBuild) return;
-  didNotifyLocalBuild = true;
-  console.info(`[CATS] ${CATS_BUILD}`);
-  try {
-    ChatRoomSendLocal(`CATS ${CATS_BUILD}`, 4000);
-  } catch (error) {
-    console.warn('[CATS] local build notice failed', error);
   }
 }
 

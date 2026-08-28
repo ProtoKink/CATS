@@ -4,7 +4,7 @@ import { TranslatedMessage, TranslatorModule } from './translator';
 import { GlobalSubscreen } from '../screens/global';
 import { googleSourceLanguages } from '../utilities/languages';
 import { catsify } from '../utilities/pretty';
-import { notifyLocalBuild, syncComposeBar } from './compose';
+import { syncComposeBar } from './compose';
 
 export class GlobalModule extends BaseModule {
 
@@ -72,7 +72,6 @@ export class GlobalModule extends BaseModule {
         const result = next(args);
         void Promise.resolve(result).then(() => {
           syncComposeBar();
-          notifyLocalBuild();
         }).catch((error) => {
           console.warn('[CATS] compose bar load failed', error);
         });

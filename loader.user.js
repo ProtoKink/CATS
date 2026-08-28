@@ -10,9 +10,6 @@
 // @match https://www.bondage-europe.com/*
 // @match https://bondageprojects.com/*
 // @match https://www.bondageprojects.com/*
-// @match https://bondage-asia.com/*
-// @match https://www.bondage-asia.com/*
-// @match https://*.bondage-asia.com/*
 // @match http://localhost:*/*
 // @match http://localhost/BondageClub/*
 // @icon data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4Ij48dGV4dCB5PSIxZW0iIGZvbnQtc2l6ZT0iMTAwIj7wn5CxPC90ZXh0Pjwvc3ZnPg==
@@ -37,11 +34,7 @@
 
   const script = document.createElement('script');
   script.type = 'text/javascript';
-  if (!isLocal) script.setAttribute('crossorigin', 'anonymous');
+  script.setAttribute('crossorigin', 'anonymous');
   script.src = `${modLink}${ending}${isPublic ? '?' + Date.now() : ''}`;
-  script.onerror = () => {
-    console.warn('[CATS] failed to load', script.src);
-  };
   document.head.appendChild(script);
-  console.info('[CATS] loader', isLocal ? 'local' : isDev ? 'dev' : 'prod', script.src);
 })();
