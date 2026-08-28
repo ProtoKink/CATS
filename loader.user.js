@@ -10,6 +10,9 @@
 // @match https://www.bondage-europe.com/*
 // @match https://bondageprojects.com/*
 // @match https://www.bondageprojects.com/*
+// @match https://bondage-asia.com/*
+// @match https://www.bondage-asia.com/*
+// @match https://*.bondage-asia.com/*
 // @match http://localhost:*/*
 // @match http://localhost/BondageClub/*
 // @icon data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4Ij48dGV4dCB5PSIxZW0iIGZvbnQtc2l6ZT0iMTAwIj7wn5CxPC90ZXh0Pjwvc3ZnPg==
