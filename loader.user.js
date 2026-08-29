@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Cats BC
 // @namespace https://www.bondageprojects.com/
-// @version 1.0.1
+// @version 1.1.0
 // @description Chat Auto Translator System!
 // @author  dDeepLb
 // @match https://bondageprojects.elementfx.com/*
