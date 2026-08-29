@@ -2,7 +2,6 @@ import { SubscreenOptions } from 'bc-deeplib/base/base_subscreen';
 import { advElement, BaseSubscreen, getText, layout } from 'bc-deeplib/deeplib';
 import { GlobalSettingsModel } from '../models/settings';
 import { syncEmojiBackgroundVisibility, syncTranslateButtonVisibility } from '../modules/global';
-import { syncComposeBar } from '../modules/compose';
 
 export class GlobalSubscreen extends BaseSubscreen {
 
@@ -24,7 +23,6 @@ export class GlobalSubscreen extends BaseSubscreen {
       setElementValue: () => this.settings.modEnabled,
       setSettingValue: (val) => {
         this.settings.modEnabled = val;
-        syncComposeBar();
       },
     });
     layout.getSettingsDiv().appendChild(modEnabledLabel);
@@ -66,7 +64,6 @@ export class GlobalSubscreen extends BaseSubscreen {
       setElementValue: () => this.settings.showComposeBar === true,
       setSettingValue: (val) => {
         this.settings.showComposeBar = val;
-        syncComposeBar();
       },
     });
     layout.appendToSettingsDiv(showComposeBarCheckbox);

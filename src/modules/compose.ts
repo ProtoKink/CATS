@@ -1,4 +1,4 @@
-import { getModule, getText, modStorage } from 'bc-deeplib/deeplib';
+import { BaseModule, getModule, getText, HookPriority, modStorage, sdk } from 'bc-deeplib/deeplib';
 import {
   googleSourceLanguages,
   GoogleSourceLanguageCode,
@@ -8,252 +8,268 @@ import {
 } from '../utilities/languages';
 import { TranslatorModule } from './translator';
 
-const COMPOSE_ID = 'cats-compose-bar';
-const COMPOSE_MAX_LENGTH = 1000;
+const COMPOSE_MAX_LENGTH = 10000;
 
-let composeSyncFrame = 0;
+const ids = Object.freeze({
+  bar: 'cats-compose-bar',
+  sourceSelect: 'cats-compose-source',
+  targetSelect: 'cats-compose-target',
+  translateButton: 'cats-compose-translate',
+  dropButton: 'cats-compose-drop',
+  langsSettings: 'cats-compose-langs-settings',
+  toggleButton: 'cats-compose-toggle',
+});
 
-export function syncComposeBar() {
-  if (composeSyncFrame) return;
-  composeSyncFrame = requestAnimationFrame(() => {
-    composeSyncFrame = 0;
-    applyComposeBar();
-  });
-}
-
-function applyComposeBar() {
-  try {
-    const input = findChatInput();
-    const existing = document.getElementById(COMPOSE_ID);
-    const global = getModule('GlobalModule')?.settings;
-    const enabled = !!global?.modEnabled && global.showComposeBar === true;
-
-    if (!enabled || !input) {
-      existing?.remove();
-      return;
-    }
-
-    if (existing) {
-      if (existing.nextElementSibling !== input) {
-        input.parentElement?.insertBefore(existing, input);
-      }
-      syncComposeTheme(existing);
-      syncComposeSelects(existing);
-      return;
-    }
-
-    const bar = createComposeBar();
-    input.parentElement?.insertBefore(bar, input);
-  } catch (error) {
-    console.warn('[CATS] compose bar sync failed', error);
-  }
-}
-
-function findChatInput(): HTMLTextAreaElement | HTMLInputElement | null {
-  const byId = document.getElementById('InputChat');
-  if (byId instanceof HTMLTextAreaElement || byId instanceof HTMLInputElement) return byId;
-  return null;
-}
-
-function getClubColorTheme(): string {
-  const fromLog = document.getElementById('TextAreaChatLog')?.getAttribute('data-colortheme');
-  if (fromLog) return fromLog.toLowerCase();
-  const fromPlayer = Player?.ChatSettings?.ColorTheme;
-  if (fromPlayer) return String(fromPlayer).toLowerCase();
-  return 'light';
-}
-
-function syncComposeTheme(bar: HTMLElement) {
-  const theme = getClubColorTheme();
-  if (bar.dataset['colortheme'] !== theme) {
-    bar.dataset['colortheme'] = theme;
-  }
-}
-
-function composeLangs() {
-  const google = getModule('TranslatorModule')?.settings?.google;
-  const source = google?.composeSourceLang ?? 'auto';
-  const target = google?.composeTargetLang ?? 'en';
-  return {
-    source: isGoogleSourceLanguage(source) ? source : 'auto',
-    target: isGoogleTargetLanguage(target) ? target : 'en',
-  };
-}
-
-function syncComposeSelects(bar: HTMLElement) {
-  const selects = bar.querySelectorAll('select');
-  const langs = composeLangs();
-  if (selects[0] && selects[0].value !== langs.source) selects[0].value = langs.source;
-  if (selects[1] && selects[1].value !== langs.target) selects[1].value = langs.target;
-}
-
-function languageOptions(mode: 'source' | 'target', selected: string): HTMLOptions<'option'>[] {
+function languageOptions(mode: 'source' | 'target', selected: string): Omit<HTMLOptions<'option'>, 'tag'>[] {
   return Object.entries(googleSourceLanguages)
     .filter(([key]) => mode === 'source' || key !== 'auto')
     .map(([key, value]) => ({
-      tag: 'option',
       attributes: {
         value: key,
-        label: value,
         selected: key === selected,
       },
       children: [value],
     }));
 }
 
-function setChatInputValue(value: string): boolean {
-  const input = findChatInput();
-  if (!input) return false;
+export class ComposeModule extends BaseModule {
+  load(): void {
+    sdk.hookFunction('ChatRoomCreateElement', HookPriority.Observe, (args, next) => {
+      const ret = next(args);
 
-  const incoming = String(value || '');
-  const current = String(input.value || '');
-  let next = incoming;
-  if (current.trim()) {
-    if (!incoming) return true;
-    const gap = /\s$/.test(current) ? '' : ' ';
-    next = current + gap + incoming;
-  }
+      const globalSettings = getModule('GlobalModule').settings;
+      const enabled = globalSettings.modEnabled && globalSettings.showComposeBar === true;
 
-  const maxLength = Number(input.getAttribute('maxlength')) || COMPOSE_MAX_LENGTH;
-  if (next.length > maxLength) next = next.slice(0, maxLength);
+      const chatRoomButtons = ElementWrap('chat-room-buttons');
+      const chatInput = ElementWrap('InputChat');
+      const chatRoomDiv = ElementWrap('chat-room-div');
+      const chatRoomBottom = ElementWrap('chat-room-bot');
 
-  input.value = next;
-  input.dispatchEvent(new Event('input', { bubbles: true }));
-  input.focus();
-  return true;
-}
+      ComposeModule.syncComposeSelects();
 
-function createComposeBar(): HTMLDivElement {
-  const langs = composeLangs();
+      if (!chatRoomButtons || !chatInput || !chatRoomDiv || !chatRoomBottom) return ret;
 
-  const sourceSelect = ElementCreate({
-    tag: 'select',
-    attributes: {
-      title: getText('compose.sourceTitle'),
-    },
-    children: languageOptions('source', langs.source),
-    eventListeners: {
-      change() {
-        if (!isGoogleSourceLanguage(this.value)) return;
-        const google = getModule('TranslatorModule')?.settings?.google;
-        if (!google) return;
-        google.composeSourceLang = this.value;
-        modStorage.save();
-      },
-    },
-  });
+      const existing = ElementWrap(ids.bar);
 
-  const targetSelect = ElementCreate({
-    tag: 'select',
-    attributes: {
-      title: getText('compose.targetTitle'),
-    },
-    children: languageOptions('target', langs.target),
-    eventListeners: {
-      change() {
-        if (!isGoogleTargetLanguage(this.value)) return;
-        const google = getModule('TranslatorModule')?.settings?.google;
-        if (!google) return;
-        google.composeTargetLang = this.value;
-        modStorage.save();
-      },
-    },
-  });
+      if (existing) {
+        const hiddenChanged = existing.getAttribute('hidden') !== String(enabled);
+        existing.toggleAttribute('hidden', !enabled);
+        if (hiddenChanged) ChatRoomInputResize(chatInput);
 
-  const box = ElementCreate({
-    tag: 'textarea',
-    attributes: {
-      placeholder: getText('compose.placeholder'),
-      rows: '1',
-      maxlength: String(COMPOSE_MAX_LENGTH),
-    },
-  });
-
-  const button = ElementCreate({
-    tag: 'button',
-    attributes: {
-      type: 'button',
-    },
-    children: [getText('compose.translateBtn')],
-  });
-
-  async function runComposeTranslate() {
-    if (!button.isConnected || !box.isConnected) return;
-
-    const text = box.value.trim();
-    if (!text) {
-      ChatRoomSendLocal(getText('compose.emptyText'), 3000);
-      return;
-    }
-
-    button.disabled = true;
-    button.textContent = getText('compose.translating');
-    try {
-      const sourceLang = sourceSelect.value as GoogleSourceLanguageCode;
-      const targetLang = targetSelect.value as GoogleTargetLanguageCode;
-      if (!isGoogleSourceLanguage(sourceLang) || !isGoogleTargetLanguage(targetLang)) {
-        ChatRoomSendLocal(getText('compose.emptyResult'), 3000);
-        return;
+        return ret;
       }
 
-      const result = await TranslatorModule.translate(text.slice(0, COMPOSE_MAX_LENGTH), {
-        sourceLang,
-        targetLang,
-      });
-      if (!button.isConnected) return;
-      if (!result?.text) {
-        ChatRoomSendLocal(getText('compose.emptyResult'), 3000);
-        return;
-      }
-      if (!setChatInputValue(result.text)) {
-        ChatRoomSendLocal(getText('compose.noInput'), 3000);
-      }
-    } catch (error) {
-      console.warn('[CATS] compose translate failed', error);
-      if (button.isConnected) ChatRoomSendLocal(getText('compose.emptyResult'), 3000);
-    } finally {
-      if (button.isConnected) {
-        button.disabled = false;
-        button.textContent = getText('compose.translateBtn');
-      }
-    }
-  }
-
-  button.addEventListener('click', () => {
-    void runComposeTranslate();
-  });
-  box.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter' || event.shiftKey) return;
-    event.preventDefault();
-    event.stopPropagation();
-    void runComposeTranslate();
-  });
-
-  return ElementCreate({
-    tag: 'div',
-    attributes: {
-      id: COMPOSE_ID,
-      'data-colortheme': getClubColorTheme(),
-    },
-    children: [
-      {
-        tag: 'div',
-        classList: ['cats-compose-row'],
-        children: [
-          {
-            tag: 'span',
-            classList: ['cats-compose-label'],
-            children: [getText('compose.label')],
+      const toggleButton = ElementButton.Create(
+        ids.toggleButton,
+        function () {
+          globalSettings.showComposeBar = this.getAttribute('aria-checked') === 'true';
+          modStorage.save();
+        },
+        {
+          image: `${PUBLIC_URL}/images/mod.svg`,
+          tooltip: getText('compose.toggleBtn'),
+          role: 'checkbox',
+          ariaChecked: globalSettings.showComposeBar === true,
+          noStyling: true,
+        },
+        {
+          button: {
+            classList: ['cats-compose-toggle', 'chat-room-button'],
+            attributes: {
+              hidden: true,
+            }
           },
-          sourceSelect,
-          targetSelect,
-        ],
+        },
+      );
+
+      chatRoomButtons.appendChild(toggleButton);
+
+      const bar = ComposeModule.createComposeBar();
+      chatRoomDiv.insertBefore(bar, chatRoomBottom);
+
+      return ret;
+    });
+  }
+
+  static createComposeBar(): HTMLDivElement {
+    const googleSettings = getModule('TranslatorModule').settings.google;
+    const sourceLang = googleSettings.composeSourceLang ?? 'auto';
+    const targetLang = googleSettings.composeTargetLang ?? 'en';
+	
+    const sourceSelect = ElementDropdown.CreateLabelled(
+      ids.sourceSelect,
+      languageOptions('source', sourceLang),
+      getText('compose.sourceTitle'),
+      function () {
+        if (!isGoogleSourceLanguage(this.value)) return;
+        googleSettings.composeSourceLang = this.value;
+        modStorage.save();
+      }
+    );
+	
+    const targetSelect = ElementDropdown.CreateLabelled(
+      ids.targetSelect,
+      languageOptions('target', targetLang),
+      getText('compose.targetTitle'),
+      function () {
+        if (!isGoogleTargetLanguage(this.value)) return;
+        googleSettings.composeTargetLang = this.value;
+        modStorage.save();
+      },
+    );
+	
+    const box = ElementCreate({
+      tag: 'textarea',
+      attributes: {
+        placeholder: getText('compose.placeholder'),
+        maxlength: String(COMPOSE_MAX_LENGTH),
+      },
+      eventListeners: {
+        keydown: (event) => {
+          if (!CommonKey.IsPressed(event, 'Enter')) return;
+          runComposeTranslate();
+        }
+      }
+    });
+	
+    const button = ElementButton.Create(
+      ids.translateButton,
+      () => {
+        runComposeTranslate();
       },
       {
-        tag: 'div',
-        classList: ['cats-compose-row'],
-        children: [box, button],
+        image: `${PUBLIC_URL}/images/mod.svg`,
+        tooltip: getText('compose.translateBtn'),
       },
-    ],
-  });
+    );
+	
+    async function runComposeTranslate() {
+      if (!button || !box) return;
+	
+      const text = box.value.trim();
+      if (!text) {
+        ToastManager.warning(getText('compose.emptyText'), { duration: 3000 });
+        return;
+      }
+	
+      button.disabled = true;
+      try {
+        const sourceLang = sourceSelect.querySelector('select')?.value as GoogleSourceLanguageCode;
+        const targetLang = targetSelect.querySelector('select')?.value as GoogleTargetLanguageCode;
+        if (!isGoogleSourceLanguage(sourceLang) || !isGoogleTargetLanguage(targetLang)) {
+          ToastManager.warning(getText('compose.emptyResult'), { duration: 3000 });
+          return;
+        }
+	
+        const result = await TranslatorModule.translate(text.slice(0, COMPOSE_MAX_LENGTH), {
+          sourceLang,
+          targetLang,
+        });
+        if (!button) return;
+        if (!result?.text) {
+          ToastManager.warning(getText('compose.emptyResult'), { duration: 3000 });
+          return;
+        }
+        if (!ComposeModule.setChatInputValue(result.text)) {
+          ToastManager.warning(getText('compose.noInput'), { duration: 3000 });
+        }
+      } catch (error) {
+        console.warn('[CATS] compose translate failed', error);
+        if (button) ToastManager.warning(getText('compose.emptyResult'), { duration: 3000 });
+      } finally {
+        if (button) {
+          button.disabled = false;
+        }
+      }
+    }
+	
+    const dropbutton = ElementButton.Create(
+      ids.dropButton,
+      function () {
+        const langsSettings = ElementWrap(ids.langsSettings);
+        const chatInput = ElementWrap('InputChat');
+        if (!chatInput) return;
+        const checked = this.getAttribute('aria-checked') === 'true';
+	
+        if (langsSettings) langsSettings.toggleAttribute('hidden', !checked);
+        const img = this.querySelector('.button-image') as HTMLImageElement | HTMLDivElement | null;
+        if (!img) return;
+        const imgSrc = checked ? 'Icons/CaretDown.svg' : 'Icons/CaretUp.svg';
+        if (img instanceof HTMLImageElement) {
+          if (!img.src.endsWith(imgSrc)) {
+            img.src = imgSrc;
+          }
+        } else if (img.style.backgroundImage !== imgSrc) {
+          img.style.backgroundImage = `url("${imgSrc}")`;
+          img.style.maskImage = `url("${imgSrc}")`;
+        }
+        ChatRoomInputResize(chatInput);
+      },
+      {
+        image: 'Icons/CaretUp.svg',
+        role: 'checkbox',
+      },
+    );
+	
+    return ElementCreate({
+      tag: 'div',
+      attributes: {
+        id: ids.bar,
+      },
+      children: [
+        {
+          tag: 'div',
+          classList: ['cats-compose-row', 'cats-compose-row-input'],
+          children: [dropbutton, box, button],
+        },
+        {
+          tag: 'div',
+          classList: ['cats-compose-row', 'cats-compose-row-langs'],
+          attributes: {
+            id: ids.langsSettings,
+            hidden: true,
+          },
+          children: [
+            sourceSelect,
+            targetSelect,
+          ],
+        },
+      ],
+    });
+  }
+
+  static syncComposeSelects() {
+    const sourceSelect = ElementWrap(ids.sourceSelect) as HTMLSelectElement | null;
+    const targetSelect = ElementWrap(ids.targetSelect) as HTMLSelectElement | null;
+    if (!sourceSelect || !targetSelect) return;
+
+    const googleSettings = getModule('TranslatorModule').settings.google;
+    const sourceLang = googleSettings.composeSourceLang ?? 'auto';
+    const targetLang = googleSettings.composeTargetLang ?? 'en';
+    if (sourceSelect.value !== sourceLang) sourceSelect.value = sourceLang;
+    if (targetSelect.value !== targetLang) targetSelect.value = targetLang;
+  }
+
+  static setChatInputValue(value: string): boolean {
+    const input = ElementWrap('InputChat') as HTMLTextAreaElement | HTMLInputElement | null;
+    if (!input || !value) return false;
+	
+    const incoming = value;
+    const current = input.value;
+    let next = incoming;
+    if (current.trim()) {
+      if (!incoming) return true;
+      const gap = /\s$/.test(current) ? '' : ' ';
+      next = current + gap + incoming;
+    }
+	
+    const maxLength = CommonParseInt(input.getAttribute('maxlength') ?? '') ?? 10000;
+    if (next.length > maxLength) next = next.slice(0, maxLength);
+	
+    input.value = next;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.focus();
+		
+    return true;
+  }
 }

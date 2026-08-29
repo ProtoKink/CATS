@@ -4,7 +4,7 @@ import { TranslatedMessage, TranslatorModule } from './translator';
 import { GlobalSubscreen } from '../screens/global';
 import { googleSourceLanguages } from '../utilities/languages';
 import { catsify } from '../utilities/pretty';
-import { syncComposeBar } from './compose';
+// import { syncComposeBar } from './compose';
 
 export class GlobalModule extends BaseModule {
 
@@ -66,20 +66,6 @@ export class GlobalModule extends BaseModule {
 
       return div;
     });
-
-    try {
-      sdk.hookFunction('ChatRoomLoad', 0, (args, next) => {
-        const result = next(args);
-        void Promise.resolve(result).then(() => {
-          syncComposeBar();
-        }).catch((error) => {
-          console.warn('[CATS] compose bar load failed', error);
-        });
-        return result;
-      });
-    } catch (error) {
-      console.warn('[CATS] ChatRoomLoad hook failed', error);
-    }
 
     // sdk.hookFunction('ServerSend', HookPriority.Observe, (args, next) => {
     //   if (args[0] !== 'ChatRoomChat') return next(args);

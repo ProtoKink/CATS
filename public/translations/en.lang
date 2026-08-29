@@ -20,6 +20,7 @@ translator.source = Source
 translator.target = Target
 
 compose.label = Compose
+compose.toggleBtn = Toggle compose bar
 compose.sourceTitle = Language you type
 compose.targetTitle = Language to send
 compose.placeholder = Type here, then translate into the chat box

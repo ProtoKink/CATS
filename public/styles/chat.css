@@ -60,27 +60,30 @@ body:not(.cats-show-translate-button) .cats-translation-button {
 #cats-compose-bar {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--half-gap);
   width: 100%;
   box-sizing: border-box;
-  margin: 4px 0 8px;
-  padding: 8px;
-  border: 1px solid #bbbbbb;
-  border-radius: 6px;
-  background: #ffffff;
-  color: #111111;
-  font: 13px/1.3 sans-serif;
+  background: var(--tmd-element, #eee);
+  color: var(--tmd-text, #111);
+	/* 
+		intended; default chat element no borders, Themed add them
+	*/
+	border: var(--border-width) solid var(--tmd-accent);
 }
 
-#cats-compose-bar[data-colortheme^="dark"] {
-  border-color: #555555;
-  background: #111111;
-  color: #eeeeee;
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar {
+  background: var(--tmd-element, #111);
+  color: var(--tmd-text, #eee);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar textarea {
+	background-color: var(--tmd-element, #111);
+	color: var(--tmd-text, #eee);
 }
 
 #cats-compose-bar .cats-compose-row {
   display: flex;
-  gap: 6px;
+  gap: var(--half-gap);
   align-items: center;
   flex-wrap: wrap;
 }
@@ -91,21 +94,68 @@ body:not(.cats-show-translate-button) .cats-translation-button {
 
 #cats-compose-bar textarea {
   flex: 1;
-  min-height: 36px;
-  max-height: 90px;
-  resize: vertical;
+	height: 100%;
   box-sizing: border-box;
-  padding: 6px 8px;
+  padding: var(--half-gap);
+	border-inline: none;
 }
 
-#cats-compose-bar select,
-#cats-compose-bar button {
-  height: 34px;
-  padding: 0 8px;
-  cursor: pointer;
+#cats-compose-bar .custom-select {
+	width: auto;
+	color: var(--tmd-text, black);
+	height: min(6dvh, 3dvw);
 }
 
-#cats-compose-bar button:disabled {
+#cats-compose-bar .dropdown-pair {
+	grid-template-columns: 1fr 1fr;
+}
+
+#cats-compose-bar .button {
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	aspect-ratio: 1;
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .custom-select {
+	color: var(--tmd-text, #eee);
+	background-color: var(--tmd-element, #111);
+	border-color: var(--tmd-accent, #888);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .button {
+	--button-color: transparent;
+	--checked-color: transparent;
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .button .button-image {
+	filter: invert(1);
+}
+
+#cats-compose-bar .button:disabled {
   opacity: 0.55;
   cursor: wait;
+}
+
+#cats-compose-bar .cats-compose-row-input {
+  height: min(8dvh, 4dvw);
+	gap: unset;
+}
+
+#cats-compose-toggle:before {
+	content: unset;
+}
+
+#cats-compose-toggle[aria-checked="true"] .button-image {
+	filter: invert(0.3);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-toggle .button-image {
+	filter: invert(1);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-toggle[aria-checked="true"] .button-image {
+	filter: invert(0.7);
 }
