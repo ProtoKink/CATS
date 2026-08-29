@@ -4,6 +4,7 @@ import { TranslatedMessage, TranslatorModule } from './translator';
 import { GlobalSubscreen } from '../screens/global';
 import { googleSourceLanguages } from '../utilities/languages';
 import { catsify } from '../utilities/pretty';
+// import { syncComposeBar } from './compose';
 
 export class GlobalModule extends BaseModule {
 
@@ -26,6 +27,7 @@ export class GlobalModule extends BaseModule {
       incomingAutoTranslate: false,
       // outcomingAutoTranslate: false,
       showTranslateButton: true,
+      showComposeBar: false,
       prettifyOnTranslate: true,
       translationEngine: 'google',
     };
@@ -57,6 +59,8 @@ export class GlobalModule extends BaseModule {
           const element = createTranslatedMessage(translatedMessage, messageId);
           if (!element) return;
           div.appendChild(element);
+        }).catch((error) => {
+          console.warn('[CATS] incoming translate failed', error);
         });
       };
 
@@ -111,6 +115,8 @@ function createPopupButton(sourceMessage: string, messageId: string, messageElem
 
         if (!element) return;
         messageElement.appendChild(element);
+      }).catch((error) => {
+        console.warn('[CATS] incoming translate failed', error);
       });
     }
   });

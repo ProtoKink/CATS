@@ -3,6 +3,7 @@ import { CommandsModule } from './modules/commands';
 import { GlobalModule } from './modules/global';
 import { TranslatorModule } from './modules/translator';
 import { V1_Migrator } from './migrators/v1_migrator';
+import { ComposeModule } from './modules/compose';
 
 initMod({
   modules: {
@@ -12,6 +13,7 @@ initMod({
       image: `${PUBLIC_URL}/images/mod.svg`,
     }),
     GlobalModule: new GlobalModule(),
+    ComposeModule: new ComposeModule(),
     CommandsModule: new CommandsModule(),
     TranslatorModule: new TranslatorModule(),
     VersionModule: new VersionModule({

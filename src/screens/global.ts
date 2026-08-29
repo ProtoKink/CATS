@@ -58,6 +58,16 @@ export class GlobalSubscreen extends BaseSubscreen {
     });
     layout.appendToSettingsDiv(showTranslateButtonCheckbox);
 
+    const showComposeBarCheckbox = advElement.createCheckbox({
+      id: 'cats-show-compose-bar',
+      label: getText('global.showComposeBar'),
+      setElementValue: () => this.settings.showComposeBar === true,
+      setSettingValue: (val) => {
+        this.settings.showComposeBar = val;
+      },
+    });
+    layout.appendToSettingsDiv(showComposeBarCheckbox);
+
     const prettifyOnTranslateCheckbox = advElement.createCheckbox({
       id: 'cats-prettify-on-translate',
       label: getText('global.prettifyOnTranslate'),

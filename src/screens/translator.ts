@@ -86,72 +86,72 @@ export class TranslatorSubscreen extends BaseSubscreen {
       }
     });
 
-    // advElement.createLabel({
-    //   id: 'cats-outcoming-lang-label',
-    //   label: getText('translator.outcomingLanguagesLabel'),
-    //   htmlOptions: {
-    //     parent: layout.getSettingsDiv(),
-    //   }
-    // });
+    advElement.createLabel({
+      id: 'cats-compose-lang-label',
+      label: getText('translator.composeLanguagesLabel'),
+      htmlOptions: {
+        parent: layout.getSettingsDiv(),
+      }
+    });
 
-    // const outcomingSourceLangOptions: readonly Omit<HTMLOptions<'option'>, 'tag'>[] = Object.entries(googleSourceLanguages).map(([key, value]) => ({
-    //   attributes: {
-    //     value: key,
-    //     label: value,
-    //     selected: key === this.settings.google.outcomingSourceLang
-    //   }
-    // }));
+    const composeSourceLangOptions: readonly Omit<HTMLOptions<'option'>, 'tag'>[] = Object.entries(googleSourceLanguages).map(([key, value]) => ({
+      attributes: {
+        value: key,
+        label: value,
+        selected: key === this.settings.google.composeSourceLang
+      }
+    }));
 
-    // advElement.createDropdown({
-    //   id: 'cats-outcoming-source-lang',
-    //   optionsList: outcomingSourceLangOptions,
-    //   label: getText('translator.source'),
-    //   onChange: function () {
-    //     const sourceLang = this.value as GoogleSourceLanguageCode;
-    //     if (!sourceLang) return;
+    advElement.createDropdown({
+      id: 'cats-compose-source-lang',
+      optionsList: composeSourceLangOptions,
+      label: getText('translator.source'),
+      onChange: function () {
+        const sourceLang = this.value as GoogleSourceLanguageCode;
+        if (!sourceLang) return;
 
-    //     if (googleSourceLanguages[sourceLang]) {
-    //       settings.google.outcomingSourceLang = sourceLang;
-    //     }
-    //   },
-    //   htmlOptions: {
-    //     container: {
-    //       parent: layout.getSettingsDiv(),
-    //     },
-    //     select: {
-    //       classList: ['cats-lang-select'],
-    //     }
-    //   }
-    // });
+        if (googleSourceLanguages[sourceLang]) {
+          settings.google.composeSourceLang = sourceLang as GoogleSourceLanguageCode;
+        }
+      },
+      htmlOptions: {
+        container: {
+          parent: layout.getSettingsDiv(),
+        },
+        select: {
+          classList: ['cats-lang-select'],
+        }
+      }
+    });
 
-    // const outcomingTargetLangOptions: readonly Omit<HTMLOptions<'option'>, 'tag'>[] = Object.entries(googleSourceLanguages).filter(([key]) => key !== 'auto').map(([key, value]) => ({
-    //   attributes: {
-    //     value: key,
-    //     label: value,
-    //     selected: key === this.settings.google.outcomingTargetLang
-    //   }
-    // }));
+    const composeTargetLangOptions: readonly Omit<HTMLOptions<'option'>, 'tag'>[] = Object.entries(googleSourceLanguages).filter(([key]) => key !== 'auto').map(([key, value]) => ({
+      attributes: {
+        value: key,
+        label: value,
+        selected: key === this.settings.google.composeTargetLang
+      }
+    }));
 
-    // advElement.createDropdown({
-    //   id: 'cats-outcoming-target-lang',
-    //   optionsList: outcomingTargetLangOptions,
-    //   label: getText('translator.target'),
-    //   onChange: function () {
-    //     const targetLang = this.value as GoogleTargetLanguageCode;
-    //     if (!targetLang) return;
+    advElement.createDropdown({
+      id: 'cats-compose-target-lang',
+      optionsList: composeTargetLangOptions,
+      label: getText('translator.target'),
+      onChange: function () {
+        const targetLang = this.value as GoogleTargetLanguageCode;
+        if (!targetLang) return;
 
-    //     if (googleSourceLanguages[targetLang]) {
-    //       settings.google.outcomingTargetLang = targetLang as GoogleTargetLanguageCode;
-    //     }
-    //   },
-    //   htmlOptions: {
-    //     container: {
-    //       parent: layout.getSettingsDiv(),
-    //     },
-    //     select: {
-    //       classList: ['cats-lang-select'],
-    //     }
-    //   }
-    // });
+        if (googleSourceLanguages[targetLang]) {
+          settings.google.composeTargetLang = targetLang as GoogleTargetLanguageCode;
+        }
+      },
+      htmlOptions: {
+        container: {
+          parent: layout.getSettingsDiv(),
+        },
+        select: {
+          classList: ['cats-lang-select'],
+        }
+      }
+    });
   }
 }

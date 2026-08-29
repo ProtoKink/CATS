@@ -1,5 +1,5 @@
 import { BaseModule } from 'bc-deeplib/deeplib';
-import { GoogleSourceLanguageCode, GoogleTargetLanguageCode } from '../utilities/languages';
+import { GoogleSourceLanguageCode, GoogleTargetLanguageCode, isGoogleSourceLanguage, isGoogleTargetLanguage } from '../utilities/languages';
 import { TranslatorSettingsModel } from '../models/settings';
 import { TranslatorSubscreen } from '../screens/translator';
 
@@ -38,8 +38,8 @@ export class TranslatorModule extends BaseModule {
       google: {
         incomingSourceLang: 'auto',
         incomingTargetLang: 'en',
-        // outcomingSourceLang: 'auto',
-        // outcomingTargetLang: 'en',
+        composeSourceLang: 'auto',
+        composeTargetLang: 'en',
       }
     };
   }
@@ -69,12 +69,31 @@ export class TranslatorModule extends BaseModule {
     };
   }
 
-  static async translate(text: string): Promise<TranslatedMessage | undefined> {
-    const translatorSettings = TranslatorModule._instance.settings;
+  static async translate(
+    text: string,
+    options?: {
+      sourceLang?: GoogleSourceLanguageCode;
+      targetLang?: GoogleTargetLanguageCode;
+    }
+  ): Promise<TranslatedMessage | undefined> {
+    const google = TranslatorModule._instance?.settings?.google;
+    if (!google) return undefined;
 
-    const { sourceLanguage, translation } = await TranslatorModule.googleTranslate(text, translatorSettings.google.incomingSourceLang, translatorSettings.google.incomingTargetLang);
+    const sourceLang = (
+      options?.sourceLang
+      ?? (isGoogleSourceLanguage(google.incomingSourceLang) ? google.incomingSourceLang : 'auto')
+    );
+    const targetLang = (
+      options?.targetLang
+      ?? (isGoogleTargetLanguage(google.incomingTargetLang) ? google.incomingTargetLang : 'en')
+    );
+    if (!isGoogleSourceLanguage(sourceLang) || !isGoogleTargetLanguage(targetLang)) return undefined;
+
+    if (sourceLang !== 'auto' && sourceLang === targetLang) {
+      return { sourceLanguage: sourceLang, text };
+    }
+
+    const { sourceLanguage, translation } = await TranslatorModule.googleTranslate(text, sourceLang, targetLang);
     return { sourceLanguage, text: translation };
-
-    throw new Error('uhoh, no translator module selected');
   }
 }

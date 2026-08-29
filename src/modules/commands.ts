@@ -27,7 +27,18 @@ export class CommandsModule extends BaseModule {
           Description: 'Check the status of CATS',
           Action: () => {
             const state = this.settings.modEnabled ? 'ON' : 'OFF';
-            ChatRoomSendLocal(`Chat Translator is ${state}`, 3000);
+            const compose = this.settings.showComposeBar === true ? 'ON' : 'OFF';
+            ChatRoomSendLocal(`Chat Translator is ${state}, compose bar ${compose}`, 4000);
+          },
+        },
+        {
+          Tag: 'compose',
+          Description: 'Toggle the compose bar above chat input',
+          Action: () => {
+            this.settings.showComposeBar = this.settings.showComposeBar !== true;
+            const compose = this.settings.showComposeBar === true ? 'ON' : 'OFF';
+            ChatRoomSendLocal(`Compose bar is now ${compose}`, 3000);
+            modStorage.save();
           },
         },
         {
