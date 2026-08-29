@@ -210,7 +210,7 @@
         t.menu.append(s);
       }
       if (this.options.doShowTitle) {
-        let i = u.createLabel({ id: "deeplib-subscreen-title", label: g(`${this.options.name}.title`, { $ModVersion: "1.0.0" }) });
+        let i = u.createLabel({ id: "deeplib-subscreen-title", label: g(`${this.options.name}.title`, { $ModVersion: "1.1.0" }) });
         b.appendToSubscreen(i);
       }
       if (this.options.doShowExitButton) {
@@ -758,7 +758,7 @@
   var G;
   var m;
   async function kt(t8) {
-    G = new Y({ name: define_MOD_INFO_default.name, fullName: define_MOD_INFO_default.fullName, version: "1.0.0", repository: define_MOD_INFO_default.repository }), se(), p = new Q(define_MOD_INFO_default.name), m = ue.default.get(define_MOD_INFO_default.name), H.injectInline("deeplib-style-6.0.0", re), m.debug("Init wait"), (!CurrentScreen || CurrentScreen === "Login") && t8.beforeLogin?.(), await ServerIsLoggedInAsync(), await ke(t8);
+    G = new Y({ name: define_MOD_INFO_default.name, fullName: define_MOD_INFO_default.fullName, version: "1.1.0", repository: define_MOD_INFO_default.repository }), se(), p = new Q(define_MOD_INFO_default.name), m = ue.default.get(define_MOD_INFO_default.name), H.injectInline("deeplib-style-6.0.0", re), m.debug("Init wait"), (!CurrentScreen || CurrentScreen === "Login") && t8.beforeLogin?.(), await ServerIsLoggedInAsync(), await ke(t8);
   }
   __name(kt, "kt");
   r(kt, "initMod");
@@ -777,7 +777,7 @@
       Ze();
       return;
     }
-    await t8.initFunction?.(), t8.mainMenuOptions && B("GUI") && A.setOptions({ ...t8.mainMenuOptions, repoLink: define_MOD_INFO_default.repository }), window[define_MOD_INFO_default.name + "Loaded"] = true, m.log(`Loaded! Version: ${"1.0.0"}`);
+    await t8.initFunction?.(), t8.mainMenuOptions && B("GUI") && A.setOptions({ ...t8.mainMenuOptions, repoLink: define_MOD_INFO_default.repository }), window[define_MOD_INFO_default.name + "Loaded"] = true, m.log(`Loaded! Version: ${"1.1.0"}`);
   }
   __name(ke, "ke");
   r(ke, "init");
@@ -889,7 +889,7 @@
       super(), e ??= {}, t3.newVersionMessage = e.newVersionMessage, t3.showNewVersionMessage = e.showNewVersionMessage, e.migrators && (t3.migrators = e.migrators, t3.migrators.sort((n, i) => n.migrationVersion.localeCompare(i.migrationVersion, void 0, { numeric: true }))), t3.beforeEach = e.beforeEach, t3.afterEach = e.afterEach, t3.beforeAll = e.beforeAll, t3.afterAll = e.afterAll;
     }
     load() {
-      t3.version = "1.0.0", t3.checkVersionUpdate(), CommonUnwrapThunk(t3.showNewVersionMessage) && t3.isItNewVersion && t3.sendNewVersionMessage();
+      t3.version = "1.1.0", t3.checkVersionUpdate(), CommonUnwrapThunk(t3.showNewVersionMessage) && t3.isItNewVersion && t3.sendNewVersionMessage();
     }
     static checkVersionUpdate() {
       let e = t3.loadVersion(), n = t3.version;
@@ -1671,7 +1671,7 @@
     load() {
       if (this.extensionStorage) {
         let e = t7.dataDecompress(this.extensionStorage || "");
-        e === null || !Object.hasOwn(e, "Version") ? this.playerStorage = { Version: "1.0.0" } : this.playerStorage = e;
+        e === null || !Object.hasOwn(e, "Version") ? this.playerStorage = { Version: "1.1.0" } : this.playerStorage = e;
       } else this.playerStorage = {};
     }
     save() {
@@ -2902,37 +2902,42 @@ ${res.status} ${res.statusText}`
   };
 
   // src/index.ts
-  kt({
-    modules: {
-      GUI: new M({
-        buttonText: "CATS",
-        identifier: "CATS",
-        image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`
-      }),
-      GlobalModule: new GlobalModule(),
-      ComposeModule: new ComposeModule(),
-      CommandsModule: new CommandsModule(),
-      TranslatorModule: new TranslatorModule(),
-      VersionModule: new N({
-        migrators: [
-          new V1_Migrator()
-        ]
-      })
-    },
-    translationOptions: {
-      pathToTranslationsFolder: `${"https://protokink.github.io/CATS/public"}/translations/`,
-      fixedLanguage: true
-    },
-    mainMenuOptions: {
-      importExportSubscreen: new Ie({
-        customFileExtension: "cats"
-      })
-    },
-    initFunction: /* @__PURE__ */ __name(() => {
-      H.injectEmbed("cats-settings-style", `${"https://protokink.github.io/CATS/public"}/styles/settings.css`);
-      H.injectEmbed("cats-chat-style", `${"https://protokink.github.io/CATS/public"}/styles/chat.css`);
-    }, "initFunction")
-  });
+  (async () => {
+    const changelog = await fetch(`${"https://protokink.github.io/CATS/public"}/text/changelog.txt`).then((res) => res.text()).then((text) => text.replace(/\r\n/g, "\n"));
+    kt({
+      modules: {
+        GUI: new M({
+          buttonText: "CATS",
+          identifier: "CATS",
+          image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`
+        }),
+        GlobalModule: new GlobalModule(),
+        ComposeModule: new ComposeModule(),
+        CommandsModule: new CommandsModule(),
+        TranslatorModule: new TranslatorModule(),
+        VersionModule: new N({
+          migrators: [
+            new V1_Migrator()
+          ],
+          newVersionMessage: changelog,
+          showNewVersionMessage: /* @__PURE__ */ __name(() => B("GlobalModule").settings.doShowNewVersionMessage, "showNewVersionMessage")
+        })
+      },
+      translationOptions: {
+        pathToTranslationsFolder: `${"https://protokink.github.io/CATS/public"}/translations/`,
+        fixedLanguage: true
+      },
+      mainMenuOptions: {
+        importExportSubscreen: new Ie({
+          customFileExtension: "cats"
+        })
+      },
+      initFunction: /* @__PURE__ */ __name(() => {
+        H.injectEmbed("cats-settings-style", `${"https://protokink.github.io/CATS/public"}/styles/settings.css`);
+        H.injectEmbed("cats-chat-style", `${"https://protokink.github.io/CATS/public"}/styles/chat.css`);
+      }, "initFunction")
+    });
+  })();
 })();
 /*! Bundled license information:
 

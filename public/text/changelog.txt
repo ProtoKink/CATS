@@ -1,0 +1,6 @@
+1.1.0
+- Add compose bar (check settings) by chufeng (https://github.com/chufeng)
+- Add changelog
+
+1.0.0
+- Release
