@@ -1962,7 +1962,18 @@
             Description: "Check the status of CATS",
             Action: /* @__PURE__ */ __name(() => {
               const state = this.settings.modEnabled ? "ON" : "OFF";
-              ChatRoomSendLocal(`Chat Translator is ${state}`, 3e3);
+              const compose = this.settings.showComposeBar === true ? "ON" : "OFF";
+              ChatRoomSendLocal(`Chat Translator is ${state}, compose bar ${compose}`, 4e3);
+            }, "Action")
+          },
+          {
+            Tag: "compose",
+            Description: "Toggle the compose bar above chat input",
+            Action: /* @__PURE__ */ __name(() => {
+              this.settings.showComposeBar = this.settings.showComposeBar !== true;
+              const compose = this.settings.showComposeBar === true ? "ON" : "OFF";
+              ChatRoomSendLocal(`Compose bar is now ${compose}`, 3e3);
+              p.save();
             }, "Action")
           },
           {
@@ -2115,6 +2126,14 @@
     "yo": "Yoruba",
     "zu": "Zulu"
   };
+  function isGoogleSourceLanguage(value) {
+    return Object.hasOwn(googleSourceLanguages, value);
+  }
+  __name(isGoogleSourceLanguage, "isGoogleSourceLanguage");
+  function isGoogleTargetLanguage(value) {
+    return value !== "auto" && Object.hasOwn(googleSourceLanguages, value);
+  }
+  __name(isGoogleTargetLanguage, "isGoogleTargetLanguage");
   var googleTargetLanguages = CommonOmit(googleSourceLanguages, ["auto"]);
 
   // src/screens/translator.ts
@@ -2193,6 +2212,67 @@
           }
         }
       });
+      u.createLabel({
+        id: "cats-compose-lang-label",
+        label: g("translator.composeLanguagesLabel"),
+        htmlOptions: {
+          parent: b.getSettingsDiv()
+        }
+      });
+      const composeSourceLangOptions = Object.entries(googleSourceLanguages).map(([key, value]) => ({
+        attributes: {
+          value: key,
+          label: value,
+          selected: key === this.settings.google.composeSourceLang
+        }
+      }));
+      u.createDropdown({
+        id: "cats-compose-source-lang",
+        optionsList: composeSourceLangOptions,
+        label: g("translator.source"),
+        onChange: /* @__PURE__ */ __name(function() {
+          const sourceLang = this.value;
+          if (!sourceLang) return;
+          if (googleSourceLanguages[sourceLang]) {
+            settings.google.composeSourceLang = sourceLang;
+          }
+        }, "onChange"),
+        htmlOptions: {
+          container: {
+            parent: b.getSettingsDiv()
+          },
+          select: {
+            classList: ["cats-lang-select"]
+          }
+        }
+      });
+      const composeTargetLangOptions = Object.entries(googleSourceLanguages).filter(([key]) => key !== "auto").map(([key, value]) => ({
+        attributes: {
+          value: key,
+          label: value,
+          selected: key === this.settings.google.composeTargetLang
+        }
+      }));
+      u.createDropdown({
+        id: "cats-compose-target-lang",
+        optionsList: composeTargetLangOptions,
+        label: g("translator.target"),
+        onChange: /* @__PURE__ */ __name(function() {
+          const targetLang = this.value;
+          if (!targetLang) return;
+          if (googleSourceLanguages[targetLang]) {
+            settings.google.composeTargetLang = targetLang;
+          }
+        }, "onChange"),
+        htmlOptions: {
+          container: {
+            parent: b.getSettingsDiv()
+          },
+          select: {
+            classList: ["cats-lang-select"]
+          }
+        }
+      });
     }
   };
 
@@ -2219,9 +2299,9 @@
       return {
         google: {
           incomingSourceLang: "auto",
-          incomingTargetLang: "en"
-          // outcomingSourceLang: 'auto',
-          // outcomingTargetLang: 'en',
+          incomingTargetLang: "en",
+          composeSourceLang: "auto",
+          composeTargetLang: "en"
         }
       };
     }
@@ -2247,11 +2327,17 @@ ${res.status} ${res.statusText}`
         translation
       };
     }
-    static async translate(text) {
-      const translatorSettings = _TranslatorModule._instance.settings;
-      const { sourceLanguage, translation } = await _TranslatorModule.googleTranslate(text, translatorSettings.google.incomingSourceLang, translatorSettings.google.incomingTargetLang);
+    static async translate(text, options) {
+      const google = _TranslatorModule._instance?.settings?.google;
+      if (!google) return void 0;
+      const sourceLang = options?.sourceLang ?? (isGoogleSourceLanguage(google.incomingSourceLang) ? google.incomingSourceLang : "auto");
+      const targetLang = options?.targetLang ?? (isGoogleTargetLanguage(google.incomingTargetLang) ? google.incomingTargetLang : "en");
+      if (!isGoogleSourceLanguage(sourceLang) || !isGoogleTargetLanguage(targetLang)) return void 0;
+      if (sourceLang !== "auto" && sourceLang === targetLang) {
+        return { sourceLanguage: sourceLang, text };
+      }
+      const { sourceLanguage, translation } = await _TranslatorModule.googleTranslate(text, sourceLang, targetLang);
       return { sourceLanguage, text: translation };
-      throw new Error("uhoh, no translator module selected");
     }
   };
 
@@ -2306,6 +2392,15 @@ ${res.status} ${res.statusText}`
         }, "setSettingValue")
       });
       b.appendToSettingsDiv(showTranslateButtonCheckbox);
+      const showComposeBarCheckbox = u.createCheckbox({
+        id: "cats-show-compose-bar",
+        label: g("global.showComposeBar"),
+        setElementValue: /* @__PURE__ */ __name(() => this.settings.showComposeBar === true, "setElementValue"),
+        setSettingValue: /* @__PURE__ */ __name((val) => {
+          this.settings.showComposeBar = val;
+        }, "setSettingValue")
+      });
+      b.appendToSettingsDiv(showComposeBarCheckbox);
       const prettifyOnTranslateCheckbox = u.createCheckbox({
         id: "cats-prettify-on-translate",
         label: g("global.prettifyOnTranslate"),
@@ -2419,6 +2514,7 @@ ${res.status} ${res.statusText}`
         incomingAutoTranslate: false,
         // outcomingAutoTranslate: false,
         showTranslateButton: true,
+        showComposeBar: false,
         prettifyOnTranslate: true,
         translationEngine: "google"
       };
@@ -2444,6 +2540,8 @@ ${res.status} ${res.statusText}`
             const element = createTranslatedMessage(translatedMessage, messageId);
             if (!element) return;
             div.appendChild(element);
+          }).catch((error) => {
+            console.warn("[CATS] incoming translate failed", error);
           });
         }
         ;
@@ -2480,6 +2578,8 @@ ${res.status} ${res.statusText}`
           const element = createTranslatedMessage(data, messageId);
           if (!element) return;
           messageElement.appendChild(element);
+        }).catch((error) => {
+          console.warn("[CATS] incoming translate failed", error);
         });
       }, "onClick")
     });
@@ -2564,6 +2664,243 @@ ${res.status} ${res.statusText}`
     }
   };
 
+  // src/modules/compose.ts
+  var COMPOSE_MAX_LENGTH = 1e4;
+  var ids = Object.freeze({
+    bar: "cats-compose-bar",
+    sourceSelect: "cats-compose-source",
+    targetSelect: "cats-compose-target",
+    translateButton: "cats-compose-translate",
+    dropButton: "cats-compose-drop",
+    langsSettings: "cats-compose-langs-settings",
+    toggleButton: "cats-compose-toggle"
+  });
+  function languageOptions(mode, selected) {
+    return Object.entries(googleSourceLanguages).filter(([key]) => mode === "source" || key !== "auto").map(([key, value]) => ({
+      attributes: {
+        value: key,
+        selected: key === selected
+      },
+      children: [value]
+    }));
+  }
+  __name(languageOptions, "languageOptions");
+  var ComposeModule = class _ComposeModule extends L {
+    static {
+      __name(this, "ComposeModule");
+    }
+    load() {
+      G.hookFunction("ChatRoomCreateElement", k.Observe, (args, next) => {
+        const ret = next(args);
+        const globalSettings = B("GlobalModule").settings;
+        const enabled = globalSettings.modEnabled && globalSettings.showComposeBar === true;
+        const chatRoomButtons = ElementWrap("chat-room-buttons");
+        const chatInput = ElementWrap("InputChat");
+        const chatRoomDiv = ElementWrap("chat-room-div");
+        const chatRoomBottom = ElementWrap("chat-room-bot");
+        _ComposeModule.syncComposeSelects();
+        if (!chatRoomButtons || !chatInput || !chatRoomDiv || !chatRoomBottom) return ret;
+        const existing = ElementWrap(ids.bar);
+        if (existing) {
+          const hiddenChanged = existing.getAttribute("hidden") !== String(enabled);
+          existing.toggleAttribute("hidden", !enabled);
+          if (hiddenChanged) ChatRoomInputResize(chatInput);
+          return ret;
+        }
+        const toggleButton = ElementButton.Create(
+          ids.toggleButton,
+          function() {
+            globalSettings.showComposeBar = this.getAttribute("aria-checked") === "true";
+            p.save();
+          },
+          {
+            image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`,
+            tooltip: g("compose.toggleBtn"),
+            role: "checkbox",
+            ariaChecked: globalSettings.showComposeBar === true,
+            noStyling: true
+          },
+          {
+            button: {
+              classList: ["cats-compose-toggle", "chat-room-button"],
+              attributes: {
+                hidden: true
+              }
+            }
+          }
+        );
+        chatRoomButtons.appendChild(toggleButton);
+        const bar = _ComposeModule.createComposeBar();
+        chatRoomDiv.insertBefore(bar, chatRoomBottom);
+        return ret;
+      });
+    }
+    static createComposeBar() {
+      const googleSettings = B("TranslatorModule").settings.google;
+      const sourceLang = googleSettings.composeSourceLang ?? "auto";
+      const targetLang = googleSettings.composeTargetLang ?? "en";
+      const sourceSelect = ElementDropdown.CreateLabelled(
+        ids.sourceSelect,
+        languageOptions("source", sourceLang),
+        g("compose.sourceTitle"),
+        function() {
+          if (!isGoogleSourceLanguage(this.value)) return;
+          googleSettings.composeSourceLang = this.value;
+          p.save();
+        }
+      );
+      const targetSelect = ElementDropdown.CreateLabelled(
+        ids.targetSelect,
+        languageOptions("target", targetLang),
+        g("compose.targetTitle"),
+        function() {
+          if (!isGoogleTargetLanguage(this.value)) return;
+          googleSettings.composeTargetLang = this.value;
+          p.save();
+        }
+      );
+      const box = ElementCreate({
+        tag: "textarea",
+        attributes: {
+          placeholder: g("compose.placeholder"),
+          maxlength: String(COMPOSE_MAX_LENGTH)
+        },
+        eventListeners: {
+          keydown: /* @__PURE__ */ __name((event) => {
+            if (!CommonKey.IsPressed(event, "Enter")) return;
+            runComposeTranslate();
+          }, "keydown")
+        }
+      });
+      const button = ElementButton.Create(
+        ids.translateButton,
+        () => {
+          runComposeTranslate();
+        },
+        {
+          image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`,
+          tooltip: g("compose.translateBtn")
+        }
+      );
+      async function runComposeTranslate() {
+        if (!button || !box) return;
+        const text = box.value.trim();
+        if (!text) {
+          ToastManager.warning(g("compose.emptyText"), { duration: 3e3 });
+          return;
+        }
+        button.disabled = true;
+        try {
+          const sourceLang2 = sourceSelect.querySelector("select")?.value;
+          const targetLang2 = targetSelect.querySelector("select")?.value;
+          if (!isGoogleSourceLanguage(sourceLang2) || !isGoogleTargetLanguage(targetLang2)) {
+            ToastManager.warning(g("compose.emptyResult"), { duration: 3e3 });
+            return;
+          }
+          const result = await TranslatorModule.translate(text.slice(0, COMPOSE_MAX_LENGTH), {
+            sourceLang: sourceLang2,
+            targetLang: targetLang2
+          });
+          if (!button) return;
+          if (!result?.text) {
+            ToastManager.warning(g("compose.emptyResult"), { duration: 3e3 });
+            return;
+          }
+          if (!_ComposeModule.setChatInputValue(result.text)) {
+            ToastManager.warning(g("compose.noInput"), { duration: 3e3 });
+          }
+        } catch (error) {
+          console.warn("[CATS] compose translate failed", error);
+          if (button) ToastManager.warning(g("compose.emptyResult"), { duration: 3e3 });
+        } finally {
+          if (button) {
+            button.disabled = false;
+          }
+        }
+      }
+      __name(runComposeTranslate, "runComposeTranslate");
+      const dropbutton = ElementButton.Create(
+        ids.dropButton,
+        function() {
+          const langsSettings = ElementWrap(ids.langsSettings);
+          const chatInput = ElementWrap("InputChat");
+          if (!chatInput) return;
+          const checked = this.getAttribute("aria-checked") === "true";
+          if (langsSettings) langsSettings.toggleAttribute("hidden", !checked);
+          const img = this.querySelector(".button-image");
+          if (!img) return;
+          const imgSrc = checked ? "Icons/CaretDown.svg" : "Icons/CaretUp.svg";
+          if (img instanceof HTMLImageElement) {
+            if (!img.src.endsWith(imgSrc)) {
+              img.src = imgSrc;
+            }
+          } else if (img.style.backgroundImage !== imgSrc) {
+            img.style.backgroundImage = `url("${imgSrc}")`;
+            img.style.maskImage = `url("${imgSrc}")`;
+          }
+          ChatRoomInputResize(chatInput);
+        },
+        {
+          image: "Icons/CaretUp.svg",
+          role: "checkbox"
+        }
+      );
+      return ElementCreate({
+        tag: "div",
+        attributes: {
+          id: ids.bar
+        },
+        children: [
+          {
+            tag: "div",
+            classList: ["cats-compose-row", "cats-compose-row-input"],
+            children: [dropbutton, box, button]
+          },
+          {
+            tag: "div",
+            classList: ["cats-compose-row", "cats-compose-row-langs"],
+            attributes: {
+              id: ids.langsSettings,
+              hidden: true
+            },
+            children: [
+              sourceSelect,
+              targetSelect
+            ]
+          }
+        ]
+      });
+    }
+    static syncComposeSelects() {
+      const sourceSelect = ElementWrap(ids.sourceSelect);
+      const targetSelect = ElementWrap(ids.targetSelect);
+      if (!sourceSelect || !targetSelect) return;
+      const googleSettings = B("TranslatorModule").settings.google;
+      const sourceLang = googleSettings.composeSourceLang ?? "auto";
+      const targetLang = googleSettings.composeTargetLang ?? "en";
+      if (sourceSelect.value !== sourceLang) sourceSelect.value = sourceLang;
+      if (targetSelect.value !== targetLang) targetSelect.value = targetLang;
+    }
+    static setChatInputValue(value) {
+      const input = ElementWrap("InputChat");
+      if (!input || !value) return false;
+      const incoming = value;
+      const current = input.value;
+      let next = incoming;
+      if (current.trim()) {
+        if (!incoming) return true;
+        const gap = /\s$/.test(current) ? "" : " ";
+        next = current + gap + incoming;
+      }
+      const maxLength = CommonParseInt(input.getAttribute("maxlength") ?? "") ?? 1e4;
+      if (next.length > maxLength) next = next.slice(0, maxLength);
+      input.value = next;
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.focus();
+      return true;
+    }
+  };
+
   // src/index.ts
   kt({
     modules: {
@@ -2573,6 +2910,7 @@ ${res.status} ${res.statusText}`
         image: `${"https://protokink.github.io/CATS/public"}/images/mod.svg`
       }),
       GlobalModule: new GlobalModule(),
+      ComposeModule: new ComposeModule(),
       CommandsModule: new CommandsModule(),
       TranslatorModule: new TranslatorModule(),
       VersionModule: new N({

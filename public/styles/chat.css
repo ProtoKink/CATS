@@ -56,3 +56,106 @@ body:not(.cats-show-translate-button) .cats-translation-button {
   z-index: 0;
   opacity: 0.3;
 }
+
+#cats-compose-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--half-gap);
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--tmd-element, #eee);
+  color: var(--tmd-text, #111);
+	/* 
+		intended; default chat element no borders, Themed add them
+	*/
+	border: var(--border-width) solid var(--tmd-accent);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar {
+  background: var(--tmd-element, #111);
+  color: var(--tmd-text, #eee);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar textarea {
+	background-color: var(--tmd-element, #111);
+	color: var(--tmd-text, #eee);
+}
+
+#cats-compose-bar .cats-compose-row {
+  display: flex;
+  gap: var(--half-gap);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#cats-compose-bar .cats-compose-label {
+  white-space: nowrap;
+}
+
+#cats-compose-bar textarea {
+  flex: 1;
+	height: 100%;
+  box-sizing: border-box;
+  padding: var(--half-gap);
+	border-inline: none;
+}
+
+#cats-compose-bar .custom-select {
+	width: auto;
+	color: var(--tmd-text, black);
+	height: min(6dvh, 3dvw);
+}
+
+#cats-compose-bar .dropdown-pair {
+	grid-template-columns: 1fr 1fr;
+}
+
+#cats-compose-bar .button {
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
+	aspect-ratio: 1;
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .custom-select {
+	color: var(--tmd-text, #eee);
+	background-color: var(--tmd-element, #111);
+	border-color: var(--tmd-accent, #888);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .button {
+	--button-color: transparent;
+	--checked-color: transparent;
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-bar .button .button-image {
+	filter: invert(1);
+}
+
+#cats-compose-bar .button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+#cats-compose-bar .cats-compose-row-input {
+  height: min(8dvh, 4dvw);
+	gap: unset;
+}
+
+#cats-compose-toggle:before {
+	content: unset;
+}
+
+#cats-compose-toggle[aria-checked="true"] .button-image {
+	filter: invert(0.3);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-toggle .button-image {
+	filter: invert(1);
+}
+
+#chat-room-div:has(#TextAreaChatLog[data-colortheme^="dark"]) #cats-compose-toggle[aria-checked="true"] .button-image {
+	filter: invert(0.7);
+}
